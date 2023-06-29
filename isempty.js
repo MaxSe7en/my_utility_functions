@@ -4,7 +4,7 @@
  * @returns A boolean indicating whether the value is empty.
  */
 function isEmpty(value) {
-  if (value === null || value === undefined) {
+  if (value === null || value === undefined || value < 1) {
     return true;
   }
 
