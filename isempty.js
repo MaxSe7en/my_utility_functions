@@ -22,3 +22,24 @@ function isEmpty(value) {
 
   return false;
 }
+// console.log(isEmpty(''))
+
+let checkedBoxes = [1,2,4,5]
+function pickGamesSelections(checkBoxes ) {
+    // Array of checkbox labels
+    const checkBoxArr = ["1st", "2nd", "3rd", "4th", "5th"];
+    let c = "";
+  
+    // Constructing the string representation of selected games
+    checkBoxes.forEach((item, index) => {
+      console.log("item===================>", item)
+      c += checkBoxArr[item - 1] + (index < checkBoxes.length - 1 ? " " : "");
+      // c += checkBoxArr[index] + (index < checkBoxes.length - 1 ? " " : "");
+    });
+  
+    return c;
+  }
+//   ['Small|BS3rd', 'Big|BS4th', 'Prime|PC2nd', 'Odd|OE4th']
+//   Small|BS3rd Big|BS4th Prime|PC2nd Odd|OE4th Composite|PC3rd
+  let a = "BigBS2nd"
+  console.log(a.split())
