@@ -172,7 +172,7 @@ function sortNumbersInArray(drawNumbers, order = "asc") {
     }
 }
 
-console.log("pair", aPair([1,3,5,6,8]))
+console.log("pair", stud([4,6,7,9,1]))
 
 function filterFunction(array) {
     return array.filter(item => item)
