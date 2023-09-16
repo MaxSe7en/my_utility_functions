@@ -669,7 +669,7 @@ function analyzeDraw1(drawNumbers, whatToAnalyze) {
     // [5, 4, 6, 2, 0],
   ];
   
-  const gridArea = [
+  const gridArea1 = [
     [0, 1, "B"],
     [1, 1, "B"],
     [2, 1, "B"],
@@ -711,17 +711,18 @@ function analyzeDraw1(drawNumbers, whatToAnalyze) {
     [5, 7, "S"],
   ]
   
-  function gridArea(drawNumbers, area){
-    // var grid = [];
-    // for (var i = 0; i < drawNumbers.length; i++){
-    //   grid.push(drawNumbers[i][area]);
-    // }
-    // return grid;
-  }
+//   function gridArea(drawNumbers, area){
+//     var grid = [];
+//     for (var i = 0; i < drawNumbers.length; i++){
+//       grid.push(drawNumbers[i][area]);
+//     }
+//     return grid;
+//   }
   
+//   console.log(gridArea(drawNumbers, 0));
   // }
   
   console.log(analyzeDraw(drawNumbers, "sum"));
-  console.log(analyzeDraw(drawNumbers, "3rd"));
-  console.log(analyzeDraw(drawNumbers, "1st"));
+//   console.log(analyzeDraw(drawNumbers, "3rd"));
+//   console.log(analyzeDraw(drawNumbers, "1st"));
   
