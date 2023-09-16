@@ -182,6 +182,8 @@ function buildTree(drawNumbers, whatToAnalyze) {
 
   let row = 0;
   let col = 0;
+  let whenColIncreaseByMaxRows = 0;
+  
 
     console.log(analyzedResults)
 
@@ -196,60 +198,23 @@ function buildTree(drawNumbers, whatToAnalyze) {
             row = 0;
             col++;
             console.log("switching", )
-        }
-        if(currentLetter === previousLetter){
+        }else if(currentLetter === previousLetter){
             row++;
+        }else if(currentLetter !== previousLetter){
+            col = 0;
         }
         if(row > 5){
             //I want to keep the row constant and increment the col
-
+            row = 5;
+            col++;
             
         }
         // row ++;
         tree.push([row, col, currentLetter]);
     })
 
-console.log(tree)
-//   analyzedResults.forEach((value, i) => {
-//     let prevValue = analyzedResults[i - 1];
-//     console.log("value", value);
-//     console.log("prevValue", prevValue);
-//     tree.push([row, col, value]);
+    console.log(tree)
 
-//     if (prevValue === undefined) {
-//       // continue
-//     }
-//     if (value !== prevValue) {
-//       col++;
-//       row = 0;
-//     }
-//     if (value === prevValue) {
-//       // col = 0;
-//       row++;
-//     }
-
-//     if (row > 5) {
-//         let lastRow = tree[tree.length - 1][0];
-//         console.log("lastRow", lastRow);
-//         col ++;
-//     //   row= row;
-//     }
-//     // if (value !== prevValue) {
-//     //   col++;
-//     //   //   prevValue = value;
-//     // } else if (value === prevValue) {
-//     //   console.log("value not equal");
-//     //   col = 0;
-//     //   row++;
-//     //   //   prevValue = value;
-//     // }
-//     // console.log("col ================>",col);
-
-//     // if (col === 6) {
-//     //   col = 0;
-//     //   row++;
-//     // }
-//   });
   return tree;
 }
 const trees = buildTree(drawNumbers, "2nd");
