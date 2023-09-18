@@ -197,17 +197,27 @@ function buildTree(drawNumbers, whatToAnalyze) {
             
             row = 0;
             col++;
-            console.log("switching", )
+            if (row === 0){
+                whenColIncreaseByMaxRows = col;
+            }
+            console.log("switching", row , col)
         }else if(currentLetter === previousLetter){
             row++;
-        }else if(currentLetter !== previousLetter){
+        }else if(currentLetter !== previousLetter && currentLetter !== nextLetter){
             col = 0;
+            whenColIncreaseByMaxRows = col;
+            console.log("branching")
         }
+        // console.log(currentLetter !== previousLetter)
         if(row > 5){
             //I want to keep the row constant and increment the col
             row = 5;
             col++;
             
+        }
+        if(row === 0 && currentLetter !== previousLetter){
+            col = whenColIncreaseByMaxRows;
+            console.log("kdlsjfkhsdkfhkasdhfkbhaskdhfkhsadfhkashdfkhaskdhfhsadhjslhsiqweutqiwndskj", whenColIncreaseByMaxRows)
         }
         // row ++;
         tree.push([row, col, currentLetter]);
