@@ -191,7 +191,10 @@ function buildTree(drawNumbers, whatToAnalyze) {
         let previousLetter = analyzedResults[i - 1];
         let currentLetter = analyzedResults[i];
         let nextLetter = analyzedResults[i + 1];
-
+        if( currentLetter !== previousLetter){
+            col = whenColIncreaseByMaxRows;
+            console.log("kdlsjfkhsdkfhkasdhfkbhaskdhfkhsadfhkashdfkhaskdhfhsadhjslhsiqweutqiwndskj", whenColIncreaseByMaxRows)
+        }
         console.log("currentLetter", currentLetter,  "previousLetter", previousLetter, "nextLetter", nextLetter);
         if(previousLetter != undefined && currentLetter !== previousLetter){
             
@@ -199,7 +202,7 @@ function buildTree(drawNumbers, whatToAnalyze) {
             col++;
             if (row === 0){
                 whenColIncreaseByMaxRows = col;
-            }
+            }else {}
             console.log("switching", row , col)
         }else if(currentLetter === previousLetter){
             row++;
@@ -215,10 +218,7 @@ function buildTree(drawNumbers, whatToAnalyze) {
             col++;
             
         }
-        if(row === 0 && currentLetter !== previousLetter){
-            col = whenColIncreaseByMaxRows;
-            console.log("kdlsjfkhsdkfhkasdhfkbhaskdhfkhsadfhkashdfkhaskdhfhsadhjslhsiqweutqiwndskj", whenColIncreaseByMaxRows)
-        }
+        
         // row ++;
         tree.push([row, col, currentLetter]);
     })
