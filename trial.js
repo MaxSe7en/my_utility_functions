@@ -18,6 +18,22 @@ const drawNumbers = [
     [6, 3, 5, 5, 6],
     [9, 3, 5, 5, 6],
     [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 6, 5, 5, 6],
+    [9, 6, 5, 5, 6],
+    [9, 6, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
+    [9, 3, 5, 5, 6],
 ];
 
 function analyzeDraw1(drawNumbers, whatToAnalyze) {
@@ -176,57 +192,60 @@ const tree = [
     [5, 7, "S"],
   ]
 
-function buildTree(drawNumbers, whatToAnalyze) {
-  const tree = [];
-  const analyzedResults = analyzeDraw(drawNumbers, whatToAnalyze).smallBig;
-
-  let row = 0;
-  let col = 0;
-  let whenColIncreaseByMaxRows = 0;
   
-
-    console.log(analyzedResults)
-
+  function buildTree(drawNumbers, whatToAnalyze) {
+    const tree = [];
+    const analyzedResults = analyzeDraw(drawNumbers, whatToAnalyze).smallBig;
+    const previousValues = new Map();
+  
+    let row = 0;
+    let col = 0;
+    let whenColIncreaseByMaxRows = 0;
+  
     analyzedResults.forEach((value, i) => {
-        let previousLetter = analyzedResults[i - 1];
-        let currentLetter = analyzedResults[i];
-        let nextLetter = analyzedResults[i + 1];
-        if( currentLetter !== previousLetter){
-            col = whenColIncreaseByMaxRows;
-            console.log("kdlsjfkhsdkfhkasdhfkbhaskdhfkhsadfhkashdfkhaskdhfhsadhjslhsiqweutqiwndskj", whenColIncreaseByMaxRows)
+      let previousLetter = analyzedResults[i - 1];
+      let currentLetter = analyzedResults[i];
+      let nextLetter = analyzedResults[i + 1];
+  
+      if (currentLetter !== previousLetter) {
+        col = whenColIncreaseByMaxRows;
+      }
+  
+      if (previousLetter !== undefined && currentLetter !== previousLetter) {
+        row = 0;
+        col++;
+        if (row === 0) {
+          whenColIncreaseByMaxRows = col;
         }
-        console.log("currentLetter", currentLetter,  "previousLetter", previousLetter, "nextLetter", nextLetter);
-        if(previousLetter != undefined && currentLetter !== previousLetter){
-            
-            row = 0;
-            col++;
-            if (row === 0){
-                whenColIncreaseByMaxRows = col;
-            }else {}
-            console.log("switching", row , col)
-        }else if(currentLetter === previousLetter){
-            row++;
-        }else if(currentLetter !== previousLetter && currentLetter !== nextLetter){
-            col = 0;
-            whenColIncreaseByMaxRows = col;
-            console.log("branching")
-        }
-        // console.log(currentLetter !== previousLetter)
-        if(row > 5){
-            //I want to keep the row constant and increment the col
-            row = 5;
-            col++;
-            
-        }
-        
-        // row ++;
-        tree.push([row, col, currentLetter]);
-    })
-
-    console.log(tree)
-
-  return tree;
-}
+      } else if (currentLetter === previousLetter) {
+        row++;
+      } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
+        col = 0;
+        whenColIncreaseByMaxRows = col;
+      }
+  
+      if (row > 5) {
+        row = 5;
+        col++;
+      }
+  
+      // Check if the value already exists in the tree
+      const key = `${row}-${col}-${currentLetter}`;
+      if (previousValues.has(key)) {
+        // Reduce the row by one and increase the col by one
+        row--;
+        col++;
+      }
+  
+      tree.push([row, col, currentLetter]);
+  
+      // Store the current value in the previousValues map
+      previousValues.set(key, true);
+    });
+  console.log(tree)
+    return tree;
+  }
+  
 const trees = buildTree(drawNumbers, "2nd");
 // console.log(trees);
 
