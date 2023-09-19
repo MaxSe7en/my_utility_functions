@@ -5,7 +5,7 @@ const drawNumbers = [
     [1, 2, 3, 4, 6],
     [1, 2, 3, 5, 6],
     [6, 2, 4, 6, 6],
-    [6, 2, 4, 6, 6],
+    [6,6, 4, 6, 6],
     [1, 3, 4, 5, 6],
     [2, 3, 4, 6, 6],
     [9, 2, 4, 6, 6],
@@ -34,6 +34,19 @@ const drawNumbers = [
     [9, 3, 5, 5, 6],
     [9, 3, 5, 5, 6],
     [9, 3, 5, 5, 6],
+    [9, 7, 5, 5, 6],
+    [9, 7, 5, 5, 6],
+    [9, 7, 5, 5, 6],
+    [9, 7, 5, 5, 6],
+    [9, 2, 5, 5, 6],
+    [9, 2, 5, 5, 6],
+    [9, 2, 5, 5, 6],
+    [9, 2, 5, 5, 6],
+    [9, 2, 5, 5, 6],
+    [9, 2, 5, 5, 6],
+    [9, 2, 5, 5, 6],
+    [9, 2, 5, 5, 6],
+    [9, 2, 5, 5, 6],
 ];
 
 function analyzeDraw1(drawNumbers, whatToAnalyze) {
@@ -157,7 +170,7 @@ const tree = [
     [3, 1, "B"],
     [4, 1, "B"],
     [5, 1, "B"],
-    [6, 1, "B"],//START BRANCHING
+    [6, 1, "B"], //START BRANCHING
     [6, 2, "B"],
     [6, 3, "B"],
     [0, 2, "S"],
@@ -190,62 +203,124 @@ const tree = [
     [4, 6, "S"],
     [5, 6, "S"],
     [5, 7, "S"],
-  ]
+];
 
-  
-  function buildTree(drawNumbers, whatToAnalyze) {
+function buildTree(drawNumbers, whatToAnalyze) {
     const tree = [];
     const analyzedResults = analyzeDraw(drawNumbers, whatToAnalyze).smallBig;
     const previousValues = new Map();
-  
+    console.log(analyzedResults);
     let row = 0;
     let col = 0;
     let whenColIncreaseByMaxRows = 0;
-  
+
     analyzedResults.forEach((value, i) => {
-      let previousLetter = analyzedResults[i - 1];
-      let currentLetter = analyzedResults[i];
-      let nextLetter = analyzedResults[i + 1];
-  
-      if (currentLetter !== previousLetter) {
-        col = whenColIncreaseByMaxRows;
-      }
-  
-      if (previousLetter !== undefined && currentLetter !== previousLetter) {
-        row = 0;
-        col++;
-        if (row === 0) {
-          whenColIncreaseByMaxRows = col;
+        let previousLetter = analyzedResults[i - 1];
+        let currentLetter = analyzedResults[i];
+        let nextLetter = analyzedResults[i + 1];
+        let newItem = [];
+        
+        if (currentLetter !== previousLetter) {
+            col = whenColIncreaseByMaxRows;
         }
-      } else if (currentLetter === previousLetter) {
-        row++;
-      } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
-        col = 0;
-        whenColIncreaseByMaxRows = col;
-      }
-  
-      if (row > 5) {
-        row = 5;
-        col++;
-      }
-  
-      // Check if the value already exists in the tree
-      const key = `${row}-${col}-${currentLetter}`;
-      if (previousValues.has(key)) {
-        // Reduce the row by one and increase the col by one
-        row--;
-        col++;
-      }
-  
-      tree.push([row, col, currentLetter]);
-  
-      // Store the current value in the previousValues map
-      previousValues.set(key, true);
+        // console.log("currentLetter", currentLetter, "previousLetter", previousLetter, "nextLetter", nextLetter);
+        if (previousLetter !== undefined && currentLetter !== previousLetter) {
+            row = 0;
+            col++;
+            if (row === 0) {
+                whenColIncreaseByMaxRows = col;
+            }
+        } else if (currentLetter === previousLetter) {
+            // let shouldAddTree = tree.some((item) => {
+            //     // console.log(item)
+            //     return item[0] === row && col - item[1] === 1 && item[2] === currentLetter;
+    
+            // }); 
+
+            // console.log("shouldAddTree", shouldAddTree, "row", row, "col", col, "currentLetter", currentLetter)
+            row++;
+        } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
+            col = 0;
+            whenColIncreaseByMaxRows = col;
+        }
+
+        if (row > 5) {
+            row = 5;
+            col++;
+        }
+        console.log("row", row, "col", col, "currentLetter", currentLetter)
+        newItem = [row, col, currentLetter];
+
+        let duplicate = tree.some(
+            (item) => item[0] === newItem[0] && item[1] === newItem[1] //&&
+            //   item[2] === newItem[2]
+        );
+        // [5, 6, "S"],
+        // [5, 7, "S"],
+        let bbb = [];
+
+        // let shouldAdd = tree.some((item) => {
+        //     // console.log(item)
+        //     return item[0] === newItem[0] && newItem[1] - item[1] === 1 && item[2] === newItem[2];
+
+        // });
+
+        // console.log("shouldAdd", shouldAdd);
+        // if (shouldAdd) {
+        //     // row++;
+        //     console.log("before ", newItem);
+
+        //     // row--;
+        //     col++;
+        //     newItem = [row, col, currentLetter];
+        //     console.log("after ",newItem);
+        // }
+
+        if (duplicate) {
+            row--;
+            col++;
+            newItem = [row, col, currentLetter];
+        }
+        // if()
+
+        tree.push(newItem);
+        //   // Check if the value already exists in the tree
+        //   const key = currentLetter === previousLetter ? `${row}-${col}-${currentLetter}` : `${row}-${col}` ;
+
+        //   if (previousValues.has(key)) {
+        //     // Reduce the row by one and increase the col by one
+        //     const existingRow = previousValues.get(key);
+        //     console.log("existingRow", existingRow, key)
+        //     // Adjust the row to be one less than the existing row
+        //     row-- //= existingRow - 1;
+        //     col++;
+        //   }
+
+        // tree.push([row, col, currentLetter]);
+
+        // Store the current value in the previousValues map
+        //   previousValues.set(key, true);
     });
-  console.log(tree)
+    console.log(previousValues);
+    // Create a Set to store unique elements
+    // const uniqueSet = new Set();
+
+    // // Create a new array to store unique elements
+    // const uniqueArray = [];
+
+    // // Iterate through the original data and add unique elements to the Set
+    // tree.forEach(item => {
+    //     const stringifiedItem = JSON.stringify(item); // Convert the sub-array to a string
+    //     if (!uniqueSet.has(stringifiedItem)) {
+    //         uniqueSet.add(stringifiedItem);
+    //         uniqueArray.push(JSON.parse(stringifiedItem)); // Convert the string back to an array
+    //     }
+    // });
+    // console.log(uniqueArray)
+    console.log(tree);
     return tree;
-  }
-  
+}
+
 const trees = buildTree(drawNumbers, "2nd");
 // console.log(trees);
 
