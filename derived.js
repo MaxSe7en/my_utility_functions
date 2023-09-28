@@ -2,7 +2,7 @@ const drawNumbers = [
     [5, 5, 3, 8, 2],
     [2, 3, 5, 8, 1],
     [9, 7, 4, 9, 1],
-      [4, 7, 9, 9, 2],
+    [4, 7, 9, 9, 2],
     [6, 6, 0, 0, 2],
     [6, 9, 7, 5, 1],
     [0, 8, 0, 1, 5],
@@ -14,171 +14,171 @@ const drawNumbers = [
     [0, 0, 1, 9, 0],
     [6, 3, 3, 0, 0],
     [3, 6, 9, 5, 8],
-    [9, 3, 3, 5, 8],
-    [9, 2, 2, 0, 8],
-    [8, 0, 2, 8, 1],
-    [9, 1, 1, 4, 1],
-    [4, 9, 3, 4, 8],
-    [6, 8, 3, 4, 6],
-    [8, 6, 0, 0, 1],
-    [8, 0, 1, 6, 8],
-    [9, 1, 9, 7, 1],
-    [1, 7, 9, 7, 6],
-    [3, 6, 6, 3, 6],
-    [7, 2, 2, 3, 2],
-    [6, 2, 3, 6, 0],
-    [8, 7, 7, 3, 0],
-    [3, 7, 8, 7, 3],
-    [4, 5, 2, 2, 3],
-    [4, 5, 7, 1, 3],
-    [1, 3, 3, 1, 3],
-    [7, 8, 3, 4, 6],
-    [3, 4, 6, 7, 8],
-    [8, 1, 9, 5, 6],
-    [1, 5, 6, 8, 9],
-    [9, 9, 4, 2, 0],
-    [0, 2, 4, 9, 0],
-    [6, 3, 2, 4, 0],
-    [2, 3, 4, 6, 4],
-    [4, 5, 2, 4, 2],
-    [4, 5, 9, 3, 9],
-    [4, 5, 3, 4, 5],
-    [9, 6, 3, 3, 6],
-    [1, 1, 3, 6, 4],
-    [7, 9, 4, 7, 4],
-    [7, 9, 8, 8, 1],
-    [3, 3, 1, 3, 8],
-    [0, 3, 7, 6, 1],
-    [0, 1, 3, 6, 7],
-    [4, 5, 0, 7, 2],
-    [0, 2, 4, 5, 7],
-    [7, 1, 8, 9, 4],
-    [1, 4, 7, 8, 9],
-    [6, 2, 4, 1, 0],
-    [0, 1, 2, 4, 6],
-    [9, 9, 3, 9, 4],
-    [3, 4, 9, 7, 4],
-    [0, 5, 2, 0, 2],
-    [4, 5, 7, 0, 9],
-    [6, 8, 9, 0, 6],
-    [8, 9, 4, 3, 5],
-    [6, 4, 3, 4, 5],
-    [6, 7, 4, 5, 1],
-    [3, 1, 3, 4, 5],
-    [7, 0, 4, 8, 1],
-    [9, 0, 1, 4, 8],
-    [9, 8, 1, 3, 5],
-    [5, 1, 3, 5, 8],
-    [2, 9, 5, 3, 3],
-    [2, 3, 5, 9, 7],
-    [5, 3, 6, 8, 3],
-    [5, 6, 7, 8, 5],
-    [1, 6, 3, 9, 1],
-    [3, 5, 6, 9, 3],
-    [2, 6, 3, 3, 2],
-    [3, 6, 5, 4, 7],
-    [4, 4, 4, 5, 7],
-    [7, 4, 7, 8, 6],
-    [4, 6, 7, 8, 7],
-    [0, 7, 3, 1, 0],
-    [1, 3, 7, 3, 0],
-    [1, 6, 2, 0, 1],
-    [2, 3, 6, 0, 3],
-    [8, 0, 8, 0, 3],
-    [8, 8, 3, 3, 6],
-    [8, 3, 6, 8, 4],
-    [1, 5, 3, 0, 0],
-    [1, 3, 4, 5, 8],
-    [4, 0, 5, 0, 0],
-    [4, 5, 8, 4, 4],
-    [1, 0, 3, 0, 1],
-    [3, 4, 6, 9, 1],
-    [1, 5, 1, 5, 6],
-    [9, 4, 8, 6, 1],
-    [8, 1, 4, 6, 8],
-    [0, 8, 0, 4, 7],
-    [0, 4, 7, 8, 7],
-    [7, 8, 2, 3, 2],
-    [3, 7, 8, 0, 2],
-    [4, 9, 3, 0, 2],
-    [3, 4, 9, 0, 0],
-    [7, 3, 8, 0, 3],
-    [7, 8, 0, 7, 5],
-    [3, 7, 0, 3, 5],
-    [7, 9, 3, 5, 3],
-    [5, 3, 5, 9, 5],
-    [6, 4, 1, 4, 1],
-    [4, 5, 6, 4, 0],
-    [4, 5, 1, 0, 1],
-    [4, 5, 1, 5, 7],
-    [7, 4, 1, 4, 5],
-    [7, 7, 6, 8, 1],
-    [0, 0, 1, 6, 7],
-    [8, 4, 6, 2, 1],
-    [2, 1, 2, 4, 6],
-    [4, 1, 9, 4, 5],
-    [1, 4, 5, 9, 4],
-    [0, 7, 1, 0, 0],
-    [1, 4, 7, 0, 7],
-    [5, 7, 5, 0, 5],
-    [7, 1, 9, 5, 4],
-    [8, 1, 4, 5, 8],
-    [9, 3, 9, 7, 7],
-    [5, 3, 5, 7, 9],
-    [8, 0, 4, 7, 2],
-    [0, 2, 4, 7, 8],
-    [0, 9, 9, 6, 0],
-    [0, 6, 9, 1, 3],
-    [3, 5, 3, 1, 3],
-    [5, 3, 4, 1, 5],
-    [3, 1, 3, 4, 5],
-    [3, 5, 1, 5, 8],
-    [1, 3, 5, 8, 6],
-    [9, 1, 4, 9, 1],
-    [4, 6, 9, 8, 2],
-    [7, 4, 7, 2, 4],
-    [7, 8, 6, 8, 4],
-    [9, 3, 3, 4, 6],
-    [8, 9, 1, 2, 5],
-    [5, 3, 1, 2, 3],
-    [5, 5, 4, 6, 1],
-    [3, 1, 3, 4, 5],
-    [6, 6, 2, 4, 8],
-    [5, 2, 4, 5, 6],
-    [8, 8, 4, 4, 7],
-    [5, 4, 5, 7, 8],
-    [5, 5, 2, 9, 5],
-    [2, 5, 9, 9, 2],
-    [1, 8, 6, 1, 2],
-    [6, 8, 9, 1, 0],
-    [1, 7, 9, 0, 1],
-    [7, 9, 7, 0, 9],
-    [9, 2, 0, 2, 7],
-    [9, 4, 2, 8, 7],
-    [0, 0, 2, 4, 7],
-    [8, 1, 4, 2, 5],
-    [8, 1, 2, 4, 5],
-    [8, 5, 6, 7, 7],
-    [7, 5, 6, 7, 6],
-    [8, 6, 5, 1, 1],
-    [5, 6, 8, 3, 3],
-    [7, 3, 4, 3, 4],
-    [7, 6, 3, 6, 3],
-    [3, 3, 6, 0, 4],
-    [6, 6, 9, 0, 4],
-    [6, 9, 9, 3, 9],
-    [4, 6, 3, 4, 6],
-    [9, 3, 2, 5, 0],
-    [6, 0, 2, 3, 5],
-    [6, 3, 5, 1, 9],
-    [4, 1, 3, 4, 5],
-    [9, 0, 3, 9, 7],
-    [7, 0, 3, 7, 9],
-    [5, 1, 6, 8, 1],
-    [1, 5, 6, 8, 6],
-    [2, 1, 6, 5, 1],
-    [2, 5, 6, 5, 0],
-    [5, 6, 9, 0, 5],
+    // [9, 3, 3, 5, 8],
+    // [9, 2, 2, 0, 8],
+    // [8, 0, 2, 8, 1],
+    // [9, 1, 1, 4, 1],
+    // [4, 9, 3, 4, 8],
+    // [6, 8, 3, 4, 6],
+    // [8, 6, 0, 0, 1],
+    // [8, 0, 1, 6, 8],
+    // [9, 1, 9, 7, 1],
+    // [1, 7, 9, 7, 6],
+    // [3, 6, 6, 3, 6],
+    // [7, 2, 2, 3, 2],
+    // [6, 2, 3, 6, 0],
+    // [8, 7, 7, 3, 0],
+    // [3, 7, 8, 7, 3],
+    // [4, 5, 2, 2, 3],
+    // [4, 5, 7, 1, 3],
+    // [1, 3, 3, 1, 3],
+    // [7, 8, 3, 4, 6],
+    // [3, 4, 6, 7, 8],
+    // [8, 1, 9, 5, 6],
+    // [1, 5, 6, 8, 9],
+    // [9, 9, 4, 2, 0],
+    // [0, 2, 4, 9, 0],
+    // [6, 3, 2, 4, 0],
+    // [2, 3, 4, 6, 4],
+    // [4, 5, 2, 4, 2],
+    // [4, 5, 9, 3, 9],
+    // [4, 5, 3, 4, 5],
+    // [9, 6, 3, 3, 6],
+    // [1, 1, 3, 6, 4],
+    // [7, 9, 4, 7, 4],
+    // [7, 9, 8, 8, 1],
+    // [3, 3, 1, 3, 8],
+    // [0, 3, 7, 6, 1],
+    // [0, 1, 3, 6, 7],
+    // [4, 5, 0, 7, 2],
+    // [0, 2, 4, 5, 7],
+    // [7, 1, 8, 9, 4],
+    // [1, 4, 7, 8, 9],
+    // [6, 2, 4, 1, 0],
+    // [0, 1, 2, 4, 6],
+    // [9, 9, 3, 9, 4],
+    // [3, 4, 9, 7, 4],
+    // [0, 5, 2, 0, 2],
+    // [4, 5, 7, 0, 9],
+    // [6, 8, 9, 0, 6],
+    // [8, 9, 4, 3, 5],
+    // [6, 4, 3, 4, 5],
+    // [6, 7, 4, 5, 1],
+    // [3, 1, 3, 4, 5],
+    // [7, 0, 4, 8, 1],
+    // [9, 0, 1, 4, 8],
+    // [9, 8, 1, 3, 5],
+    // [5, 1, 3, 5, 8],
+    // [2, 9, 5, 3, 3],
+    // [2, 3, 5, 9, 7],
+    // [5, 3, 6, 8, 3],
+    // [5, 6, 7, 8, 5],
+    // [1, 6, 3, 9, 1],
+    // [3, 5, 6, 9, 3],
+    // [2, 6, 3, 3, 2],
+    // [3, 6, 5, 4, 7],
+    // [4, 4, 4, 5, 7],
+    // [7, 4, 7, 8, 6],
+    // [4, 6, 7, 8, 7],
+    // [0, 7, 3, 1, 0],
+    // [1, 3, 7, 3, 0],
+    // [1, 6, 2, 0, 1],
+    // [2, 3, 6, 0, 3],
+    // [8, 0, 8, 0, 3],
+    // [8, 8, 3, 3, 6],
+    // [8, 3, 6, 8, 4],
+    // [1, 5, 3, 0, 0],
+    // [1, 3, 4, 5, 8],
+    // [4, 0, 5, 0, 0],
+    // [4, 5, 8, 4, 4],
+    // [1, 0, 3, 0, 1],
+    // [3, 4, 6, 9, 1],
+    // [1, 5, 1, 5, 6],
+    // [9, 4, 8, 6, 1],
+    // [8, 1, 4, 6, 8],
+    // [0, 8, 0, 4, 7],
+    // [0, 4, 7, 8, 7],
+    // [7, 8, 2, 3, 2],
+    // [3, 7, 8, 0, 2],
+    // [4, 9, 3, 0, 2],
+    // [3, 4, 9, 0, 0],
+    // [7, 3, 8, 0, 3],
+    // [7, 8, 0, 7, 5],
+    // [3, 7, 0, 3, 5],
+    // [7, 9, 3, 5, 3],
+    // [5, 3, 5, 9, 5],
+    // [6, 4, 1, 4, 1],
+    // [4, 5, 6, 4, 0],
+    // [4, 5, 1, 0, 1],
+    // [4, 5, 1, 5, 7],
+    // [7, 4, 1, 4, 5],
+    // [7, 7, 6, 8, 1],
+    // [0, 0, 1, 6, 7],
+    // [8, 4, 6, 2, 1],
+    // [2, 1, 2, 4, 6],
+    // [4, 1, 9, 4, 5],
+    // [1, 4, 5, 9, 4],
+    // [0, 7, 1, 0, 0],
+    // [1, 4, 7, 0, 7],
+    // [5, 7, 5, 0, 5],
+    // [7, 1, 9, 5, 4],
+    // [8, 1, 4, 5, 8],
+    // [9, 3, 9, 7, 7],
+    // [5, 3, 5, 7, 9],
+    // [8, 0, 4, 7, 2],
+    // [0, 2, 4, 7, 8],
+    // [0, 9, 9, 6, 0],
+    // [0, 6, 9, 1, 3],
+    // [3, 5, 3, 1, 3],
+    // [5, 3, 4, 1, 5],
+    // [3, 1, 3, 4, 5],
+    // [3, 5, 1, 5, 8],
+    // [1, 3, 5, 8, 6],
+    // [9, 1, 4, 9, 1],
+    // [4, 6, 9, 8, 2],
+    // [7, 4, 7, 2, 4],
+    // [7, 8, 6, 8, 4],
+    // [9, 3, 3, 4, 6],
+    // [8, 9, 1, 2, 5],
+    // [5, 3, 1, 2, 3],
+    // [5, 5, 4, 6, 1],
+    // [3, 1, 3, 4, 5],
+    // [6, 6, 2, 4, 8],
+    // [5, 2, 4, 5, 6],
+    // [8, 8, 4, 4, 7],
+    // [5, 4, 5, 7, 8],
+    // [5, 5, 2, 9, 5],
+    // [2, 5, 9, 9, 2],
+    // [1, 8, 6, 1, 2],
+    // [6, 8, 9, 1, 0],
+    // [1, 7, 9, 0, 1],
+    // [7, 9, 7, 0, 9],
+    // [9, 2, 0, 2, 7],
+    // [9, 4, 2, 8, 7],
+    // [0, 0, 2, 4, 7],
+    // [8, 1, 4, 2, 5],
+    // [8, 1, 2, 4, 5],
+    // [8, 5, 6, 7, 7],
+    // [7, 5, 6, 7, 6],
+    // [8, 6, 5, 1, 1],
+    // [5, 6, 8, 3, 3],
+    // [7, 3, 4, 3, 4],
+    // [7, 6, 3, 6, 3],
+    // [3, 3, 6, 0, 4],
+    // [6, 6, 9, 0, 4],
+    // [6, 9, 9, 3, 9],
+    // [4, 6, 3, 4, 6],
+    // [9, 3, 2, 5, 0],
+    // [6, 0, 2, 3, 5],
+    // [6, 3, 5, 1, 9],
+    // [4, 1, 3, 4, 5],
+    // [9, 0, 3, 9, 7],
+    // [7, 0, 3, 7, 9],
+    // [5, 1, 6, 8, 1],
+    // [1, 5, 6, 8, 6],
+    // [2, 1, 6, 5, 1],
+    // [2, 5, 6, 5, 0],
+    // [5, 6, 9, 0, 5],
 ].reverse();
 
 function getBigSmallForBall(ball) {
@@ -213,7 +213,7 @@ function analyzeDraw(drawNumbers, whatToAnalyze) {
     return results;
 }
 
-console.log(analyzeDraw(drawNumbers, "2nd"));
+// console.log(analyzeDraw(drawNumbers, "2nd"));
 
 function getLastArrayWithCol2(arr, col) {
     let last = null;
@@ -327,9 +327,9 @@ function analyzeDraw(drawNumbers, whatToAnalyze) {
         "Big/Small": [], // Add an array to store detailed dragon-tiger-tie counts
         "Odd/Even": [], // Add an array to store detailed
         "P/C": [],
+        "D/T": [],
     };
 
-    let prevBigSmall;
 
     for (const element of drawNumbers) {
         const draw = element;
@@ -346,7 +346,7 @@ function analyzeDraw(drawNumbers, whatToAnalyze) {
         }
 
         let oddEven, bigSmall, primeComposite, dragonTiger;
-
+        console.log("ball", ball);
         if (whatToAnalyze === "sum") {
             // console.log("dsfkjksdafkhsadhfkhsdakhfklsdfklhsdaf")
             oddEven = getOddEven(ball);
@@ -365,11 +365,10 @@ function analyzeDraw(drawNumbers, whatToAnalyze) {
         results["Big/Small"].push(bigSmall);
         results["Odd/Even"].push(oddEven);
         results["P/C"].push(primeComposite);
+        results["D/T"].push(dragonTiger);
 
-        // Update prev values
-        prevBigSmall = bigSmall;
     }
-
+console.log("results",results)
     return results;
 }
 
@@ -395,11 +394,18 @@ const countOccurrences = (arr, type) => {
         [letter[1]]: ((counts[letter[1]] / total) * 100).toFixed(0) + "%",
     };
 };
-
+const check = {
+    "B": "S",
+    "S": "B",
+    "P": "C",
+    "C": "P",
+    "O": "E",
+    "E": "O",
+}
 function buildTree(drawNumbers, whatToAnalyze, type) {
     const tree = [];
     const analyzedResults = analyzeDraw(drawNumbers, whatToAnalyze)[type];
-    console.log(analyzedResults);
+    // console.log(analyzedResults);
     let percentage = countOccurrences(
         analyzeDraw(drawNumbers, whatToAnalyze)[type],
         type
@@ -408,10 +414,11 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
     let bigEyeBoyArr = [];
     let smallRoadArr = [];
     let cockcroachArr = [];
+    let bigEyeRoadObj = {};
     // const analyzedResults1 = analyzeDraw(drawNumbers, whatToAnalyze).oddEven;
     // const analyzedResults2 = analyzeDraw(drawNumbers, whatToAnalyze).primeComposite;
 
-    console.log(percentage);
+    // console.log(percentage);
     let row = 0;
     let col = 0;
     let whenColIncreaseByMaxRows = 0;
@@ -464,24 +471,14 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
 
         dua[row + "|" + col] = currentLetter;
 
+        // generateDerivedRoadColors(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj });
         tree.push(newItem);
 
-        // console.log(JSON.stringify(tree));
-        // console.log(whenColIncreaseByMaxRows);
-         derivedRoad(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr });
-        // console.log(result); // [5, 2, "S"]
+        derivedRoad(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj });
     });
-    // console.log("bigEyeBoyArr", bigEyeBoyArr);
-    // console.log("smallRoadArr", smallRoadArr);
-    // console.log("cockcroachArr", cockcroachArr);
     const bigBoy = buildDerivedRoadTree(bigEyeBoyArr)
     const smallRoad = buildDerivedRoadTree(smallRoadArr)
     const cockcroach = buildDerivedRoadTree(cockcroachArr)
-    // console.log(previousValues);
-    // console.log(bigBoy);
-    // console.log(smallRoad);
-    // console.log(cockcroach);
-    // console.log(tree);
     return { tree, percentage, colHeight: whenColIncreaseByMaxRows, bigBoy, smallRoad, cockcroach };
 }
 
@@ -543,54 +540,129 @@ function buildDerivedRoadTree(road) {
 
         // console.log(JSON.stringify(tree));
         // console.log(whenColIncreaseByMaxRows);
-       
+
         // console.log(result); // [5, 2, "S"]
     });
 
     // console.log(tree);
-    return  tree;
+    return tree;
 }
 
+let obj = {};
 
-const trees = buildTree(drawNumbers, "1st", "Big/Small");
+const card =["sum"]// ["1st"]//, "2nd", "3rd", "4th", "5th", "sum"]
+const activePlaceCheckBox = ["Big/Small"]//, "Odd/Even", "P/C"]
 
-console.log(trees);
-function derivedRoad(tree, col, { bigEyeBoyArr, smallRoadArr, cockcroachArr }) {
 
-    let a = getLastArrayWithCol2(tree, col);
+card.forEach((card) => {
+    activePlaceCheckBox.forEach((form) => {
+        const trees = buildTree(drawNumbers, card, form);
+        obj[form + "|" + card] = trees;
+    });
+});
+
+// console.log(obj);
+
+function derivedRoad(tree, col, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj }) {
+
+    let getLastArrayWithCol2Var = getLastArrayWithCol2(tree, col);// "B"
+    let currentLetterCurrentCol = getLastArrayWithCol2Var[2]
+    let nextLetterToBreakColumn = check[getLastArrayWithCol2Var[2]]// "S"
+    let nextbigEyeBoyColor = null
+    let smallRoadColor = null
+    let cockroachColor = null
+
+    // console.log(currentLetterCurrentCol, nextLetterToBreakColumn, getLastArrayWithCol2Var)
+
+    let letter = (val) => val === "R" ? "R" : "B"
+    // let bigEyeRoadObj = {}
+    let smallRoadObj = {}
+    let cockroachObj = {}
+    let updatedBigEyeRoadObj = { ...bigEyeRoadObj }
     let bigEyeBoy = getLastArrayWithCol2(tree, col - 1);
     let smallRoad = getLastArrayWithCol2(tree, col - 2);
     let cockroach = getLastArrayWithCol2(tree, col - 3);
 
+    // console.log("storedNextLexter", Object.keys(bigEyeRoadObj)[0], "curr",  currentLetterCurrentCol, "next", nextLetterToBreakColumn, Object.keys(bigEyeRoadObj)[0] === currentLetterCurrentCol)
 
-    if ( a !== null && bigEyeBoy !== null ) {
-        if (a !== null && bigEyeBoy !== null && a[0] === bigEyeBoy[0]) {
-            bigEyeBoyArr.push("R");
-        } else {
-            bigEyeBoyArr.push("B")
-        }
-    }
-    
-    if ( a !== null && smallRoad !== null ) {
-        if ( a !== null && smallRoad !== null && a[0] === smallRoad[0]) {
-            smallRoadArr.push("R");
-        } else {
-            smallRoadArr.push("B")
-        }
+    if (bigEyeRoadObj !== undefined && Object.keys(bigEyeRoadObj)[0] === currentLetterCurrentCol) {
+        bigEyeBoyArr.push(bigEyeRoadObj[nextLetterToBreakColumn]);
+
+    } else {
+        bigEyeBoyArr.push(letter(bigEyeRoadObj[nextLetterToBreakColumn]))
     }
 
-    if ( a !== null && cockroach !== null ) {
-        if ( a !== null && cockroach !== null && a[0] === cockroach[0]) {
-            cockcroachArr.push("R");
-        } else {
-            cockcroachArr.push("B")
+
+    if (getLastArrayWithCol2Var !== null && bigEyeBoy !== null) {
+        if (bigEyeBoy !== null && getLastArrayWithCol2Var[0] === bigEyeBoy[0]) {
+            if (Object.keys(bigEyeRoadObj).length === 0) {
+
+                bigEyeRoadObj[nextLetterToBreakColumn] = "R"
+            } else {
+                Object.keys(bigEyeRoadObj).forEach(k => delete bigEyeRoadObj[k]);
+
+                bigEyeRoadObj[nextLetterToBreakColumn] = "R"
+
+
+            }
         }
+        else {
+            if (Object.keys(bigEyeRoadObj).length === 0) {
+                bigEyeRoadObj[nextLetterToBreakColumn] = "B"
+            } else {
+                Object.keys(bigEyeRoadObj).forEach(k => delete bigEyeRoadObj[k]);
+
+                bigEyeRoadObj[nextLetterToBreakColumn] = "B"
+            }
+
+        }
+        // console.log(tree)
+        // console.log("next", nextLetterToBreakColumn, bigEyeRoadObj, getLastArrayWithCol2Var, "col", col)
+
     }
-    
-
-
-    // console.log("a", ab);
-    //   console.log(b)
-
-    // return getLastArrayWithCol2(tree, col);
+    // console.log("prev",updatedBigEyeRoadObj, "current",bigEyeRoadObj)
+   
 }
+
+
+function generateDerivedRoadColors(tree, col) {
+    // let draw = [
+    //     [5, 1, 6, 8, 1],
+    //     [1, 5, 6, 8, 6],
+    //     [2, 1, 6, 5, 1],
+    //     [2, 5, 6, 5, 0],
+    //     [5, 6, 9, 0, 5]
+    // ]
+
+    let getLastArrayWithCol2Var = getLastArrayWithCol2(tree, col);
+    let bigEyeBoy = getLastArrayWithCol2(tree, col - 1);
+    let smallRoad = getLastArrayWithCol2(tree, col - 2);
+    let cockroach = getLastArrayWithCol2(tree, col - 3);
+    // const ab = analyzeDraw(draw, "1st");
+    console.log(getLastArrayWithCol2Var);
+
+}
+ // if (getLastArrayWithCol2Var !== null && smallRoad !== null) {
+    //     if (smallRoad !== null && getLastArrayWithCol2Var[0] === smallRoad[0]) {
+    //         // smallRoadArr.push("R");
+    //         // smallRoadColor = "R"
+    //         smallRoadObj[nextLetterToBreakColumn] = "R"
+    //     } 
+    //     else {
+    //         // smallRoadArr.push("B")
+    //         smallRoadObj[nextLetterToBreakColumn] = "B"
+    //     }
+    // }
+
+    // if (getLastArrayWithCol2Var !== null && cockroach !== null) {
+    //     if (cockroach !== null && getLastArrayWithCol2Var[0] === cockroach[0]) {
+    //         // cockcroachArr.push("R");
+    //         cockroachObj[nextLetterToBreakColumn]  = "R"
+    //     } 
+    //     else {
+    //         // cockcroachArr.push("B")
+    //         cockroachObj[nextLetterToBreakColumn] = "B"
+    //     }
+
+
+    // }
