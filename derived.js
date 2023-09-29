@@ -14,171 +14,208 @@ const drawNumbers = [
     [0, 0, 1, 9, 0],
     [6, 3, 3, 0, 0],
     [3, 6, 9, 5, 8],
-    // [9, 3, 3, 5, 8],
-    // [9, 2, 2, 0, 8],
-    // [8, 0, 2, 8, 1],
-    // [9, 1, 1, 4, 1],
-    // [4, 9, 3, 4, 8],
-    // [6, 8, 3, 4, 6],
-    // [8, 6, 0, 0, 1],
-    // [8, 0, 1, 6, 8],
-    // [9, 1, 9, 7, 1],
-    // [1, 7, 9, 7, 6],
-    // [3, 6, 6, 3, 6],
-    // [7, 2, 2, 3, 2],
-    // [6, 2, 3, 6, 0],
-    // [8, 7, 7, 3, 0],
-    // [3, 7, 8, 7, 3],
-    // [4, 5, 2, 2, 3],
-    // [4, 5, 7, 1, 3],
-    // [1, 3, 3, 1, 3],
-    // [7, 8, 3, 4, 6],
-    // [3, 4, 6, 7, 8],
-    // [8, 1, 9, 5, 6],
-    // [1, 5, 6, 8, 9],
-    // [9, 9, 4, 2, 0],
-    // [0, 2, 4, 9, 0],
-    // [6, 3, 2, 4, 0],
-    // [2, 3, 4, 6, 4],
-    // [4, 5, 2, 4, 2],
-    // [4, 5, 9, 3, 9],
-    // [4, 5, 3, 4, 5],
-    // [9, 6, 3, 3, 6],
-    // [1, 1, 3, 6, 4],
-    // [7, 9, 4, 7, 4],
-    // [7, 9, 8, 8, 1],
-    // [3, 3, 1, 3, 8],
-    // [0, 3, 7, 6, 1],
-    // [0, 1, 3, 6, 7],
-    // [4, 5, 0, 7, 2],
-    // [0, 2, 4, 5, 7],
-    // [7, 1, 8, 9, 4],
-    // [1, 4, 7, 8, 9],
-    // [6, 2, 4, 1, 0],
-    // [0, 1, 2, 4, 6],
-    // [9, 9, 3, 9, 4],
-    // [3, 4, 9, 7, 4],
-    // [0, 5, 2, 0, 2],
-    // [4, 5, 7, 0, 9],
-    // [6, 8, 9, 0, 6],
-    // [8, 9, 4, 3, 5],
-    // [6, 4, 3, 4, 5],
-    // [6, 7, 4, 5, 1],
-    // [3, 1, 3, 4, 5],
-    // [7, 0, 4, 8, 1],
-    // [9, 0, 1, 4, 8],
-    // [9, 8, 1, 3, 5],
-    // [5, 1, 3, 5, 8],
-    // [2, 9, 5, 3, 3],
-    // [2, 3, 5, 9, 7],
-    // [5, 3, 6, 8, 3],
-    // [5, 6, 7, 8, 5],
-    // [1, 6, 3, 9, 1],
-    // [3, 5, 6, 9, 3],
-    // [2, 6, 3, 3, 2],
-    // [3, 6, 5, 4, 7],
-    // [4, 4, 4, 5, 7],
-    // [7, 4, 7, 8, 6],
-    // [4, 6, 7, 8, 7],
-    // [0, 7, 3, 1, 0],
-    // [1, 3, 7, 3, 0],
-    // [1, 6, 2, 0, 1],
-    // [2, 3, 6, 0, 3],
-    // [8, 0, 8, 0, 3],
-    // [8, 8, 3, 3, 6],
-    // [8, 3, 6, 8, 4],
-    // [1, 5, 3, 0, 0],
-    // [1, 3, 4, 5, 8],
-    // [4, 0, 5, 0, 0],
-    // [4, 5, 8, 4, 4],
-    // [1, 0, 3, 0, 1],
-    // [3, 4, 6, 9, 1],
-    // [1, 5, 1, 5, 6],
-    // [9, 4, 8, 6, 1],
-    // [8, 1, 4, 6, 8],
-    // [0, 8, 0, 4, 7],
-    // [0, 4, 7, 8, 7],
-    // [7, 8, 2, 3, 2],
-    // [3, 7, 8, 0, 2],
-    // [4, 9, 3, 0, 2],
-    // [3, 4, 9, 0, 0],
-    // [7, 3, 8, 0, 3],
-    // [7, 8, 0, 7, 5],
-    // [3, 7, 0, 3, 5],
-    // [7, 9, 3, 5, 3],
-    // [5, 3, 5, 9, 5],
-    // [6, 4, 1, 4, 1],
-    // [4, 5, 6, 4, 0],
-    // [4, 5, 1, 0, 1],
-    // [4, 5, 1, 5, 7],
-    // [7, 4, 1, 4, 5],
-    // [7, 7, 6, 8, 1],
-    // [0, 0, 1, 6, 7],
-    // [8, 4, 6, 2, 1],
-    // [2, 1, 2, 4, 6],
-    // [4, 1, 9, 4, 5],
-    // [1, 4, 5, 9, 4],
-    // [0, 7, 1, 0, 0],
-    // [1, 4, 7, 0, 7],
-    // [5, 7, 5, 0, 5],
-    // [7, 1, 9, 5, 4],
-    // [8, 1, 4, 5, 8],
-    // [9, 3, 9, 7, 7],
-    // [5, 3, 5, 7, 9],
-    // [8, 0, 4, 7, 2],
-    // [0, 2, 4, 7, 8],
-    // [0, 9, 9, 6, 0],
-    // [0, 6, 9, 1, 3],
-    // [3, 5, 3, 1, 3],
-    // [5, 3, 4, 1, 5],
-    // [3, 1, 3, 4, 5],
-    // [3, 5, 1, 5, 8],
-    // [1, 3, 5, 8, 6],
-    // [9, 1, 4, 9, 1],
-    // [4, 6, 9, 8, 2],
-    // [7, 4, 7, 2, 4],
-    // [7, 8, 6, 8, 4],
-    // [9, 3, 3, 4, 6],
-    // [8, 9, 1, 2, 5],
-    // [5, 3, 1, 2, 3],
-    // [5, 5, 4, 6, 1],
-    // [3, 1, 3, 4, 5],
-    // [6, 6, 2, 4, 8],
-    // [5, 2, 4, 5, 6],
-    // [8, 8, 4, 4, 7],
-    // [5, 4, 5, 7, 8],
-    // [5, 5, 2, 9, 5],
-    // [2, 5, 9, 9, 2],
-    // [1, 8, 6, 1, 2],
-    // [6, 8, 9, 1, 0],
-    // [1, 7, 9, 0, 1],
-    // [7, 9, 7, 0, 9],
-    // [9, 2, 0, 2, 7],
-    // [9, 4, 2, 8, 7],
-    // [0, 0, 2, 4, 7],
-    // [8, 1, 4, 2, 5],
-    // [8, 1, 2, 4, 5],
-    // [8, 5, 6, 7, 7],
-    // [7, 5, 6, 7, 6],
-    // [8, 6, 5, 1, 1],
-    // [5, 6, 8, 3, 3],
-    // [7, 3, 4, 3, 4],
-    // [7, 6, 3, 6, 3],
-    // [3, 3, 6, 0, 4],
-    // [6, 6, 9, 0, 4],
-    // [6, 9, 9, 3, 9],
-    // [4, 6, 3, 4, 6],
-    // [9, 3, 2, 5, 0],
-    // [6, 0, 2, 3, 5],
-    // [6, 3, 5, 1, 9],
-    // [4, 1, 3, 4, 5],
-    // [9, 0, 3, 9, 7],
-    // [7, 0, 3, 7, 9],
-    // [5, 1, 6, 8, 1],
-    // [1, 5, 6, 8, 6],
-    // [2, 1, 6, 5, 1],
-    // [2, 5, 6, 5, 0],
+    [9, 3, 3, 5, 8],
+    [9, 2, 2, 0, 8],
+    [8, 0, 2, 8, 1],
+    [9, 1, 1, 4, 1],
+    [4, 9, 3, 4, 8],
+    [6, 8, 3, 4, 6],
+    [8, 6, 0, 0, 1],
+    [8, 0, 1, 6, 8],
+    [9, 1, 9, 7, 1],
+    [1, 7, 9, 7, 6],
+    [3, 6, 6, 3, 6],
+    [7, 2, 2, 3, 2],
+    [6, 2, 3, 6, 0],
+    [8, 7, 7, 3, 0],
+    [3, 7, 8, 7, 3],
+    [4, 5, 2, 2, 3],
+    [4, 5, 7, 1, 3],
+    [1, 3, 3, 1, 3],
+    [7, 8, 3, 4, 6],
+    [3, 4, 6, 7, 8],
+    [8, 1, 9, 5, 6],
+    [1, 5, 6, 8, 9],
+    [9, 9, 4, 2, 0],
+    [0, 2, 4, 9, 0],
+    [6, 3, 2, 4, 0],
+    [2, 3, 4, 6, 4],
+    [4, 5, 2, 4, 2],
+    [4, 5, 9, 3, 9],
+    [4, 5, 3, 4, 5],
+    [9, 6, 3, 3, 6],
+    [1, 1, 3, 6, 4],
+    [7, 9, 4, 7, 4],
+    [7, 9, 8, 8, 1],
+    [3, 3, 1, 3, 8],
+    [0, 3, 7, 6, 1],
+    [0, 1, 3, 6, 7],
+    [4, 5, 0, 7, 2],
+    [0, 2, 4, 5, 7],
+    [7, 1, 8, 9, 4],
+    [1, 4, 7, 8, 9],
+    [6, 2, 4, 1, 0],
+    [0, 1, 2, 4, 6],
+    [9, 9, 3, 9, 4],
+    [3, 4, 9, 7, 4],
+    [0, 5, 2, 0, 2],
+    [4, 5, 7, 0, 9],
+    [6, 8, 9, 0, 6],
+    [8, 9, 4, 3, 5],
+    [6, 4, 3, 4, 5],
+    [6, 7, 4, 5, 1],
+    [3, 1, 3, 4, 5],
+    [7, 0, 4, 8, 1],
+    [9, 0, 1, 4, 8],
+    [9, 8, 1, 3, 5],
+    [5, 1, 3, 5, 8],
+    [2, 9, 5, 3, 3],
+    [2, 3, 5, 9, 7],
+    [5, 3, 6, 8, 3],
+    [5, 6, 7, 8, 5],
+    [1, 6, 3, 9, 1],
+    [3, 5, 6, 9, 3],
+    [2, 6, 3, 3, 2],
+    [3, 6, 5, 4, 7],
+    [4, 4, 4, 5, 7],
+    [7, 4, 7, 8, 6],
+    [4, 6, 7, 8, 7],
+    [0, 7, 3, 1, 0],
+    [1, 3, 7, 3, 0],
+    [1, 6, 2, 0, 1],
+    [2, 3, 6, 0, 3],
+    [8, 0, 8, 0, 3],
+    [8, 8, 3, 3, 6],
+    [8, 3, 6, 8, 4],
+    [1, 5, 3, 0, 0],
+    [1, 3, 4, 5, 8],
+    [4, 0, 5, 0, 0],
+    [4, 5, 8, 4, 4],
+    [1, 0, 3, 0, 1],
+    [3, 4, 6, 9, 1],
+    [1, 5, 1, 5, 6],
+    [9, 4, 8, 6, 1],
+    [8, 1, 4, 6, 8],
+    [0, 8, 0, 4, 7],
+    [0, 4, 7, 8, 7],
+    [7, 8, 2, 3, 2],
+    [3, 7, 8, 0, 2],
+    [4, 9, 3, 0, 2],
+    [3, 4, 9, 0, 0],
+    [7, 3, 8, 0, 3],
+    [7, 8, 0, 7, 5],
+    [3, 7, 0, 3, 5],
+    [7, 9, 3, 5, 3],
+    [5, 3, 5, 9, 5],
+    [6, 4, 1, 4, 1],
+    [4, 5, 6, 4, 0],
+    [4, 5, 1, 0, 1],
+    [4, 5, 1, 5, 7],
+    [7, 4, 1, 4, 5],
+    [7, 7, 6, 8, 1],
+    [0, 0, 1, 6, 7],
+    [8, 4, 6, 2, 1],
+    [2, 1, 2, 4, 6],
+    [4, 1, 9, 4, 5],
+    [1, 4, 5, 9, 4],
+    [0, 7, 1, 0, 0],
+    [1, 4, 7, 0, 7],
+    [5, 7, 5, 0, 5],
+    [7, 1, 9, 5, 4],
+    [8, 1, 4, 5, 8],
+    [9, 3, 9, 7, 7],
+    [5, 3, 5, 7, 9],
+    [8, 0, 4, 7, 2],
+    [0, 2, 4, 7, 8],
+    [0, 9, 9, 6, 0],
+    [0, 6, 9, 1, 3],
+    [3, 5, 3, 1, 3],
+    [5, 3, 4, 1, 5],
+    [3, 1, 3, 4, 5],
+    [3, 5, 1, 5, 8],
+    [1, 3, 5, 8, 6],
+    [9, 1, 4, 9, 1],
+    [4, 6, 9, 8, 2],
+    [7, 4, 7, 2, 4],
+    [7, 8, 6, 8, 4],
+    [9, 3, 3, 4, 6],
+    [8, 9, 1, 2, 5],
+    [5, 3, 1, 2, 3],
+    [5, 5, 4, 6, 1],
+    [3, 1, 3, 4, 5],
+    [6, 6, 2, 4, 8],
+    [5, 2, 4, 5, 6],
+    [8, 8, 4, 4, 7],
+    [5, 4, 5, 7, 8],
+    [5, 5, 2, 9, 5],
+    [2, 5, 9, 9, 2],
+    [1, 8, 6, 1, 2],
+    [6, 8, 9, 1, 0],
+    [1, 7, 9, 0, 1],
+    [7, 9, 7, 0, 9],
+    [9, 2, 0, 2, 7],
+    [9, 4, 2, 8, 7],
+    [0, 0, 2, 4, 7],
+    [8, 1, 4, 2, 5],
+    [8, 1, 4, 2, 5],
+    [8, 1, 4, 2, 5],
+    [8, 1, 4, 2, 5],
+    [8, 1, 4, 2, 5],
+    [8, 1, 4, 2, 5],
+    [8, 1, 2, 4, 5],
+    [8, 5, 6, 7, 7],
+    [7, 5, 6, 7, 6],
+    [8, 6, 5, 1, 1],
+    [5, 6, 8, 3, 3],
+    [7, 3, 4, 3, 4],
+    [7, 6, 3, 6, 3],
+    [3, 3, 6, 0, 4],
+    [6, 6, 9, 0, 4],
+    [6, 9, 9, 3, 9],
+    [4, 6, 3, 4, 6],
+    [9, 3, 2, 5, 0],
+    [6, 0, 2, 3, 5],
+    [6, 3, 5, 1, 9],
+    [4, 1, 3, 4, 5],
+    [9, 0, 3, 9, 7],
+    [7, 0, 3, 7, 9],
+    [5, 1, 6, 8, 1],
+    [1, 5, 6, 8, 6],
+    [2, 1, 6, 5, 1],
+    [2, 5, 6, 5, 0],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
+    [5, 6, 9, 0, 5],
     // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    // [5, 6, 9, 0, 5],
+    [3, 6, 9, 0, 5],
 ].reverse();
 
 function getBigSmallForBall(ball) {
@@ -476,83 +513,148 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
 
         derivedRoad(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj });
     });
+    console.log(bigEyeBoyArr)
     const bigBoy = buildDerivedRoadTree(bigEyeBoyArr)
     const smallRoad = buildDerivedRoadTree(smallRoadArr)
     const cockcroach = buildDerivedRoadTree(cockcroachArr)
     return { tree, percentage, colHeight: whenColIncreaseByMaxRows, bigBoy, smallRoad, cockcroach };
 }
 
+// function buildDerivedRoadTree(road) {
+//     const tree = [];
+//     let row = 0;
+//     let col = 0;
+//     let whenColIncreaseByMaxRows = 0;
+//     let dua = {};
+
+//     road.forEach((value, i) => {
+//         let previousLetter = road[i - 1];
+//         let currentLetter = road[i];
+//         let nextLetter = road[i + 1];
+//         let newItem = [];
+
+//         if (currentLetter !== previousLetter) {
+//             col = whenColIncreaseByMaxRows;
+//         }
+//         if (previousLetter !== undefined && currentLetter !== previousLetter) {
+//             row = 0;
+//             col++;
+//             if (row === 0) {
+//                 whenColIncreaseByMaxRows = col;
+//             }
+//         } else if (currentLetter === previousLetter) {
+//             row++;
+
+//             let prevCol = col - 1;
+//             const prev = dua[row + "|" + prevCol];
+
+//             if (prev === currentLetter) {
+//                 row--;
+//                 col++;
+//             }
+//         } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
+//             col = 0;
+//             whenColIncreaseByMaxRows = col;
+//         }
+
+//         if (row > 5) {
+//             row = 5;
+//             col++;
+//         }
+//         // console.log("row", row, "col", col, "currentLetter", currentLetter);
+//         newItem = [row, col, currentLetter];
+
+//         let duplicate = tree.some((item) => item[0] === newItem[0] && item[1] === newItem[1]);
+
+//         if (duplicate) {
+//             row--;
+//             col++;
+//             newItem = [row, col, currentLetter];
+//         }
+
+//         dua[row + "|" + col] = currentLetter;
+
+//         tree.push(newItem);
+
+//         // console.log(JSON.stringify(tree));
+//         // console.log(whenColIncreaseByMaxRows);
+
+//         // console.log(result); // [5, 2, "S"]
+//     });
+
+//     // console.log(tree);
+//     return tree;
+// }
+
 function buildDerivedRoadTree(road) {
     const tree = [];
+    const roadLength = road.length; 
     let row = 0;
     let col = 0;
     let whenColIncreaseByMaxRows = 0;
-    let dua = {};
-
-    road.forEach((value, i) => {
-        let previousLetter = road[i - 1];
-        let currentLetter = road[i];
-        let nextLetter = road[i + 1];
-        let newItem = [];
-
-        if (currentLetter !== previousLetter) {
-            col = whenColIncreaseByMaxRows;
+    const dua = new Map();
+    const visited = new Set();
+  
+    for (let i = 0; i < roadLength; i++) {
+      const previousLetter = road[i - 1];
+      const currentLetter = road[i];
+      const nextLetter = road[i + 1];
+        
+      if (currentLetter !== previousLetter) {
+        col = whenColIncreaseByMaxRows; 
+      }
+      
+      if (previousLetter !== undefined && currentLetter !== previousLetter) {
+        row = 0;
+        col++;
+        if (row === 0) {
+          whenColIncreaseByMaxRows = col;
         }
-        if (previousLetter !== undefined && currentLetter !== previousLetter) {
-            row = 0;
-            col++;
-            if (row === 0) {
-                whenColIncreaseByMaxRows = col;
-            }
-        } else if (currentLetter === previousLetter) {
-            row++;
-
-            let prevCol = col - 1;
-            const prev = dua[row + "|" + prevCol];
-
-            if (prev === currentLetter) {
-                row--;
-                col++;
-            }
-        } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
-            col = 0;
-            whenColIncreaseByMaxRows = col;
-        }
-
+      } else if (currentLetter === previousLetter) {
+        row++;
         if (row > 5) {
             row = 5;
             col++;
+          }
+        const prevCol = col - 1;
+        const prev = dua.get(row + "|" + prevCol);
+  
+        if (prev === currentLetter) {
+          row--;
+          col++;
         }
-        // console.log("row", row, "col", col, "currentLetter", currentLetter);
-        newItem = [row, col, currentLetter];
-
-        let duplicate = tree.some((item) => item[0] === newItem[0] && item[1] === newItem[1]);
-
-        if (duplicate) {
-            row--;
-            col++;
-            newItem = [row, col, currentLetter];
-        }
-
-        dua[row + "|" + col] = currentLetter;
-
-        tree.push(newItem);
-
-        // console.log(JSON.stringify(tree));
-        // console.log(whenColIncreaseByMaxRows);
-
-        // console.log(result); // [5, 2, "S"]
-    });
-
-    // console.log(tree);
+      } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
+        col = 0;
+        whenColIncreaseByMaxRows = col;
+      }
+      
+      
+      
+      const newItem = [row, col, currentLetter];
+      
+      if (visited.has(row + "|" + col)) {
+        row--;
+        col++;
+        newItem[0] = row; 
+        newItem[1] = col;
+      } else {
+        visited.add(row + "|" + col);
+      }
+  
+      dua.set(row + "|" + col, currentLetter);
+      
+      tree.push(newItem);
+    }
+  
     return tree;
-}
+  }
 
 let obj = {};
 
-const card =["sum"]// ["1st"]//, "2nd", "3rd", "4th", "5th", "sum"]
+const card = ["1st"]//, "2nd", "3rd", "4th", "5th", "sum"]
 const activePlaceCheckBox = ["Big/Small"]//, "Odd/Even", "P/C"]
 
+const timerStart = performance.now()
 
 card.forEach((card) => {
     activePlaceCheckBox.forEach((form) => {
@@ -561,7 +663,10 @@ card.forEach((card) => {
     });
 });
 
-// console.log(obj);
+const timerEnd = performance.now()
+
+console.log(`Execution time: ${timerEnd - timerStart}`)
+console.log(obj);
 
 function derivedRoad(tree, col, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj }) {
 
