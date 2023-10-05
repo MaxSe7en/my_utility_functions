@@ -1,858 +1,226 @@
-const drawNumbers = [
-    [
-        0,
-        7,
-        7,
-        2,
-        4
-    ],
-    [
-        5,
-        3,
-        1,
-        6,
-        0
-    ],
-    [
-        1,
-        1,
-        6,
-        1,
-        9
-    ],
-    [
-        4,
-        9,
-        6,
-        0,
-        4
-    ],
-    [
-        9,
-        9,
-        6,
-        4,
-        6
-    ],
-    [
-        1,
-        3,
-        5,
-        4,
-        0
-    ],
-    [
-        4,
-        8,
-        8,
-        2,
-        2
-    ],
-    [
-        6,
-        5,
-        0,
-        9,
-        9
-    ],
-    [
-        4,
-        3,
-        0,
-        4,
-        8
-    ],
-    [
-        4,
-        5,
-        7,
-        7,
-        1
-    ],
-    [
-        0,
-        9,
-        1,
-        9,
-        0
-    ],
-    [
-        4,
-        7,
-        9,
-        2,
-        9
-    ],
-    [
-        9,
-        6,
-        0,
-        1,
-        4
-    ],
-    [
-        8,
-        7,
-        4,
-        7,
-        1
-    ],
-    [
-        5,
-        5,
-        2,
-        1,
-        0
-    ],
-    [
-        6,
-        7,
-        6,
-        3,
-        1
-    ],
-    [
-        3,
-        0,
-        9,
-        1,
-        3
-    ],
-    [
-        8,
-        7,
-        4,
-        3,
-        8
-    ],
-    [
-        2,
-        6,
-        3,
-        8,
-        1
-    ],
-    [
-        5,
-        1,
-        6,
-        4,
-        4
-    ],
-    [
-        7,
-        6,
-        8,
-        3,
-        3
-    ],
-    [
-        5,
-        6,
-        7,
-        1,
-        1
-    ],
-    [
-        1,
-        8,
-        3,
-        9,
-        9
-    ],
-    [
-        2,
-        9,
-        6,
-        3,
-        3
-    ],
-    [
-        0,
-        4,
-        6,
-        5,
-        4
-    ],
-    [
-        1,
-        0,
-        5,
-        6,
-        9
-    ],
-    [
-        7,
-        9,
-        5,
-        9,
-        8
-    ],
-    [
-        3,
-        2,
-        9,
-        9,
-        3
-    ],
-    [
-        3,
-        0,
-        1,
-        0,
-        6
-    ],
-    [
-        9,
-        4,
-        2,
-        7,
-        8
-    ],
-    [
-        7,
-        5,
-        4,
-        8,
-        3
-    ],
-    [
-        4,
-        5,
-        6,
-        5,
-        9
-    ],
-    [
-        7,
-        7,
-        0,
-        5,
-        4
-    ],
-    [
-        5,
-        3,
-        4,
-        8,
-        9
-    ],
-    [
-        9,
-        2,
-        3,
-        1,
-        9
-    ],
-    [
-        2,
-        9,
-        9,
-        4,
-        4
-    ],
-    [
-        5,
-        7,
-        1,
-        2,
-        4
-    ],
-    [
-        5,
-        8,
-        7,
-        5,
-        4
-    ],
-    [
-        9,
-        6,
-        4,
-        4,
-        7
-    ],
-    [
-        3,
-        2,
-        9,
-        5,
-        1
-    ],
-    [
-        9,
-        9,
-        6,
-        7,
-        7
-    ],
-    [
-        2,
-        7,
-        5,
-        0,
-        2
-    ],
-    [
-        3,
-        8,
-        7,
-        0,
-        0
-    ],
-    [
-        2,
-        2,
-        7,
-        0,
-        6
-    ],
-    [
-        8,
-        3,
-        6,
-        6,
-        2
-    ],
-    [
-        0,
-        7,
-        2,
-        3,
-        4
-    ],
-    [
-        4,
-        2,
-        9,
-        3,
-        7
-    ],
-    [
-        1,
-        0,
-        3,
-        9,
-        6
-    ],
-    [
-        0,
-        0,
-        0,
-        7,
-        1
-    ],
-    [
-        0,
-        3,
-        1,
-        7,
-        9
-    ],
-    [
-        6,
-        4,
-        8,
-        9,
-        5
-    ],
-    [
-        1,
-        4,
-        4,
-        5,
-        8
-    ],
-    [
-        5,
-        3,
-        6,
-        8,
-        8
-    ],
-    [
-        6,
-        2,
-        6,
-        8,
-        9
-    ],
-    [
-        8,
-        2,
-        8,
-        8,
-        3
-    ],
-    [
-        7,
-        8,
-        8,
-        3,
-        7
-    ],
-    [
-        2,
-        8,
-        9,
-        2,
-        8
-    ],
-    [
-        1,
-        9,
-        2,
-        1,
-        6
-    ],
-    [
-        5,
-        0,
-        9,
-        7,
-        3
-    ],
-    [
-        9,
-        0,
-        8,
-        2,
-        6
-    ],
-    [
-        2,
-        5,
-        1,
-        5,
-        7
-    ],
-    [
-        8,
-        1,
-        3,
-        1,
-        6
-    ],
-    [
-        8,
-        3,
-        0,
-        9,
-        8
-    ],
-    [
-        2,
-        5,
-        9,
-        7,
-        0
-    ],
-    [
-        5,
-        9,
-        6,
-        9,
-        7
-    ],
-    [
-        9,
-        6,
-        1,
-        8,
-        7
-    ],
-    [
-        1,
-        8,
-        2,
-        6,
-        0
-    ],
-    [
-        1,
-        0,
-        5,
-        1,
-        0
-    ],
-    [
-        5,
-        7,
-        8,
-        9,
-        3
-    ],
-    [
-        2,
-        1,
-        7,
-        9,
-        6
-    ],
-    [
-        1,
-        9,
-        5,
-        9,
-        9
-    ],
-    [
-        7,
-        7,
-        2,
-        8,
-        5
-    ],
-    [
-        8,
-        8,
-        7,
-        0,
-        0
-    ],
-    [
-        3,
-        3,
-        9,
-        4,
-        2
-    ],
-    [
-        2,
-        6,
-        8,
-        8,
-        5
-    ],
-    [
-        7,
-        8,
-        4,
-        4,
-        5
-    ],
-    [
-        8,
-        4,
-        6,
-        2,
-        1
-    ],
-    [
-        0,
-        2,
-        5,
-        8,
-        3
-    ],
-    [
-        7,
-        9,
-        3,
-        4,
-        1
-    ],
-    [
-        4,
-        5,
-        9,
-        7,
-        4
-    ],
-    [
-        6,
-        8,
-        3,
-        7,
-        1
-    ],
-    [
-        1,
-        2,
-        4,
-        3,
-        3
-    ],
-    [
-        2,
-        9,
-        9,
-        5,
-        4
-    ],
-    [
-        5,
-        2,
-        4,
-        0,
-        9
-    ],
-    [
-        3,
-        5,
-        0,
-        2,
-        0
-    ],
-    [
-        9,
-        1,
-        9,
-        2,
-        6
-    ],
-    [
-        4,
-        4,
-        5,
-        9,
-        4
-    ],
-    [
-        2,
-        5,
-        2,
-        3,
-        3
-    ],
-    [
-        6,
-        0,
-        4,
-        4,
-        5
-    ],
-    [
-        2,
-        5,
-        8,
-        4,
-        1
-    ],
-    [
-        6,
-        0,
-        6,
-        9,
-        4
-    ],
-    [
-        8,
-        4,
-        0,
-        0,
-        4
-    ],
-    [
-        9,
-        3,
-        0,
-        8,
-        8
-    ],
-    [
-        1,
-        9,
-        1,
-        1,
-        0
-    ],
-    [
-        0,
-        9,
-        8,
-        5,
-        9
-    ],
-    [
-        3,
-        8,
-        8,
-        0,
-        1
-    ],
-    [
-        4,
-        2,
-        1,
-        6,
-        7
-    ],
-    [
-        4,
-        0,
-        4,
-        2,
-        0
-    ],
-    [
-        4,
-        0,
-        8,
-        7,
-        6
-    ]
-].reverse();
+import { mother } from "./extract.js";
+const drawNumbers = mother.reverse();
+console.log("drawNumbers", mother);
+
+function getNewRowAndCol(currentLetter, previousLetter, row, col) {
+    // Logic to determine new row and col
+    // Simplified from original with better names
+    // Returns [newRow, newCol]
+}
+
+function isDuplicateItem(tree, row, col) {
+    // Check if duplicate item
+}
+
+function getPrecedingAs(arr) {
+    const result = [];
+    let i = 0;
+    console.log("arr", arr[0])
+    if (arr[0] == "A" && arr[i] == "A") {
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] === 'A' && arr[i - 1] === 'A') {
+                result.push(arr[i]);
+            }
+        }
+    }
+    console.log("result", result)
+    return result;
+}
+
+function removePrecedingAs(arr, numberOfAsToRemove) {
+    // arr.splice(0, numberOfAsToRemove);
+
+
+    return arr.splice(0, numberOfAsToRemove);
+}
 
 function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
- 
-  const maxRows = 5;
-  const tree = [];
-  const road = analyzeDraw(drawNumbers, whatToAnalyze)[type];
-  const roadLength = road.length;
-  let row = 0;
-  let col = 0;
-  const maxNumberOfRows = 5;
-  let whenColIncreaseByMaxRows = 0;
-  let columnLeader = "";
-  let countLetterA = 0;
-  const dua = new Map();
-  const visited = new Set();
-  let counter = 0;
-  // let columnLeader = road[0];
-
-  for (let i = 0; i < road.length; i++) {
-    const currentLetter = road[i];
-    const previousLetter = road[i - 1];
-    //get the first letter before the previous letter
-    const previousLetterBeforeLetterA = road[i - 2];
-    const nextLetter = road[i + 1];
-    const firstItem = road[0];
-    if (firstItem == "A" && i == 0) {
-      row = 0;
-      col = 0;
-    } else {
-      if (currentLetter !== "A") {
-        if (
-          previousLetter === "A" &&
-          countLetterA === 1 &&
-          firstItem == "A" &&
-          col == 0
-        ) {
-          console.log("dsfkhsdkafhksdahfkhasdf");
-          row++;
-        } else if (columnLeader === "D" && countLetterA >= 2) {
-          row++;
-          console.log(
-            "---------------------------------------------------00000000000000000000000000000000",
-            currentLetter,
-            row,
-            col
-          );
-        } else if (columnLeader === "T" && countLetterA >= 2) {
-          row++;
-        } else if (
-          previousLetter === "A" &&
-          countLetterA === 1 &&
-          previousLetterBeforeLetterA == currentLetter
-        ) {
-          row++;
-        }
-        //   else if (previousLetter === "A" && countLetterA === 1 && firstItem == "A"&& i == 0){
-        //     row++
-        //   }
-        else {
-          if (currentLetter !== previousLetter) {
-            col = whenColIncreaseByMaxRows;
-            columnLeader = currentLetter;
-          }
-          if (
-            previousLetter !== undefined &&
-            currentLetter !== previousLetter
-          ) {
-            row = 0;
-            col++;
-            if (row === 0) {
-              whenColIncreaseByMaxRows = col;
-              // columnLeader = currentLetter;
+    const tree = [];
+    const road = analyzeDraw(drawNumbers, whatToAnalyze)[type];
+    const roadLength = road.length;
+    let row = 0;
+    let col = 0;
+    const maxNumberOfRows = 5;
+    let whenColIncreaseByMaxRows = 0;
+    let columnLeader = "";
+    let consecutiveAs = 0;
+    const dua = new Map();
+    const visited = new Set();
+    // console.log("before", road)
+    const precedingAs = getPrecedingAs(road);
+    return
+    console.log("precedingAs", precedingAs)
+    if (precedingAs.length) {
+        console.log("preceding A's", precedingAs && precedingAs);
+        for(let i = 0; i < precedingAs.length; i++){
+            const currentLetter = precedingAs[i];
+            const nextLetter = road[i + 1];
+            if (precedingAs[0] == "A" && i == 0) {
+                row = 0;
+                col = 0;
+            }else{
+                row++;
+                
             }
-          } else if (currentLetter === previousLetter) {
-            row++;
 
-            let prevCol = col - 1;
-            const prev = dua[row + "|" + prevCol];
+            if(nextLetter != "A" ){
+                    columnLeader = nextLetter;
+                }
 
-            if (prev === currentLetter) {
-              row--;
+            if (row > maxNumberOfRows) {
+                row = maxNumberOfRows;
+                col++;
+            }
+            if (currentLetter === "A") {
+                consecutiveAs++;
+            } else {
+                consecutiveAs = 0;
+            }
+            let newItem = [row, col, currentLetter];
+            tree.push(newItem);
+        }
+
+
+        removePrecedingAs(road, precedingAs.length);
+        console.log("after", consecutiveAs);
+    }
+    // else{
+        for (let i = 0; i < roadLength; i++) {
+            const currentLetter = road[i];
+            const previousLetter = road[i - 1];
+            //get the first letter before the previous letter
+            const previousLetterBeforeLetterA = road[i - 2];
+            const nextLetter = road[i + 1];
+            const firstItem = road[0];
+            // if (firstItem == "A" && i == 0) {
+            //     row = 0;
+            //     col = 0;
+            //     // if(nextLetter != "A" ){
+            //     //     columnLeader = nextLetter;
+            //     // }
+            // } else {
+            if (currentLetter !== "A") {
+                if (previousLetter === "A" && consecutiveAs === 1 && firstItem === "A" && col === 0) {
+                    // if(currentLetter !== columnLeader){
+                    //     row = 0;
+                    //     col++;
+                    //     console.log("sdhfksdhafkhsdhfkhasfdhksdhfkhsdf", currentLetter, previousLetter, nextLetter, firstItem, col, row, consecutiveAs, columnLeader, previousLetterBeforeLetterA)
+                    // }else{
+    
+                    //     row++;
+                    // }
+                    row++;
+                }
+                // else if (previousLetter === "A" && consecutiveAs  === 1 && firstItem === "A" && col === 0 && previousLetterBeforeLetterA !== currentLetter) {
+                //     col++;
+                // }
+                else if (columnLeader === "D" && consecutiveAs >= 2) {
+                    row++;
+    
+                } else if (columnLeader === "T" && consecutiveAs >= 2 && nextLetter !== "D") {
+                    row++;
+                } else if (previousLetter === "A" && consecutiveAs === 1 && previousLetterBeforeLetterA === currentLetter) {
+                    row++;
+                }
+                else {
+                    if (currentLetter !== previousLetter) {
+                        col = whenColIncreaseByMaxRows;
+                        columnLeader = currentLetter;
+                    }
+                    if (previousLetter !== undefined && currentLetter !== previousLetter) {
+                        console.log("gold", currentLetter, previousLetter, nextLetter, col, row, consecutiveAs, columnLeader, previousLetterBeforeLetterA)
+                        row = 0;
+                        col++;
+                        if (row === 0) {
+                            whenColIncreaseByMaxRows = col;
+                            columnLeader = currentLetter;
+                        }
+                    } else if (currentLetter === previousLetter) {
+                        row++;
+    
+                        let prevCol = col - 1;
+                        const prev = dua[row + "|" + prevCol];
+    
+                        if (prev === currentLetter) {
+                            row--;
+                            col++;
+                        }
+                    } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
+                        col = 0;
+                        whenColIncreaseByMaxRows = col;
+                        columnLeader = currentLetter;
+                    }
+                }
+                // if (row > 5) {
+                //   row = 5;
+                //   col++;
+                // }
+                if (row > maxNumberOfRows) {
+                    row = maxNumberOfRows;
+                    col++;
+                }
+            } else {
+                if (columnLeader === "D") {
+                    // stay in column
+                    row++;
+                } else {
+                    // console.log("D");
+                    row++;
+                }
+            }
+            // }
+    
+            if (row > maxNumberOfRows) {
+              row = maxNumberOfRows;
               col++;
             }
-          } else if (
-            currentLetter !== previousLetter &&
-            currentLetter !== nextLetter
-          ) {
-            col = 0;
-            whenColIncreaseByMaxRows = col;
-            // columnLeader = currentLetter;
-          }
+    
+            if (currentLetter === "A") {
+                consecutiveAs++;
+            } else {
+                consecutiveAs = 0;
+            }
+    
+            // Build item for tree
+            let newItem = [row, col, currentLetter];
+    
+            if (visited.has(row + "|" + col)) {
+                row--;
+                col++;
+                newItem[0] = row;
+                newItem[1] = col;
+            } else {
+                visited.add(row + "|" + col);
+            }
+    
+            // // console.log("counter ========>", counter)
+            // dua.set(row + "|" + col, currentLetter);
+            // let duplicate = tree.some(
+            //     (item) => item[0] === newItem[0] && item[1] === newItem[1]
+            // );
+    
+            // if (duplicate) {
+            //     row--;
+            //     col++;
+            //     // newItem = [row, col, currentLetter];
+            //     newItem[0] = row;
+            //     newItem[1] = col;
+            // }
+    
+            dua[row + "|" + col] = currentLetter;
+            tree.push(newItem);
         }
-        if (row > 5) {
-          row = 5;
-          col++;
-        }
-        counter++;
-      } else {
-        // // Rule 3 - allow 'T' or 'D' after 'A' if column leader is 'D'
-        if (columnLeader === "D") {
-          // stay in column
-          console.log("D");
-          row++;
-        } else {
-          row++;
-        }
-        // // Otherwise, only 'A' can follow
-        // else {
-        //     col++;
-        //     row = 0;
-        // }
-        // row++
-        counter++;
-      }
-    }
-    // Increment row and handle max rows
-    // row++;
-    if (row > maxNumberOfRows) {
-      row = maxNumberOfRows;
-      col++;
-    }
-
-    if (currentLetter === "A") {
-      countLetterA++;
-    } else {
-      countLetterA = 0;
-    }
-
-    // Build item for tree
-    let newItem = [row, col, currentLetter];
-
-    // if (visited.has(row + "|" + col)) {
-    //     row--;
-    //     col++;
-    //     newItem[0] = row;
-    //     newItem[1] = col;
-    // } else {
-    //     visited.add(row + "|" + col);
     // }
+    // console.log("preceeding A's", precedingAs && precedingAs);
+    
+    // removePrecedingAs(road, precedingAs.length);
+    // console.log("remove", remove);
+    // console.log("after", road);
+    // return
+   
+    console.log("sfskdfk", tree);
 
-    // // counter++
-    // // console.log("counter ========>", counter)
-    // dua.set(row + "|" + col, currentLetter);
-    console.log("countLetterA", countLetterA);
-    let duplicate = tree.some(
-      (item) => item[0] === newItem[0] && item[1] === newItem[1]
-    );
-
-    if (duplicate) {
-      row--;
-      col++;
-      newItem = [row, col, currentLetter];
-    }
-
-    dua[row + "|" + col] = currentLetter;
-    tree.push(newItem);
-  }
-  console.log(tree);
-
-  return tree;
+    return tree;
 }
 // function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
 //     const tree = [];
@@ -1059,34 +427,34 @@ const table = document.getElementById("grid");
 document.onload = createTable(6, 100);
 
 function createTable(rows, cols) {
-  for (let i = 0; i < rows; i++) {
-    const row = table.insertRow();
-    for (let j = 0; j < cols; j++) {
-      const cell = row.insertCell();
-      cell.textContent = ""; // Initially empty
-      // cell.textContent = i + "" + j; // Initially empty
+    for (let i = 0; i < rows; i++) {
+        const row = table.insertRow();
+        for (let j = 0; j < cols; j++) {
+            const cell = row.insertCell();
+            cell.textContent = ""; // Initially empty
+            // cell.textContent = i + "" + j; // Initially empty
+        }
     }
-  }
 }
 
 buildDragonTigerTree(drawNumbers, "sum", "D/T").forEach((rowData) => {
-  const [rowIndex, colIndex, value] = rowData;
-  const row = table.rows[rowIndex];
-  if (row) {
-    const cell = row.cells[colIndex];
-    if (cell) {
-      // cell.textContent = rowIndex + " " + value + " " + colIndex;
-      cell.textContent = value;
+    const [rowIndex, colIndex, value] = rowData;
+    const row = table.rows[rowIndex];
+    if (row) {
+        const cell = row.cells[colIndex];
+        if (cell) {
+            // cell.textContent = rowIndex + " " + value + " " + colIndex;
+            cell.textContent = value;
+        }
+        if (value === "D") {
+            cell.style.color = "blue";
+        } else if (value === "T") {
+            cell.style.color = "red";
+        } else if (value === "A") {
+            cell.style.color = "green";
+        }
+        cell.style.fontWeight = "bold";
     }
-    if (value === "D") {
-      cell.style.color = "blue";
-    } else if (value === "T") {
-      cell.style.color = "red";
-    } else if (value === "A") {
-      cell.style.color = "green";
-    }
-    cell.style.fontWeight = "bold";
-  }
 });
 const timerEnd = performance.now();
 
@@ -1094,82 +462,82 @@ const timerEnd = performance.now();
 // createTable(5, 5); // Adjust the number of rows and columns as needed
 
 function firstAndLast(arr) {
-  if (arr.length === 0) {
-    return []; // Return an empty array for an empty input array.
-  }
+    if (arr.length === 0) {
+        return []; // Return an empty array for an empty input array.
+    }
 
-  const first = arr[0];
-  const last = arr[arr.length - 1];
+    const first = arr[0];
+    const last = arr[arr.length - 1];
 
-  return [first, last];
+    return [first, last];
 }
 
 // Helper functions
 function getOddEven(num) {
-  return num % 2 === 0 ? "E" : "O";
+    return num % 2 === 0 ? "E" : "O";
 }
 
 function getBigSmallForSum(sum) {
-  return sum >= 23 && sum <= 45 ? "B" : "S";
+    return sum >= 23 && sum <= 45 ? "B" : "S";
 }
 
 function getDragonTiger(lastTwo) {
-  if (lastTwo[0] > lastTwo[1]) {
-    return "D";
-  } else if (lastTwo[0] < lastTwo[1]) {
-    return "T";
-  } else {
-    return "A";
-  }
+    if (lastTwo[0] > lastTwo[1]) {
+        return "D";
+    } else if (lastTwo[0] < lastTwo[1]) {
+        return "T";
+    } else {
+        return "A";
+    }
 }
 
 function analyzeDraw(drawNumbers, whatToAnalyze) {
-  const results = {
-    "Big/Small": [], // Add an array to store detailed dragon-tiger-tie counts
-    "Odd/Even": [], // Add an array to store detailed
-    "P/C": [],
-    "D/T": [],
-  };
+    const results = {
+        "Big/Small": [], // Add an array to store detailed dragon-tiger-tie counts
+        "Odd/Even": [], // Add an array to store detailed
+        "P/C": [],
+        "D/T": [],
+    };
 
-  for (const element of drawNumbers) {
-    const draw = element;
+    for (const element of drawNumbers) {
+        const draw = element;
 
-    // let ball = draw[parseInt(whatToAnalyze) - 1];
+        // let ball = draw[parseInt(whatToAnalyze) - 1];
 
-    // let bigSmall = getBigSmallForBall(ball);
+        // let bigSmall = getBigSmallForBall(ball);
 
-    let ball;
-    if (whatToAnalyze === "sum") {
-      ball = draw.reduce((a, b) => a + b, 0);
-    } else {
-      ball = draw[parseInt(whatToAnalyze) - 1];
+        let ball;
+        if (whatToAnalyze === "sum") {
+            ball = draw.reduce((a, b) => a + b, 0);
+        } else {
+            ball = draw[parseInt(whatToAnalyze) - 1];
+        }
+
+        let oddEven, bigSmall, primeComposite, dragonTiger;
+        // console.log("ball", ball);
+        if (whatToAnalyze === "sum") {
+            // console.log("dsfkjksdafkhsadhfkhsdakhfklsdfklhsdaf")
+            oddEven = getOddEven(ball);
+            bigSmall = getBigSmallForSum(ball);
+
+            let lastTwo = firstAndLast(draw);
+            dragonTiger = getDragonTiger(lastTwo);
+        } else {
+            oddEven = getOddEven(ball);
+            bigSmall = getBigSmallForBall(ball);
+
+            primeComposite = getPrimeComposite(ball);
+            dragonTiger = getDragonTiger(["dragon", "tiger", "tie"]); // Initialize dragonTiger value
+        }
+        // Add the bigSmall value to the results array
+        results["Big/Small"].push(bigSmall);
+        results["Odd/Even"].push(oddEven);
+        results["P/C"].push(primeComposite);
+        results["D/T"].push(dragonTiger);
     }
 
-    let oddEven, bigSmall, primeComposite, dragonTiger;
-    // console.log("ball", ball);
-    if (whatToAnalyze === "sum") {
-      // console.log("dsfkjksdafkhsadhfkhsdakhfklsdfklhsdaf")
-      oddEven = getOddEven(ball);
-      bigSmall = getBigSmallForSum(ball);
-
-      let lastTwo = firstAndLast(draw);
-      dragonTiger = getDragonTiger(lastTwo);
-    } else {
-      oddEven = getOddEven(ball);
-      bigSmall = getBigSmallForBall(ball);
-
-      primeComposite = getPrimeComposite(ball);
-      dragonTiger = getDragonTiger(["dragon", "tiger", "tie"]); // Initialize dragonTiger value
-    }
-    // Add the bigSmall value to the results array
-    results["Big/Small"].push(bigSmall);
-    results["Odd/Even"].push(oddEven);
-    results["P/C"].push(primeComposite);
-    results["D/T"].push(dragonTiger);
-  }
-
-  console.log("results", results["D/T"]);
-  return results;
+    console.log("results", results["D/T"]);
+    return results;
 }
 
 /*
