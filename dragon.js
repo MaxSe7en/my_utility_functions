@@ -1,111 +1,112 @@
 import { mother } from "./extract.js";
 const drawNumbers = [
-//   [9, 7, 7, 8, 7],
-//   [6, 6, 3, 5, 9],
-//   [5, 5, 6, 0, 2],
-//   [1, 5, 1, 2, 1],
-//   [3, 4, 8, 9, 8],
-//   [3, 1, 3, 5, 7],
-//   [4, 3, 3, 1, 8],
-//   [6, 0, 0, 5, 0],
-//   [7, 2, 8, 7, 9],
-//   [3, 4, 4, 4, 5],
-//   [0, 3, 3, 4, 5],
-//   [0, 8, 7, 0, 9],
-//   [1, 7, 1, 9, 5],
-//   [6, 1, 1, 3, 6],
-//   [4, 3, 5, 4, 1],
-//   [9, 9, 7, 8, 9],
-//   [1, 9, 1, 6, 6],
-//   [0, 9, 6, 5, 3],
-//   [5, 6, 3, 7, 5],
-//   [8, 8, 8, 2, 2],
-//   [6, 8, 0, 1, 6],
-//   [0, 5, 8, 2, 0],
-//   [4, 4, 5, 2, 7],
-//   [4, 8, 6, 3, 4],
-//   [9, 7, 3, 0, 4],
-//   [2, 6, 1, 6, 0],
-//   [1, 5, 2, 0, 2],
-//   [4, 9, 9, 9, 4],
-//   [7, 7, 9, 8, 1],
-//   [4, 0, 0, 0, 8],
-//   [5, 4, 4, 4, 6],
-//   [9, 8, 4, 2, 9],
-//   [9, 4, 3, 7, 9],
-//   [1, 9, 2, 9, 5],
-//   [5, 2, 4, 8, 5],
-//   [2, 0, 0, 7, 1],
-//   [3, 7, 1, 2, 9],
-//   [7, 8, 8, 3, 0],
-//   [0, 1, 7, 1, 2],
-//   [9, 6, 7, 8, 4],
-//   [4, 5, 6, 0, 1],
-//   [6, 7, 5, 4, 7],
-//   [1, 0, 6, 8, 0],
-//   [7, 0, 0, 7, 3],
-//   [0, 4, 4, 1, 5],
-//   [4, 9, 6, 4, 0],
-//   [6, 7, 5, 3, 8],
-//   [7, 0, 4, 3, 3],
-//   [2, 0, 7, 4, 2],
-//   [4, 3, 6, 1, 6],
-//   [2, 3, 3, 9, 8],
-//   [7, 8, 4, 6, 1],
-//   [6, 9, 4, 1, 4],
-//   [1, 0, 1, 6, 1],
-//   [0, 7, 3, 7, 3],
-//   [7, 8, 8, 1, 3],
-//   [0, 3, 5, 7, 5],
-//   [3, 1, 9, 6, 9],
-//   [9, 9, 6, 3, 6],
-//   [0, 0, 8, 3, 8],
-//   [0, 2, 4, 6, 6],
-//   [8, 4, 0, 8, 5],
-//   [2, 1, 8, 0, 2],
-//   [1, 1, 7, 0, 3],
-//   [4, 5, 0, 6, 9],
-//   [7, 7, 6, 0, 6],
-//   [8, 8, 3, 0, 4],
-//   [7, 9, 4, 9, 0],
-//   [1, 2, 9, 9, 1],
-//   [0, 6, 4, 7, 3],
-//   [0, 0, 7, 8, 2],
-//   [1, 3, 0, 2, 1],
-//   [5, 1, 0, 5, 5],
-//   [5, 4, 8, 2, 8],
-//   [3, 0, 0, 0, 8],
-//   [9, 7, 5, 7, 1],
-//   [9, 5, 0, 1, 0],
-//   [0, 2, 8, 4, 1],
-//   [7, 9, 5, 9, 4],
-//   [6, 5, 5, 5, 3],
-//   [9, 9, 4, 7, 1],
-//   [8, 3, 4, 1, 4],
-//   [6, 0, 7, 0, 1],
-//   [3, 8, 5, 9, 3],
-//   [3, 3, 4, 9, 0],
-//   [4, 7, 6, 0, 5],
-//   [9, 9, 2, 8, 9],
-//   [4, 2, 3, 2, 1],
-//   [2, 2, 8, 2, 6],
-//   [3, 3, 2, 4, 2],
-//   [9, 6, 5, 1, 7],
-//   [6, 9, 4, 9, 7],
-//   [3, 4, 0, 9, 1],
-//   [7, 6, 8, 9, 5],
-//   [8, 8, 1, 1, 2],
-//   [1, 0, 2, 1, 4],
-//   [0, 9, 3, 3, 0],
-  [3, 6, 5, 2, 7],
-  [5, 8, 6, 7, 0],
-  [5, 8, 6, 7, 5],
-//   [5, 8, 6, 7, 5],
-//   [5, 8, 6, 7, 5],
-//   [5, 8, 6, 7, 5],
-//   [5, 8, 6, 7, 5],
-//   [5, 8, 6, 7, 5],
-].reverse(); //mother.reverse();
+    [7, 9, 9, 4, 2],
+    [5, 4, 1, 4, 5],
+    [2, 6, 6, 5, 5],
+    [1, 2, 8, 2, 6],
+    [7, 3, 5, 6, 5],
+    [7, 6, 3, 3, 2],
+    [6, 7, 7, 5, 9],
+    [8, 9, 6, 2, 7],
+    [2, 2, 9, 4, 6],
+    [6, 5, 7, 3, 9],
+    [9, 6, 2, 0, 1],
+    [1, 2, 1, 9, 7],
+    [5, 5, 5, 3, 1],
+    [1, 0, 8, 0, 4],
+    [4, 9, 1, 7, 9],
+    [9, 8, 5, 6, 7],
+    [0, 1, 6, 0, 3],
+    [4, 5, 6, 4, 2],
+    [2, 9, 1, 0, 3],
+    [6, 1, 5, 0, 0],
+    [9, 9, 7, 2, 0],
+    [3, 0, 0, 3, 2],
+    [4, 7, 5, 2, 3],
+    [3, 6, 5, 9, 3],
+    [5, 9, 9, 4, 5],
+    [5, 2, 8, 2, 7],
+    [0, 2, 7, 2, 4],
+    [6, 9, 4, 2, 5],
+    [4, 4, 1, 0, 1],
+    [3, 2, 8, 8, 5],
+    [4, 4, 6, 1, 0],
+    [9, 9, 8, 0, 6],
+    [5, 2, 0, 1, 2],
+    [5, 9, 4, 4, 2],
+    [0, 8, 5, 5, 7],
+    [8, 2, 6, 0, 3],
+    [0, 7, 5, 4, 4],
+    [3, 6, 6, 3, 7],
+    [1, 4, 8, 8, 0],
+    [7, 6, 9, 1, 6],
+    [4, 0, 5, 6, 7],
+    [5, 8, 3, 3, 2],
+    [1, 6, 7, 7, 1],
+    [9, 1, 2, 2, 0],
+    [2, 5, 9, 6, 9],
+    [7, 8, 6, 2, 5],
+    [5, 0, 7, 9, 9],
+    [9, 5, 3, 2, 4],
+    [3, 6, 3, 0, 7],
+    [0, 2, 0, 6, 8],
+    [5, 4, 6, 2, 7],
+    [3, 3, 1, 9, 2],
+    [8, 8, 0, 6, 0],
+    [1, 4, 1, 9, 4],
+    [1, 7, 2, 1, 2],
+    [7, 9, 8, 8, 8],
+    [3, 4, 0, 2, 3],
+    [8, 2, 8, 4, 6],
+    [0, 7, 3, 0, 7],
+    [4, 3, 0, 8, 4],
+    [0, 0, 1, 0, 2],
+    [9, 2, 8, 3, 2],
+    [1, 6, 7, 3, 2],
+    [8, 0, 6, 8, 3],
+    [5, 9, 5, 8, 4],
+    [4, 7, 9, 8, 4],
+    [2, 0, 3, 8, 6],
+    [9, 6, 4, 9, 4],
+    [5, 1, 3, 0, 3],
+    [5, 1, 2, 8, 0],
+    [9, 2, 0, 9, 0],
+    [4, 9, 4, 9, 7],
+    [1, 8, 6, 2, 9],
+    [5, 3, 8, 7, 7],
+    [3, 4, 1, 5, 8],
+    [1, 4, 0, 2, 8],
+    [5, 6, 6, 2, 5],
+    [0, 5, 8, 2, 2],
+    [5, 0, 2, 1, 1],
+    [2, 7, 4, 4, 8],
+    [4, 6, 6, 0, 2],
+    [7, 9, 6, 3, 2],
+    [2, 3, 1, 0, 9],
+    [3, 4, 7, 1, 0],
+    [0, 5, 3, 2, 4],
+    [6, 1, 4, 0, 5],
+    [9, 7, 1, 8, 3],
+    [8, 6, 1, 6, 0],
+    [9, 5, 7, 7, 1],
+    [1, 2, 2, 3, 5],
+    [7, 9, 0, 1, 7],
+    [3, 7, 0, 2, 6],
+    [8, 1, 2, 0, 2],
+    [8, 1, 2, 0, 2],
+    [8, 1, 2, 0, 2],
+    [8, 1, 2, 0, 2],
+    [2, 2, 6, 1, 2],
+    [5, 6, 2, 6, 5],
+    [2, 7, 0, 5, 8],
+    [6, 7, 4, 2, 6],
+    [8, 5, 7, 8, 7],
+    [6, 7, 6, 5, 2],
+    [6, 7, 6, 5, 6],
+    [6, 7, 6, 5, 6],
+    [6, 7, 6, 5, 7],
+  ];
+  //mother.reverse();
 console.log("drawNumbers", mother);
 
 function getNewRowAndCol(currentLetter, previousLetter, row, col) {
@@ -450,7 +451,6 @@ function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
       row++;
     }
   }
-  // console.log("columnLeader", columnLeader, "consecutiveAs", consecutiveAs,)//"row", row, "col", col, "road", road, "precedingAs", precedingAs, "tree", tree, "dua", dua, "visited", visited, "maxNumberOfRows", maxNumberOfRows, "whenColIncreaseByMaxRows", whenColIncreaseByMaxRows, "percentage", percentage)
   // Loop through the remaining letters in the road.
   for (let i = 0; i < roadLength; i++) {
     const currentLetter = road[i];
@@ -460,48 +460,38 @@ function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
     const firstItem = road[0];
 
     if (currentLetter !== "A") {
-      if (
-        previousLetter === "A" &&
-        consecutiveAs === 1 &&
-        firstItem === "A" &&
-        col === 0
-      ) {
+      if ( previousLetter === "A" && consecutiveAs === 1 && firstItem === "A" && col === 0 ) {
         row++;
       } else if (columnLeader === "D" && consecutiveAs >= 2) {
         row++;
-      } else if (
-        columnLeader === "T" &&
-        consecutiveAs >= 2 &&
-        nextLetter !== "D" &&
-        currentLetter == "T"
-      ) {
-        // console.log("Sdfsfsdfsdfsafsa", nextLetter)
+      } else if ( columnLeader === "T" && consecutiveAs >= 2 && nextLetter !== "D" && currentLetter == "T" ) {
         row++;
-      } else if (
-        columnLeader === "T" &&
-        consecutiveAs >= 2 &&
-        currentLetter == "T"
-      ) {
+      } else if ( columnLeader === "T" && consecutiveAs >= 2 && currentLetter == "T" ) {
         if (currentLetter == "D") {
           col++;
         } else {
           row++;
         }
-      } else if (
-        previousLetter === "A" &&
-        consecutiveAs === 1 &&
-        previousLetterBeforeLetterA === currentLetter
-      ) {
+      } else if ( previousLetter === "A" && consecutiveAs === 1 && previousLetterBeforeLetterA === currentLetter ) {
         row++;
-      } else {
+      }
+      else if ( previousLetter === "A" && consecutiveAs === 1 && columnLeader === "D" && previousLetterBeforeLetterA === "T") {
+               if(row>= maxNumberOfRows){
+                //  row = maxNumberOfRows;
+                 col++;
+               } else {
+                    row++;
+                }
+              } 
+      else {
         if (currentLetter !== previousLetter) {
           col = whenColIncreaseByMaxRows;
           columnLeader = currentLetter;
         }
 
         if (previousLetter !== undefined && currentLetter !== previousLetter) {
-          row = 0;
-          col++;
+            row = 0;
+            col++;
           if (row === 0) {
             whenColIncreaseByMaxRows = col;
             columnLeader = currentLetter;
@@ -516,10 +506,7 @@ function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
             row--;
             col++;
           }
-        } else if (
-          currentLetter !== previousLetter &&
-          currentLetter !== nextLetter
-        ) {
+        } else if ( currentLetter !== previousLetter && currentLetter !== nextLetter ) {
           col = 0;
           whenColIncreaseByMaxRows = col;
           columnLeader = currentLetter;
@@ -533,10 +520,6 @@ function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
           } else {
             row++;
           }
-          // if it is empty I want to use below
-          // row
-          // else if not empty use row ++
-          // row++
         }
       }
 
@@ -577,13 +560,13 @@ function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
     }
 
     dua[row + "|" + col] = currentLetter;
-    tree.push(newItem);
-    // console.log(tree)
+    if (currentLetter !== undefined) {
+      tree.push(newItem);
+    }
 
     derivedRoad(
       tree,//  removeInitialAs(tree),
       whenColIncreaseByMaxRows,
-      row,
       {
         bigEyeBoyArr,
         smallRoadArr,
@@ -597,11 +580,11 @@ function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
   }
   // console.log(bigEyeBoyArr)
   const bigBoy = buildDerivedRoadTree(bigEyeBoyArr);
-  // const smallRoad = buildDerivedRoadTree(smallRoadArr)
-  // const cockcroach = buildDerivedRoadTree(cockcroachArr)
+  const smallRoad = buildDerivedRoadTree(smallRoadArr)
+  const cockcroach = buildDerivedRoadTree(cockcroachArr)
   // console.log(tree)
 
-  return { tree, percentage, colWidth: whenColIncreaseByMaxRows, bigBoy }; //smallRoad, cockcroach, nextColor: { bigEyeRoadObj, smallRoadObj, cockroachObj } };
+  return { tree, percentage, colWidth: whenColIncreaseByMaxRows, bigBoy ,smallRoad, cockcroach, nextColor: { bigEyeRoadObj, smallRoadObj, cockroachObj } };
 }
 
 const check = {
@@ -685,7 +668,6 @@ function removeInitialAs(arr) {
 function derivedRoad(
   tree,
   col,
-  row,
   {
     bigEyeBoyArr,
     smallRoadArr,
@@ -695,9 +677,10 @@ function derivedRoad(
     cockroachObj,
   }
 ) {
+  
   let getLastArrayWithCol2Var = getLastArrayWithColWithoutA(tree, col);
-  let currentLetterCurrentCol =  getLastArrayWithCol2Var[2]; //current letter in the current column
-  let nextLetterToBreakColumn = check[getLastArrayWithCol2Var[2]]; //next letter to break the column
+  let currentLetterCurrentCol = getLastArrayWithCol2Var != null &&  getLastArrayWithCol2Var[2]; //current letter in the current column
+  let nextLetterToBreakColumn = getLastArrayWithCol2Var != null && check[getLastArrayWithCol2Var[2]]; //next letter to break the column
 
   let letter = (val) => (val === "R" ? "B" : "R");
 
@@ -707,17 +690,8 @@ function derivedRoad(
   let bigEyeBoy = getLastArrayWithColWithoutA(tree, col - 1);
   let smallRoad = getLastArrayWithColWithoutA(tree, col - 2);
   let cockroach = getLastArrayWithColWithoutA(tree, col - 3);
-  console.log("treeeeeeeeeeeee", tree);
-  console.log("good day", bigEyeBoy, getLastArrayWithCol2Var, currentLetterCurrentCol, nextLetterToBreakColumn)// a && u
 
   if (getLastArrayWithCol2Var && bigEyeBoy ) {
-    // console.log(
-    //   "good day ",
-    //   bigEyeBoy,
-    //   getLastArrayWithCol2Var,
-    //   currentLetterCurrentCol,
-    //   nextLetterToBreakColumn
-    // );
     if (currentLetterCurrentCol === "A") {
       bigEyeBoyArr.push(updatedBigEyeRoadObj[currentLetterCurrentCol]);
     } else {
@@ -755,7 +729,7 @@ function derivedRoad(
     }
   }
 
-  if (getLastArrayWithCol2Var && smallRoad && !tree[0].includes("A")) {
+  if (getLastArrayWithCol2Var && smallRoad) {
     if (currentLetterCurrentCol === "A") {
       bigEyeBoyArr.push(updatedBigEyeRoadObj[currentLetterCurrentCol]);
     } else {
@@ -789,7 +763,7 @@ function derivedRoad(
     }
   }
 
-  if (getLastArrayWithCol2Var && cockroach && !tree[0].includes("A")) {
+  if (getLastArrayWithCol2Var && cockroach) {
     if (currentLetterCurrentCol === "A") {
       bigEyeBoyArr.push(updatedBigEyeRoadObj[currentLetterCurrentCol]);
     } else {
@@ -1053,12 +1027,16 @@ const timerStart = performance.now();
 // Get the table element by ID
 const table = document.getElementById("grid");
 const derivedTable = document.getElementById("deriveGrid");
+const derivedTable1 = document.getElementById("deriveGrid1");
+const derivedTable2 = document.getElementById("deriveGrid2");
 
 // Loop through the data and add rows to the table
 // buildDragonTigerTree(drawNumbers, "sum", "D/T")
 
 document.onload = createTable(6, 100);
 document.onload = createDerivedTable(6, 100);
+document.onload = createDerivedTable1(6, 100);
+document.onload = createDerivedTable2(6, 100);
 
 function createTable(rows, cols) {
   for (let i = 0; i < rows; i++) {
@@ -1110,9 +1088,69 @@ buildDragonTigerTree(drawNumbers, "sum", "D/T")["bigBoy"].forEach((rowData) => {
       // cell.textContent = rowIndex + " " + value + " " + colIndex;
       cell.textContent = value;
     }
-    if (value === "D") {
+    if (value === "B") {
       cell.style.color = "blue";
-    } else if (value === "T") {
+    } else if (value === "R") {
+      cell.style.color = "red";
+    } else if (value === "A") {
+      cell.style.color = "green";
+    }
+    cell.style.fontWeight = "bold";
+  }
+});
+function createDerivedTable1(rows, cols) {
+  for (let i = 0; i < rows; i++) {
+    const row = derivedTable1.insertRow();
+    for (let j = 0; j < cols; j++) {
+      const cell = row.insertCell();
+      cell.textContent = ""; // Initially empty
+      // cell.textContent = i + "" + j; // Initially empty
+    }
+  }
+}
+
+buildDragonTigerTree(drawNumbers, "sum", "D/T")["smallRoad"].forEach((rowData) => {
+  const [rowIndex, colIndex, value] = rowData;
+  const row = derivedTable1.rows[rowIndex];
+  if (row) {
+    const cell = row.cells[colIndex];
+    if (cell) {
+      // cell.textContent = rowIndex + " " + value + " " + colIndex;
+      cell.textContent = value;
+    }
+    if (value === "B") {
+      cell.style.color = "blue";
+    } else if (value === "R") {
+      cell.style.color = "red";
+    } else if (value === "A") {
+      cell.style.color = "green";
+    }
+    cell.style.fontWeight = "bold";
+  }
+});
+function createDerivedTable2(rows, cols) {
+  for (let i = 0; i < rows; i++) {
+    const row = derivedTable2.insertRow();
+    for (let j = 0; j < cols; j++) {
+      const cell = row.insertCell();
+      cell.textContent = ""; // Initially empty
+      // cell.textContent = i + "" + j; // Initially empty
+    }
+  }
+}
+
+buildDragonTigerTree(drawNumbers, "sum", "D/T")["cockcroach"].forEach((rowData) => {
+  const [rowIndex, colIndex, value] = rowData;
+  const row = derivedTable2.rows[rowIndex];
+  if (row) {
+    const cell = row.cells[colIndex];
+    if (cell) {
+      // cell.textContent = rowIndex + " " + value + " " + colIndex;
+      cell.textContent = value;
+    }
+    if (value === "B") {
+      cell.style.color = "blue";
+    } else if (value === "R") {
       cell.style.color = "red";
     } else if (value === "A") {
       cell.style.color = "green";
