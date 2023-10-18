@@ -216,7 +216,7 @@ const drawNumbers = [
     // [5, 6, 9, 0, 5],
     // [5, 6, 9, 0, 5],
     [3, 6, 9, 0, 5],
-]//.reverse();
+].reverse();
 
 function getBigSmallForBallss(ball) {
     return ball >= 0 && ball <= 4 ? "S" : "B";
@@ -406,7 +406,8 @@ function analyzeDraw(drawNumbers, whatToAnalyze) {
 
     }
 
-    console.log("results",results["D/T"])
+    console.log(results["D/T"])
+    // console.log("results",results["D/T"])
     return results;
 }
 
@@ -462,8 +463,9 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
     let col = 0;
     let whenColIncreaseByMaxRows = 0;
     let dua = {};
-
-    analyzedResults.forEach((value, i) => {
+const img = transpose(analyzedResults)
+console.log("analy", img)
+img["newArr"].forEach((value, i) => {
         let previousLetter = analyzedResults[i - 1];
         let currentLetter = analyzedResults[i];
         let nextLetter = analyzedResults[i + 1];
@@ -498,17 +500,17 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
             col++;
         }
         // console.log("row", row, "col", col, "currentLetter", currentLetter);
-        newItem = [row, col, currentLetter];
-
+        
         let duplicate = tree.some((item) => item[0] === newItem[0] && item[1] === newItem[1]);
-
+        
         if (duplicate) {
             row--;
             col++;
             newItem = [row, col, currentLetter];
         }
-
+        
         dua[row + "|" + col] = currentLetter;
+        // newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
 
         // generateDerivedRoadColors(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj });
         tree.push(newItem);
@@ -523,7 +525,7 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
 }
 
 
-function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
+function buildDragonTigerTreed(drawNumbers, whatToAnalyze, type) {
     const tree = [];
     const analyzedResults = analyzeDraw(drawNumbers, whatToAnalyze)[type];
  
@@ -584,10 +586,49 @@ function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
     return tree;
 }
 
+function transpose(arr) {
+    let newArr = [];
+    let indexOfA = [];
+  
+    let previousLetter;
+    let dCount = 0;
+    let tCount = 0;
+    let _aCount = 0;
+  
+    let lastNonA = null;
+    for (let i = 0; i < arr.length; i++) {
+      let nextLetter = arr[i + 1];
+  
+      if (arr[i] === "D" || arr[i] === "T") {
+        lastNonA = arr[i];
+      }
+      //  else if (arr[i] === "T") {
+      //   tCount++;
+      // }
+  
+      
+      if (nextLetter === "A" && arr[i] !== "A") {
+        previousLetter = arr[i]
+      }
+  
+      if (arr[i] === "A") {
+        indexOfA.push(i);
+        newArr.push(previousLetter)
+      } else {
+        newArr.push(lastNonA);
+      }
+  
+    }
+  
+    console.log(newArr);
+    console.log(indexOfA);
+  
+    return { newArr, indexOfA };
+  }
 
 
 const timerStart = performance.now()
-buildDragonTigerTree(drawNumbers, "sum", "D/T")
+buildTree(drawNumbers, "sum", "D/T")
 const timerEnd = performance.now()
 
 function buildDerivedRoadTree(road) {
