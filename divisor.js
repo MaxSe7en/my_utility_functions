@@ -117,25 +117,25 @@ function digPow(n, p) {
 
 function persistence(num) {
     let multiplicativePersistence = 1;
-    let persistence = 0; 
-  
+    let persistence = 0;
+
     num = num.toString(); // convert to string
-  
+
     while (num.length > 1) {
-  
-      multiplicativePersistence = num.split("").reduce((acc, curr) => {
-        return acc * parseInt(curr); 
-      }, 1);
-  
-      num = multiplicativePersistence.toString();
-    
-      persistence++;
-  
+
+        multiplicativePersistence = num.split("").reduce((acc, curr) => {
+            return acc * parseInt(curr);
+        }, 1);
+
+        num = multiplicativePersistence.toString();
+
+        persistence++;
+
     }
-  
+
     return persistence;
-  
-  }
+
+}
 console.log(persistence(999))
 console.log(persistence(39))
 console.log(persistence(25))
