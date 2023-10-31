@@ -1,19 +1,19 @@
 console.log("divisor.js loaded");
 
 function divisors(integer) {
-    if (integer < 2) return;
-    let divisors = new Array();
-    for (let i = 2; i < integer; i++) {
-        if (integer % i === 0) {
-            divisors.push(i);
-        }
+  if (integer < 2) return;
+  let divisors = new Array();
+  for (let i = 2; i < integer; i++) {
+    if (integer % i === 0) {
+      divisors.push(i);
     }
+  }
 
-    if (divisors.length == 0) {
-        return `${integer} is prime`;
-    }
+  if (divisors.length == 0) {
+    return `${integer} is prime`;
+  }
 
-    return divisors;
+  return divisors;
 }
 
 // console.log(divisors(11))
@@ -34,25 +34,26 @@ function divisors(integer) {
  */
 
 function DNAStrand(dna) {
-    let dnaStrand = "";
-    dna.split("").forEach((strand) => dnaStrand += getComplementaryStrand(strand))
-    return dnaStrand;
+  let dnaStrand = "";
+  dna
+    .split("")
+    .forEach((strand) => (dnaStrand += getComplementaryStrand(strand)));
+  return dnaStrand;
 }
 
 function getComplementaryStrand(strand) {
-    return strands[`${strand}`]
+  return strands[`${strand}`];
 }
 
 const strands = {
-    A: "T",
-    T: "A",
-    G: "C",
-    C: "G"
-}
+  A: "T",
+  T: "A",
+  G: "C",
+  C: "G",
+};
 
 // console.log(DNAStrand("ATTGC"))
 // console.log({ A: 'T', T: 'A', C: 'G', G: 'C' }["G"])
-
 
 // function DNAStrand(dna) {
 //     return dna.replace(/./g, function (c) {
@@ -66,8 +67,6 @@ const strands = {
 //     C: 'G',
 //     G: 'C',
 // }
-
-
 
 // Some numbers have funny properties. For example:
 
@@ -94,11 +93,13 @@ const strands = {
 // digPow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
 
 function digPow(n, p) {
-    let mul = 0;
-    let k = 0;
-    n.toString().split("").forEach((num, i) => mul += num ** (p + i));
-    Number.isInteger(mul / n) ? k = mul / n : k = -1;
-    return k;
+  let mul = 0;
+  let k = 0;
+  n.toString()
+    .split("")
+    .forEach((num, i) => (mul += num ** (p + i)));
+  Number.isInteger(mul / n) ? (k = mul / n) : (k = -1);
+  return k;
 }
 
 // console.log(digPow(89, 1))
@@ -116,27 +117,34 @@ function digPow(n, p) {
 // 4 --> 0 (because 4 is already a one-digit number)
 
 function persistence(num) {
-    let multiplicativePersistence = 1;
-    let persistence = 0;
+  let multiplicativePersistence = 1;
+  let persistence = 0;
 
-    num = num.toString(); // convert to string
+  num = num.toString(); // convert to string
 
-    while (num.length > 1) {
+  while (num.length > 1) {
+    multiplicativePersistence = num.split("").reduce((acc, curr) => {
+      return acc * parseInt(curr);
+    }, 1);
 
-        multiplicativePersistence = num.split("").reduce((acc, curr) => {
-            return acc * parseInt(curr);
-        }, 1);
+    num = multiplicativePersistence.toString();
 
-        num = multiplicativePersistence.toString();
+    persistence++;
+  }
 
-        persistence++;
-
-    }
-
-    return persistence;
-
+  return persistence;
 }
 // console.log(persistence(999))
 // console.log(persistence(39))
 // console.log(persistence(25))
 // console.log(persistence(999))
+
+function isPrime(num) {
+  if (num <= 1) return false;
+  if (num <= 3) return true;
+  if (num % 2 === 0 || num % 3 === 0) return false;
+  for (let i = 5; i * i <= num; i += 6) {
+    if (num % i === 0 || num % (i + 2) === 0) return false;
+  }
+  return true;
+}
