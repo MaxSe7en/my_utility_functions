@@ -112,7 +112,7 @@ const state = {
   
 //   console.log(result);
 
-const statep = {
+const roadBetSelections = {
     "1st": {
       "1": {
         "Big": 100,
@@ -199,32 +199,32 @@ const statep = {
     },
   };
 
-  const processRoadBetSelections = (data) => {
+  function processRoadBetSelections (roadBetSelections)  {
     const results = [];
   
-    for (const key in data) {
-      const outerObj = data[key];
+    for (const place in roadBetSelections) {
+      const selectedGamePlaces = roadBetSelections[place];
+        console.log(selectedGamePlaces)
+      for (const gn_id in selectedGamePlaces) {
+        const userSelections = selectedGamePlaces[gn_id];
   
-      for (const outerKey in outerObj) {
-        const innerObj = outerObj[outerKey];
-  
-        for (const innerKey in innerObj) {
-          const value = innerObj[innerKey];
+        for (const userSelection in userSelections) {
+          const value = userSelections[userSelection];
   
           results.push({
             betId: "12-3387216-834",
-            allSelections: [innerKey],
+            allSelections: [userSelection],
             totalBetAmt: Number(value),
-            game_label: key,
-            uid: 1,
+            game_label: place,
+            uid: results.length + 1,
             bet_date: "12/01/12",
             bet_time: "12:10",
-            game_label: `${key} ${Object.keys(innerObj)[0]}/${Object.keys(innerObj)[1]}`,
+            game_label: `${place} ${Object.keys(userSelections)[0]}/${Object.keys(userSelections)[1]}`,
             totalBets: 1,
             lottery_id: 1,
             unitStaked: 1,
-            gameId: Number(outerKey),
-            userSelections: `${key} ${Object.keys(innerObj)[0]}/${Object.keys(innerObj)[1]} ${innerKey}`,
+            gameId: Number(gn_id),
+            userSelections: `${place} ${Object.keys(userSelections)[0]}/${Object.keys(userSelections)[1]} ${userSelection}`,
           });
         }
       }
