@@ -214,7 +214,7 @@ const roadBetSelections = {
   
     for (const place in roadBetSelections) {
       const selectedGamePlaces = roadBetSelections[place];
-        console.log(selectedGamePlaces)
+        // console.log(selectedGamePlaces)
       for (const gn_id in selectedGamePlaces) {
         const userSelections = selectedGamePlaces[gn_id];
   
@@ -244,5 +244,34 @@ const roadBetSelections = {
   };
   
   const processedData = processRoadBetSelections(state);
-  console.log(processedData);
+  // console.log(processedData);
+
+
+  function truncate(number, decimalPlaces = 3) {
+    let indexOfDecimal = number.toString().indexOf(".");
+    if (indexOfDecimal == -1) return number;
+    let result = number.toString().slice(0, indexOfDecimal + (decimalPlaces + 1));
+    return parseFloat(result);
+  }
   
+
+  function calculatedUserPrize(gameOdds, unit, userData) {
+    // Calculate the user's prize using the rebate value from user data.
+  console.log("odds============>" + gameOdds, unit, userData);
+  
+    const prize = (((85 + Number(userData)) / 100) * Number(gameOdds)) * Number(unit);
+    // Truncate the prize to four decimal places.
+    return truncate(prize, 4);
+  }
+
+  function calculatedUserPrizes(gameOdds, unit, userData) {
+    // Calculate the user's prize using the rebate value from user data.
+    const prize = (((85 + userData) / 100) * +gameOdds) * unit;
+    let p = truncate(prize, 4)
+    // setUserPrize(p)
+    // Truncate the prize to four decimal places.
+    return truncate(prize, 4);
+  }
+  // odds============>
+  console.log(calculatedUserPrize("833.333", 2, 14))
+  console.log(calculatedUserPrizes("833.333", 2, 14))
