@@ -198,9 +198,19 @@ const roadBetSelections = {
       },
     },
   };
-
   function processRoadBetSelections (roadBetSelections)  {
-    const results = [];
+      const results = [];
+      const groupType = {
+          "Big": "Big/Small",
+          "Small": "Big/Small",
+          "Odd": "Odd/Even",
+          "Even": "Odd/Even",
+          "P": "Prime/Composite",
+          "C": "Prime/Composite",
+          "Dragon": "Dragon/Tiger",
+          "Tiger": "Dragon/Tiger",
+          "Tie": "Dragon/Tiger",
+      }
   
     for (const place in roadBetSelections) {
       const selectedGamePlaces = roadBetSelections[place];
@@ -219,12 +229,12 @@ const roadBetSelections = {
             uid: results.length + 1,
             bet_date: "12/01/12",
             bet_time: "12:10",
-            game_label: `${place} ${Object.keys(userSelections)[0]}/${Object.keys(userSelections)[1]}`,
+            game_label: `${place} ${groupType[userSelection]}`,
             totalBets: 1,
             lottery_id: 1,
             unitStaked: 1,
             gameId: Number(gn_id),
-            userSelections: `${place} ${Object.keys(userSelections)[0]}/${Object.keys(userSelections)[1]} ${userSelection}`,
+            userSelections: `${place} ${groupType[userSelection]} ${userSelection}`,
           });
         }
       }
