@@ -182,7 +182,7 @@ array1.forEach((item) => {
 
 
 array2.forEach((item) => {
-    console.log(tree.search(item))
+    console.log(tree.search(item))// new day
 });
 // function mergeSortedArrays(arr1, arr2) {
 //   let result = [];
