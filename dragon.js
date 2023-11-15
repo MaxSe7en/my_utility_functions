@@ -1,6 +1,9 @@
 import { mother } from "./extract.js";
 const drawNumbers = [
   [8, 0, 9, 2, 8],
+  [8, 0, 9, 2, 8],
+  [8, 0, 9, 2, 8],
+  [8, 0, 9, 2, 9],
   [6, 2, 2, 8, 3],
   [5, 6, 1, 0, 2],
   [6, 9, 3, 7, 0],
@@ -9,97 +12,120 @@ const drawNumbers = [
   [0, 1, 0, 5, 0],
   [4, 8, 9, 9, 2],
   [4, 5, 6, 9, 5],
-  [4, 9, 7, 7, 3],
-  [7, 3, 4, 9, 9],
-  [8, 3, 5, 1, 2],
-  [7, 5, 3, 2, 3],
-  [0, 3, 1, 6, 2],
-  [7, 1, 4, 7, 7],
-  [5, 4, 8, 6, 4],
-  [8, 5, 7, 2, 4],
-  [0, 6, 8, 5, 6],
-  [8, 7, 2, 1, 0],
-  [0, 6, 6, 3, 7],
-  [3, 4, 7, 3, 0],
-  [7, 3, 3, 0, 5],
-  [7, 1, 2, 4, 6],
-  [2, 1, 3, 4, 1],
-  [8, 5, 6, 1, 6],
-  [0, 9, 0, 2, 8],
-  [6, 2, 2, 0, 3],
-  [6, 5, 9, 5, 3],
-  [6, 8, 8, 6, 0],
-  [0, 6, 3, 3, 7],
-  [4, 2, 5, 2, 9],
-  [4, 7, 3, 4, 4],
-  [7, 8, 0, 7, 4],
-  [4, 7, 3, 8, 1],
-  [4, 6, 8, 4, 1],
-  [3, 0, 1, 1, 6],
-  [7, 8, 2, 0, 3],
-  [4, 7, 7, 9, 4],
-  [9, 2, 4, 7, 7],
-  [5, 2, 5, 8, 4],
-  [7, 6, 0, 1, 2],
-  [8, 7, 9, 4, 9],
-  [3, 8, 9, 1, 0],
-  [9, 6, 2, 2, 3],
-  [9, 0, 1, 6, 1],
-  [4, 4, 9, 9, 1],
-  [7, 7, 1, 8, 0],
-  [9, 4, 9, 8, 0],
-  [1, 5, 1, 1, 9],
-  [2, 9, 4, 4, 2],
-  [3, 5, 4, 9, 9],
-  [0, 5, 1, 1, 0],
-  [6, 0, 6, 5, 6],
-  [0, 9, 9, 2, 8],
-  [5, 2, 8, 7, 9],
-  [9, 3, 8, 9, 2],
-  [5, 6, 4, 4, 2],
-  [5, 1, 1, 5, 2],
-  [1, 9, 6, 0, 2],
-  [5, 9, 5, 5, 7],
-  [0, 4, 4, 0, 7],
-  [0, 8, 4, 9, 0],
-  [0, 7, 7, 6, 8],
-  [0, 7, 3, 7, 5],
-  [6, 7, 3, 7, 8],
-  [9, 1, 2, 1, 2],
-  [9, 2, 0, 8, 1],
-  [7, 6, 7, 2, 8],
-  [8, 5, 1, 5, 1],
-  [6, 8, 9, 3, 8],
-  [2, 5, 0, 2, 7],
-  [4, 6, 9, 0, 5],
-  [7, 8, 5, 8, 1],
-  [9, 8, 6, 0, 8],
-  [0, 7, 0, 6, 4],
-  [5, 1, 7, 4, 7],
-  [2, 3, 8, 8, 6],
-  [6, 4, 4, 3, 0],
-  [0, 2, 8, 1, 6],
-  [5, 9, 2, 7, 0],
-  [7, 0, 9, 4, 7],
-  [2, 4, 7, 5, 6],
-  [3, 8, 6, 7, 9],
-  [8, 0, 1, 7, 2],
-  [6, 1, 6, 2, 8],
-  [2, 3, 7, 1, 2],
-  [0, 5, 2, 8, 9],
-  [3, 0, 5, 9, 4],
-  [4, 8, 5, 1, 8],
-  [9, 2, 2, 1, 6],
-  [1, 7, 7, 8, 7],
-  [3, 0, 0, 0, 2],
-  [5, 3, 5, 7, 7],
-  [5, 7, 0, 8, 8],
-  [6, 8, 6, 5, 3],
-  [6, 4, 5, 0, 7],
-  [1, 2, 8, 6, 1],
-  [6, 9, 1, 4, 6],
-  [7, 3, 5, 1, 8],
-  [7, 4, 1, 8, 1],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 5],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 4],
+  [4, 5, 6, 9, 3],//D
+  [4, 5, 6, 9, 4],//A
+  [4, 5, 6, 9, 4],//A
+  [4, 5, 6, 9, 4],//A
+  [4, 5, 6, 9, 5],//T
+  [4, 5, 6, 9, 4],//A
+  [4, 5, 6, 9, 4],//A
+  [4, 5, 6, 9, 2],//D
+  [4, 9, 7, 7, 3],//D
+  [7, 3, 4, 9, 9],//T
+  [8, 3, 5, 1, 2],//D
+  [7, 5, 3, 2, 3],//D
+  // [0, 3, 1, 6, 2],
+  // [7, 1, 4, 7, 7],
+  // [5, 4, 8, 6, 4],
+  // [8, 5, 7, 2, 4],
+  // [0, 6, 8, 5, 6],
+  // [8, 7, 2, 1, 0],
+  // [0, 6, 6, 3, 7],
+  // [3, 4, 7, 3, 0],
+  // [7, 3, 3, 0, 5],
+  // [7, 1, 2, 4, 6],
+  // [2, 1, 3, 4, 1],
+  // [8, 5, 6, 1, 6],
+  // [0, 9, 0, 2, 8],
+  // [6, 2, 2, 0, 3],
+  // [6, 5, 9, 5, 3],
+  // [6, 8, 8, 6, 0],
+  // [0, 6, 3, 3, 7],
+  // [4, 2, 5, 2, 9],
+  // [4, 7, 3, 4, 4],
+  // [7, 8, 0, 7, 4],
+  // [4, 7, 3, 8, 1],
+  // [4, 6, 8, 4, 1],
+  // [3, 0, 1, 1, 6],
+  // [7, 8, 2, 0, 3],
+  // [4, 7, 7, 9, 4],
+  // [9, 2, 4, 7, 7],
+  // [5, 2, 5, 8, 4],
+  // [7, 6, 0, 1, 2],
+  // [8, 7, 9, 4, 9],
+  // [3, 8, 9, 1, 0],
+  // [9, 6, 2, 2, 3],
+  // [9, 0, 1, 6, 1],
+  // [4, 4, 9, 9, 1],
+  // [7, 7, 1, 8, 0],
+  // [9, 4, 9, 8, 0],
+  // [1, 5, 1, 1, 9],
+  // [2, 9, 4, 4, 2],
+  // [3, 5, 4, 9, 9],
+  // [0, 5, 1, 1, 0],
+  // [6, 0, 6, 5, 6],
+  // [0, 9, 9, 2, 8],
+  // [5, 2, 8, 7, 9],
+  // [9, 3, 8, 9, 2],
+  // [5, 6, 4, 4, 2],
+  // [5, 1, 1, 5, 2],
+  // [1, 9, 6, 0, 2],
+  // [5, 9, 5, 5, 7],
+  // [0, 4, 4, 0, 7],
+  // [0, 8, 4, 9, 0],
+  // [0, 7, 7, 6, 8],
+  // [0, 7, 3, 7, 5],
+  // [6, 7, 3, 7, 8],
+  // [9, 1, 2, 1, 2],
+  // [9, 2, 0, 8, 1],
+  // [7, 6, 7, 2, 8],
+  // [8, 5, 1, 5, 1],
+  // [6, 8, 9, 3, 8],
+  // [2, 5, 0, 2, 7],
+  // [4, 6, 9, 0, 5],
+  // [7, 8, 5, 8, 1],
+  // [9, 8, 6, 0, 8],
+  // [0, 7, 0, 6, 4],
+  // [5, 1, 7, 4, 7],
+  // [2, 3, 8, 8, 6],
+  // [6, 4, 4, 3, 0],
+  // [0, 2, 8, 1, 6],
+  // [5, 9, 2, 7, 0],
+  // [7, 0, 9, 4, 7],
+  // [2, 4, 7, 5, 6],
+  // [3, 8, 6, 7, 9],
+  // [8, 0, 1, 7, 2],
+  // [6, 1, 6, 2, 8],
+  // [2, 3, 7, 1, 2],
+  // [0, 5, 2, 8, 9],
+  // [3, 0, 5, 9, 4],
+  // [4, 8, 5, 1, 8],
+  // [9, 2, 2, 1, 6],
+  // [1, 7, 7, 8, 7],
+  // [3, 0, 0, 0, 2],
+  // [5, 3, 5, 7, 7],
+  // [5, 7, 0, 8, 8],
+  // [6, 8, 6, 5, 3],
+  // [6, 4, 5, 0, 7],
+  // [1, 2, 8, 6, 1],
+  // [6, 9, 1, 4, 6],
+  // [7, 3, 5, 1, 8],
+  // [7, 4, 1, 8, 1],
 ];
 //mother.reverse();
 console.log("drawNumbers", mother);
@@ -127,7 +153,7 @@ function getPrecedingAss(arr) {
   return result;
 }
 
-function getPrecedingAs(arr) {
+function getPrecedingAsss(arr) {
   const result = [];
 
   let i = 0;
@@ -142,7 +168,7 @@ function getPrecedingAs(arr) {
   return result;
 }
 
-function removePrecedingAs(arr, numberOfAsToRemove) {
+function removePrecedingAsss(arr, numberOfAsToRemove) {
   // arr.splice(0, numberOfAsToRemove);
 
   return arr.splice(0, numberOfAsToRemove);
@@ -348,10 +374,10 @@ const countOccurrences = (arr, type) => {
     type == "Big/Small"
       ? ["B", "S"]
       : type === "Odd/Even"
-        ? ["O", "E"]
-        : type === "P/C"
-          ? ["P", "C"]
-          : ["D", "T"];
+      ? ["O", "E"]
+      : type === "P/C"
+      ? ["P", "C"]
+      : ["D", "T"];
   const counts = { [letter[0]]: 0, [letter[1]]: 0 };
 
   arr.forEach((item) => {
@@ -529,16 +555,14 @@ function buildDragonTigerTree(drawNumbers, whatToAnalyze, type) {
           col = 0;
           whenColIncreaseByMaxRows = col;
           columnLeader = currentLetter;
+        } else if (
+          (tree.length === 0 && road[0] === "T") ||
+          road[0] === "D" ||
+          tree[0]
+        ) {
+          row = row;
         } else {
-          if (
-            (tree.length === 0 && road[0] === "T") ||
-            road[0] === "D" ||
-            tree[0]
-          ) {
-            row;
-          } else {
-            row++;
-          }
+          row++;
         }
       }
 
@@ -710,7 +734,6 @@ function derivedRoad(
     getLastArrayWithCol2Var != null && check[getLastArrayWithCol2Var[2]]; //next letter to break the column
 
   let letter = (val) => (val === "R" ? "B" : "R");
-
 
   console.log("getLastArrayWithCol2Var", getLastArrayWithCol2Var);
 
@@ -1079,14 +1102,15 @@ function createTable(rows, cols) {
   }
 }
 
-buildTree(drawNumbers, "sum", "D/T")["tree"].forEach((rowData) => {
+buildTree(drawNumbers, "sum", "D/T")["tree"].forEach((rowData, index) => {
   const [rowIndex, colIndex, value] = rowData;
   const row = table.rows[rowIndex];
   if (row) {
     const cell = row.cells[colIndex];
     if (cell) {
+      cell.textContent = index + " " + value; //+ " " + colIndex;
       // cell.textContent = rowIndex + " " + value + " " + colIndex;
-      cell.textContent = value;
+      // cell.textContent = value;
     }
     if (value === "D") {
       cell.style.color = "blue";
@@ -1279,18 +1303,16 @@ function analyzeDraw(drawNumbers, whatToAnalyze) {
 
 function buildTree(drawNumbers, whatToAnalyze, type) {
   const tree = [];
-  console.log(type)
+
   const analyzedResults = analyzeDraw(drawNumbers, whatToAnalyze)[type];
-  // console.log(analyzedResults);
-  let percentage = countOccurrences(
-    analyzedResults,
-    type
-  );
+
+  let percentage = countOccurrences(analyzedResults, type);
 
   let bigEyeBoyArr = [];
   let smallRoadArr = [];
   let cockcroachArr = [];
   let bigEyeRoadObj = {};
+  let countConsecutiveAs = 0;
   // const analyzedResults1 = analyzeDraw(drawNumbers, whatToAnalyze).oddEven;
   // const analyzedResults2 = analyzeDraw(drawNumbers, whatToAnalyze).primeComposite;
 
@@ -1299,7 +1321,7 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
   let col = 0;
   let whenColIncreaseByMaxRows = 0;
   let dua = {};
-  const img = transpose(analyzedResults)
+  const img = transpose(analyzedResults);
   console.log("img", img["newArr"]);
   img["newArr"].forEach((value, i) => {
     let previousLetter = img["newArr"][i - 1];
@@ -1309,24 +1331,46 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
 
     if (currentLetter !== previousLetter) {
       col = whenColIncreaseByMaxRows;
-    }
+    } //&& currentLetter !== letterinobj && countsinobj >= 2 row++
     if (previousLetter !== undefined && currentLetter !== previousLetter) {
-      row = 0;
-      col++;
-      if (row === 0) {
-        whenColIncreaseByMaxRows = col;
+      // if(currentLetter !== img["consecutiveAs"][`${previousLetter}${i}`] && countsinobj >= 2)
+      console.log(
+        "dd",
+        img["consecutiveAs"][`${previousLetter}${i}`],
+        JSON.stringify(img["consecutiveAs"]),
+        previousLetter,
+        currentLetter,
+        i
+      );
+      if (
+        type === "D/T" &&
+        img["consecutiveAs"][`${previousLetter}${i}`] >= 2 &&
+        previousLetter === "D"
+      ) {
+        // alert(currentLetter)
+        row++;
+      } else {
+        row = 0;
+        col++;
+        if (row === 0) {
+          whenColIncreaseByMaxRows = col;
+        }
       }
     } else if (currentLetter === previousLetter) {
       row++;
 
       let prevCol = col - 1;
       const prev = dua[row + "|" + prevCol];
-
-      if (prev === currentLetter) {
+      console.log("prev", prev)
+      //handles branching where I skip a grid col
+      if (prev === currentLetter && type !== "D/T") {
         row--;
         col++;
       }
-    } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
+    } else if (
+      currentLetter !== previousLetter &&
+      currentLetter !== nextLetter
+    ) {
       col = 0;
       whenColIncreaseByMaxRows = col;
     }
@@ -1338,7 +1382,9 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
     // console.log("row", row, "col", col, "currentLetter", currentLetter);
     newItem = [row, col, currentLetter];
 
-    let duplicate = tree.some((item) => item[0] === newItem[0] && item[1] === newItem[1]);
+    let duplicate = tree.some(
+      (item) => item[0] === newItem[0] && item[1] === newItem[1]
+    );
 
     if (duplicate) {
       row--;
@@ -1347,26 +1393,42 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
     }
 
     dua[row + "|" + col] = currentLetter;
+    // console.log("indexof", img["indexOfA"])
     newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
 
+    // if(img["indexOfA"].includes(i)){
+    //   countConsecutiveAs++; // count consecutive As
+    //   if(countConsecutiveAs >= 2){
+    //     row++;
+    //     col--
+    //     newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
+    //
+    //   }else{
+    //    newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
+    // }
     // generateDerivedRoadColors(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj });
-    console.log(newItem)
+    // console.log(newItem);
     tree.push(newItem);
 
     // derivedRoad(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj });
   });
   // console.log(bigEyeBoyArr)
-  const bigBoy = buildDerivedRoadTree(bigEyeBoyArr)
-  const smallRoad = buildDerivedRoadTree(smallRoadArr)
-  const cockcroach = buildDerivedRoadTree(cockcroachArr)
-  return { tree, percentage, colHeight: whenColIncreaseByMaxRows, bigBoy, smallRoad, cockcroach };
+  const bigBoy = buildDerivedRoadTree(bigEyeBoyArr);
+  const smallRoad = buildDerivedRoadTree(smallRoadArr);
+  const cockcroach = buildDerivedRoadTree(cockcroachArr);
+  return {
+    tree,
+    percentage,
+    colHeight: whenColIncreaseByMaxRows,
+    bigBoy,
+    smallRoad,
+    cockcroach,
+  };
 }
-
 
 function buildDragonTigerTreer(drawNumbers, whatToAnalyze, type) {
   const tree = [];
   const analyzedResults = analyzeDraw(drawNumbers, whatToAnalyze)[type];
-
 
   let row = 0;
   let col = 0;
@@ -1398,7 +1460,10 @@ function buildDragonTigerTreer(drawNumbers, whatToAnalyze, type) {
         row--;
         col++;
       }
-    } else if (currentLetter !== previousLetter && currentLetter !== nextLetter) {
+    } else if (
+      currentLetter !== previousLetter &&
+      currentLetter !== nextLetter
+    ) {
       col = 0;
       whenColIncreaseByMaxRows = col;
     }
@@ -1409,7 +1474,9 @@ function buildDragonTigerTreer(drawNumbers, whatToAnalyze, type) {
     }
     newItem = [row, col, currentLetter];
 
-    let duplicate = tree.some((item) => item[0] === newItem[0] && item[1] === newItem[1]);
+    let duplicate = tree.some(
+      (item) => item[0] === newItem[0] && item[1] === newItem[1]
+    );
 
     if (duplicate) {
       row--;
@@ -1420,67 +1487,163 @@ function buildDragonTigerTreer(drawNumbers, whatToAnalyze, type) {
     dua[row + "|" + col] = currentLetter;
     tree.push(newItem);
   });
-  console.log(tree)
+  console.log(tree);
   return tree;
+}
+
+function getLetter(object) {
+  Object.keys(object).forEach((key) => {
+    console.log(key, object[key]);
+  });
+}
+
+function findFirstNonA(arr) {
+  let char = "";
+  for (let i = 0; i < arr.length; i++) {
+    char = arr[i];
+    if (char !== "A") {
+      return char;
+    }
+  }
+}
+
+function getPrecedingAs(arr) {
+  const result = [];
+  let i = 0;
+
+  // Keep going until we find a non-'A'
+  while (i < arr.length && arr[i] === "A") {
+    result.push(arr[i]);
+    i++;
+  }
+
+  // Stop looping once we hit a non-'A'
+  return result;
+}
+
+function removePrecedingAs(arr, numberOfAsToRemove) {
+  return arr.splice(0, numberOfAsToRemove);
+}
+
+// function convertAsToSucceedingLetter(arr) {
+//   const aSuccessor = findFirstNonA(arr);
+//   const preceedingAs = getPrecedingAs(arr).length;
+//   for (let i = 0; i < preceedingAs.length; i++) {
+//     arr[i] = aSuccessor;
+//   }
+//   return { arr, preceedingAs };
+// }
+
+function convertAsToSucceedingLetter(arr) {
+  const aSuccessor = findFirstNonA(arr);
+  const preceedingAs = getPrecedingAs(arr);
+  let count = 0;
+  const indexesOfA = [];
+  for (let i = 0; i < preceedingAs.length; i++) {
+    arr[i] = aSuccessor;
+    indexesOfA.push(i);
+    count++;
+  }
+  return { arr, count, indexesOfA };
 }
 
 function transpose(arr) {
   let newArr = [];
   let indexOfA = [];
-
+  let countOfA = 0;
+  const consecutiveAs = {};
+  // const consecutiveAs = new Map();
   let previousLetter;
+ 
+  // removePrecedingAs(arr, precedingAs.length);
+ 
 
-  for (let i = 0; i < arr.length; i++) {
-    let nextLetter = arr[i + 1];
-    if (nextLetter === "A" && arr[i] !== "A") {
-      previousLetter = arr[i]
-    }
-
-    if (arr[i] === "A") {
-      indexOfA.push(i);
-      newArr.push(previousLetter)
-    } else {
-      newArr.push(arr[i]);
-
-    }
-
-  }
-
-  console.log(newArr);
-  console.log(indexOfA);
-
-  return { newArr, indexOfA };
-}
-function convertAtoDorT(arr) {
-  let newArr = [];
-  let indexOfA = [];
-
-  // Handle if A is first element
-  if(arr[0] === 'A') {
-    let nextNonAIndex = arr.findIndex(letter => letter !== 'A');
-    for(let i = 0; i < nextNonAIndex; i++) {
-      newArr.push(arr[nextNonAIndex]);  
-    }
-  }
-
-  let previousLetter;
-  for (let i = 0; i < arr.length; i++) {
-    let nextLetter = arr[i + 1];
-    
-    if (nextLetter === "A" && arr[i] !== "A") {
-      previousLetter = arr[i] 
-    }
-    
-    if (arr[i] === "A") {
-      indexOfA.push(i);
-      newArr.push(previousLetter)
-    } else {
-      newArr.push(arr[i]);
-    }
+  const aSuccessor = findFirstNonA(arr);
+  const precedingAs = getPrecedingAs(arr).length;
+  if (precedingAs > 0) {
+    indexOfA = [...indexOfA,...convertAsToSucceedingLetter(arr).indexesOfA]
+    console.log("------------------>",indexOfA)
   }
   
-  return {newArr, indexOfA};
+  for (let i = 0; i < arr.length; i++) {
+    let nextLetter = arr[i + 1];
+    if (nextLetter === "A" && arr[i] !== "A") {
+      previousLetter = arr[i];
+    }
+    // console.log("i", previousLetter, arr[i], previousLetter === undefined);
+    if (arr[i] === "A" && previousLetter === undefined) {
+      indexOfA.push(i);
+      countOfA++;
+      let nonAIndex = findNextNonALetterIndex(arr, i);
+      // consecutiveAs.set(nextLetter, countOfA);
+      consecutiveAs[`${nextLetter}${nonAIndex}`] = countOfA;
+
+      newArr.push(nextLetter);
+      countOfA = 0;
+    } else if (arr[i] === "A") {
+      countOfA++;
+      let nonAIndex = findNextNonALetterIndex(arr, i);
+      // consecutiveAs.set(`${previousLetter}${i}`, countOfA);
+      consecutiveAs[`${previousLetter}${nonAIndex}`] = countOfA;
+      indexOfA.push(i);
+      newArr.push(previousLetter);
+      // countOfA = 0;
+    } else {
+      countOfA = 0;
+      newArr.push(arr[i]);
+    }
+  }
+
+  console.log("i ", newArr);
+  console.log("i ", countOfA);
+  console.log("i ", consecutiveAs);
+  console.log("i ", indexOfA);
+
+  return { newArr, indexOfA, countOfA, consecutiveAs };
 }
+
+function transpose3(arr) {
+  let newArr = [];
+  let indexOfA = [];
+  let countOfA = 0;
+  const consecutiveAs = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    let currentLetter = arr[i];
+    let nextLetter = arr[i + 1];
+
+    if (currentLetter === "A" && nextLetter !== "A") {
+      // Start of consecutive 'A' letters
+      indexOfA.push(i);
+      countOfA = 1;
+    } else if (currentLetter === "A" && nextLetter === "A") {
+      // Consecutive 'A' letters
+      countOfA++;
+    } else if (currentLetter !== "A" && nextLetter === "A") {
+      // End of consecutive 'A' letters
+      countOfA++;
+      let nonAIndex = findNextNonALetterIndex(arr, i);
+      consecutiveAs[`${currentLetter}${nonAIndex}`] = countOfA;
+      newArr.push(currentLetter);
+    } else {
+      // Non-'A' letter
+      newArr.push(currentLetter);
+    }
+  }
+
+  return { newArr, indexOfA, countOfA, consecutiveAs };
+}
+
+function findNextNonALetterIndex(arr, currentIndexOfA) {
+  for (let i = currentIndexOfA + 1; i < arr.length; i++) {
+    if (arr[i] !== "A") {
+      return i;
+    }
+  }
+  // Return -1 if no non-'A' letter is found after the current index
+  return -1;
+}
+
 
 
 function buildDerivedRoadTree(road) {
@@ -1693,3 +1856,191 @@ function buildDerivedRoadTree(road) {
     }
 
 */
+
+function buildTrees(drawNumbers, whatToAnalyze, type) {
+  const tree = [];
+  console.log(type);
+  const analyzedResults = analyzeDraw(drawNumbers, whatToAnalyze)[type];
+  // console.log(analyzedResults);
+  let percentage = countOccurrences(analyzedResults, type);
+
+  let bigEyeBoyArr = [];
+  let smallRoadArr = [];
+  let cockcroachArr = [];
+  let bigEyeRoadObj = {};
+  let countConsecutiveAs = 0;
+  // const analyzedResults1 = analyzeDraw(drawNumbers, whatToAnalyze).oddEven;
+  // const analyzedResults2 = analyzeDraw(drawNumbers, whatToAnalyze).primeComposite;
+
+  // console.log(percentage);
+  let row = 0;
+  let col = 0;
+  let whenColIncreaseByMaxRows = 0;
+  let dua = {};
+  const img = transpose(analyzedResults);
+  console.log("img", img["newArr"]);
+  img["newArr"].forEach((value, i) => {
+    let previousLetter = img["newArr"][i - 1];
+    let currentLetter = img["newArr"][i];
+    let nextLetter = img["newArr"][i + 1];
+    let newItem = [];
+
+    if (currentLetter !== previousLetter) {
+      col = whenColIncreaseByMaxRows;
+    }
+    if (previousLetter !== undefined && currentLetter !== previousLetter) {
+      row = 0;
+      col++;
+      if (row === 0) {
+        whenColIncreaseByMaxRows = col;
+      }
+    } else if (currentLetter === previousLetter) {
+      row++;
+
+      let prevCol = col - 1;
+      const prev = dua[row + "|" + prevCol];
+
+      if (prev === currentLetter) {
+        row--;
+        col++;
+      }
+    } else if (
+      currentLetter !== previousLetter &&
+      currentLetter !== nextLetter
+    ) {
+      col = 0;
+      whenColIncreaseByMaxRows = col;
+    }
+
+    if (row > 5) {
+      row = 5;
+      col++;
+    }
+    // console.log("row", row, "col", col, "currentLetter", currentLetter);
+    newItem = [row, col, currentLetter];
+
+    let duplicate = tree.some(
+      (item) => item[0] === newItem[0] && item[1] === newItem[1]
+    );
+
+    if (duplicate) {
+      row--;
+      col++;
+      newItem = [row, col, currentLetter];
+    }
+
+    dua[row + "|" + col] = currentLetter;
+    console.log("indexof", img["indexOfA"]);
+    newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
+
+    // if(img["indexOfA"].includes(i)){
+    //   countConsecutiveAs++; // count consecutive As
+    //   if(countConsecutiveAs >= 2){
+    //     row++;
+    //     col--
+    //     newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
+    //
+    //   }else{
+    //    newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
+    // }
+    // generateDerivedRoadColors(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj });
+    console.log(newItem);
+    tree.push(newItem);
+
+    // derivedRoad(tree, whenColIncreaseByMaxRows, { bigEyeBoyArr, smallRoadArr, cockcroachArr, bigEyeRoadObj });
+  });
+  // console.log(bigEyeBoyArr)
+  const bigBoy = buildDerivedRoadTree(bigEyeBoyArr);
+  const smallRoad = buildDerivedRoadTree(smallRoadArr);
+  const cockcroach = buildDerivedRoadTree(cockcroachArr);
+  return {
+    tree,
+    percentage,
+    colHeight: whenColIncreaseByMaxRows,
+    bigBoy,
+    smallRoad,
+    cockcroach,
+  };
+}
+
+// function findNonALetterIndex(arr) {
+//   const result = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === "A") {
+//       const nonAIndex = arr.indexOf("A", i + 1);
+//       const nonALetterIndex = nonAIndex !== -1 ? nonAIndex : arr.length;
+//       result.push(nonALetterIndex);
+//     }
+//   }
+
+//   return result;
+// }
+
+// function convertAtoDorT(arr) {
+//   let newArr = [];
+//   let indexOfA = [];
+
+//   // Handle if A is first element
+//   if (arr[0] === "A") {
+//     let nextNonAIndex = arr.findIndex((letter) => letter !== "A");
+//     for (let i = 0; i < nextNonAIndex; i++) {
+//       newArr.push(arr[nextNonAIndex]);
+//     }
+//   }
+
+//   let previousLetter;
+//   for (let i = 0; i < arr.length; i++) {
+//     let nextLetter = arr[i + 1];
+
+//     if (nextLetter === "A" && arr[i] !== "A") {
+//       previousLetter = arr[i];
+//     }
+
+//     if (arr[i] === "A") {
+//       indexOfA.push(i);
+//       newArr.push(previousLetter);
+//     } else {
+//       newArr.push(arr[i]);
+//     }
+//   }
+
+//   return { newArr, indexOfA };
+// }
+// const precedingAs = getPrecedingAs(road); // Get the preceding "A"s in the road.
+
+// // Handle cases where "A"s precede the road.
+// /* this if statement is to check if A's started the drawNumbers */
+// if (precedingAs.length) {
+//   for (let i = 0; i < precedingAs.length; i++) {
+//     const currentLetter = precedingAs[i];
+//     const nextLetter = road[i + 1];
+//     if (precedingAs[0] == "A" && i == 0) {
+//       row = 0;
+//       col = 0;
+//     } else {
+//       row++;
+//     }
+
+//     if (nextLetter != "A") {
+//       columnLeader = nextLetter;
+//     }
+
+//     if (row > maxNumberOfRows) {
+//       row = maxNumberOfRows;
+//       col++;
+//     }
+//     if (currentLetter === "A") {
+//       consecutiveAs++;
+//     } else {
+//       consecutiveAs = 0;
+//     }
+//     let newItem = [row, col, currentLetter];
+//     tree.push(newItem);
+//   }
+
+//   if (precedingAs.length === 1) {
+//     row = 1;
+//   }
+//   removePrecedingAs(road, precedingAs.length);
+// }
