@@ -1321,12 +1321,15 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
   let col = 0;
   let whenColIncreaseByMaxRows = 0;
   let dua = {};
-  const img = transpose(analyzedResults);
-  console.log("img", img["newArr"]);
-  img["newArr"].forEach((value, i) => {
-    let previousLetter = img["newArr"][i - 1];
-    let currentLetter = img["newArr"][i];
-    let nextLetter = img["newArr"][i + 1];
+  const {transposed,
+    asIndexes,
+    consecutiveCounts} = transpose(analyzedResults);
+  // const img = transpose(analyzedResults);
+  console.log("img", consecutiveCounts);
+  transposed.forEach((value, i) => {
+    let previousLetter = transposed[i - 1];
+    let currentLetter = transposed[i];
+    let nextLetter = transposed[i + 1];
     let newItem = [];
 
     if (currentLetter !== previousLetter) {
@@ -1497,7 +1500,7 @@ function getLetter(object) {
   });
 }
 
-function findFirstNonA(arr) {
+function findFirstNonAs(arr) {
   let char = "";
   for (let i = 0; i < arr.length; i++) {
     char = arr[i];
@@ -1534,6 +1537,100 @@ function removePrecedingAs(arr, numberOfAsToRemove) {
 //   return { arr, preceedingAs };
 // }
 
+
+// Utils
+
+function isNonAChar(char) {
+  return char !== 'A';
+}
+
+function findFirstNonA(arr) {
+  return arr.find(isNonAChar);
+}
+
+
+// Core logic
+
+function convertAsToSuccessor(arr, successor) {
+
+  const asIndexes = [];
+  
+  const output = arr.map((char, i) => {
+    if (char === 'A') {
+      asIndexes.push(i);
+      return successor;
+    }
+    return char;
+  });
+
+  return { output, asIndexes };
+
+}
+
+function countConsecutiveAs(arr) {
+
+  const counts = {};
+
+  let consecutiveCount = 0;
+  let prevChar;
+  
+  for (let char of arr) {
+    if (char === 'A') {
+      consecutiveCount++;
+    } else {
+      if (consecutiveCount > 0 && prevChar) {
+        counts[`${prevChar}${consecutiveCount}`] = consecutiveCount;  
+      }
+      consecutiveCount = 0;
+      prevChar = char;
+    }
+  }
+
+  return counts;
+
+}
+
+
+// Public function
+
+export function transpose(arr) {
+
+  validateArray(arr);
+  
+  const successor = findFirstNonA(arr);
+
+  const { output, asIndexes } = convertAsToSuccessor(arr, successor);
+
+  const consecutiveCounts = countConsecutiveAs(output);
+
+  return {
+    transposed: output,
+    asIndexes,
+    consecutiveCounts
+  };
+
+}
+function validateArray(arr) {
+  if(!Array.isArray(arr)) {
+    throw new Error('Input must be an array');
+  }
+
+  if(arr.length === 0) {
+    throw new Error('Array cannot be empty');
+  }
+
+  // Additional checks like data types, etc
+}
+
+// // Tests
+
+// import { transpose } from './transpose';
+
+// test('transforms as expected', () => {
+//   // ...test cases  
+// });
+
+
 function convertAsToSucceedingLetter(arr) {
   const aSuccessor = findFirstNonA(arr);
   const preceedingAs = getPrecedingAs(arr);
@@ -1547,92 +1644,62 @@ function convertAsToSucceedingLetter(arr) {
   return { arr, count, indexesOfA };
 }
 
-function transpose(arr) {
-  let newArr = [];
-  let indexOfA = [];
-  let countOfA = 0;
-  const consecutiveAs = {};
-  // const consecutiveAs = new Map();
-  let previousLetter;
+// function transpose(arr) {
+//   let newArr = [];
+//   let indexOfA = [];
+//   let countOfA = 0;
+//   const consecutiveAs = {};
+//   // const consecutiveAs = new Map();
+//   let previousLetter;
  
-  // removePrecedingAs(arr, precedingAs.length);
+//   // removePrecedingAs(arr, precedingAs.length);
  
 
-  const aSuccessor = findFirstNonA(arr);
-  const precedingAs = getPrecedingAs(arr).length;
-  if (precedingAs > 0) {
-    indexOfA = [...indexOfA,...convertAsToSucceedingLetter(arr).indexesOfA]
-    console.log("------------------>",indexOfA)
-  }
+//   const aSuccessor = findFirstNonA(arr);
+//   const precedingAs = getPrecedingAs(arr).length;
+//   if (precedingAs > 0) {
+//     indexOfA = [...indexOfA,...convertAsToSucceedingLetter(arr).indexesOfA]
+//     console.log("------------------>",indexOfA)
+//   }
   
-  for (let i = 0; i < arr.length; i++) {
-    let nextLetter = arr[i + 1];
-    if (nextLetter === "A" && arr[i] !== "A") {
-      previousLetter = arr[i];
-    }
-    // console.log("i", previousLetter, arr[i], previousLetter === undefined);
-    if (arr[i] === "A" && previousLetter === undefined) {
-      indexOfA.push(i);
-      countOfA++;
-      let nonAIndex = findNextNonALetterIndex(arr, i);
-      // consecutiveAs.set(nextLetter, countOfA);
-      consecutiveAs[`${nextLetter}${nonAIndex}`] = countOfA;
+//   for (let i = 0; i < arr.length; i++) {
+//     let nextLetter = arr[i + 1];
+//     if (nextLetter === "A" && arr[i] !== "A") {
+//       previousLetter = arr[i];
+//     }
+//     // console.log("i", previousLetter, arr[i], previousLetter === undefined);
+//     if (arr[i] === "A" && previousLetter === undefined) {
+//       indexOfA.push(i);
+//       countOfA++;
+//       let nonAIndex = findNextNonALetterIndex(arr, i);
+//       // consecutiveAs.set(nextLetter, countOfA);
+//       consecutiveAs[`${nextLetter}${nonAIndex}`] = countOfA;
 
-      newArr.push(nextLetter);
-      countOfA = 0;
-    } else if (arr[i] === "A") {
-      countOfA++;
-      let nonAIndex = findNextNonALetterIndex(arr, i);
-      // consecutiveAs.set(`${previousLetter}${i}`, countOfA);
-      consecutiveAs[`${previousLetter}${nonAIndex}`] = countOfA;
-      indexOfA.push(i);
-      newArr.push(previousLetter);
-      // countOfA = 0;
-    } else {
-      countOfA = 0;
-      newArr.push(arr[i]);
-    }
-  }
+//       newArr.push(nextLetter);
+//       countOfA = 0;
+//     } else if (arr[i] === "A") {
+//       countOfA++;
+//       let nonAIndex = findNextNonALetterIndex(arr, i);
+//       // consecutiveAs.set(`${previousLetter}${i}`, countOfA);
+//       consecutiveAs[`${previousLetter}${nonAIndex}`] = countOfA;
+//       indexOfA.push(i);
+//       newArr.push(previousLetter);
+//       // countOfA = 0;
+//     } else {
+//       countOfA = 0;
+//       newArr.push(arr[i]);
+//     }
+//   }
 
-  console.log("i ", newArr);
-  console.log("i ", countOfA);
-  console.log("i ", consecutiveAs);
-  console.log("i ", indexOfA);
+//   console.log("i ", newArr);
+//   console.log("i ", countOfA);
+//   console.log("i ", consecutiveAs);
+//   console.log("i ", indexOfA);
 
-  return { newArr, indexOfA, countOfA, consecutiveAs };
-}
+//   return { newArr, indexOfA, countOfA, consecutiveAs };
+// }
 
-function transpose3(arr) {
-  let newArr = [];
-  let indexOfA = [];
-  let countOfA = 0;
-  const consecutiveAs = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    let currentLetter = arr[i];
-    let nextLetter = arr[i + 1];
-
-    if (currentLetter === "A" && nextLetter !== "A") {
-      // Start of consecutive 'A' letters
-      indexOfA.push(i);
-      countOfA = 1;
-    } else if (currentLetter === "A" && nextLetter === "A") {
-      // Consecutive 'A' letters
-      countOfA++;
-    } else if (currentLetter !== "A" && nextLetter === "A") {
-      // End of consecutive 'A' letters
-      countOfA++;
-      let nonAIndex = findNextNonALetterIndex(arr, i);
-      consecutiveAs[`${currentLetter}${nonAIndex}`] = countOfA;
-      newArr.push(currentLetter);
-    } else {
-      // Non-'A' letter
-      newArr.push(currentLetter);
-    }
-  }
-
-  return { newArr, indexOfA, countOfA, consecutiveAs };
-}
 
 function findNextNonALetterIndex(arr, currentIndexOfA) {
   for (let i = currentIndexOfA + 1; i < arr.length; i++) {
@@ -1963,6 +2030,38 @@ function buildTrees(drawNumbers, whatToAnalyze, type) {
   };
 }
 
+
+// function transpose3(arr) {
+//   let newArr = [];
+//   let indexOfA = [];
+//   let countOfA = 0;
+//   const consecutiveAs = {};
+
+//   for (let i = 0; i < arr.length; i++) {
+//     let currentLetter = arr[i];
+//     let nextLetter = arr[i + 1];
+
+//     if (currentLetter === "A" && nextLetter !== "A") {
+//       // Start of consecutive 'A' letters
+//       indexOfA.push(i);
+//       countOfA = 1;
+//     } else if (currentLetter === "A" && nextLetter === "A") {
+//       // Consecutive 'A' letters
+//       countOfA++;
+//     } else if (currentLetter !== "A" && nextLetter === "A") {
+//       // End of consecutive 'A' letters
+//       countOfA++;
+//       let nonAIndex = findNextNonALetterIndex(arr, i);
+//       consecutiveAs[`${currentLetter}${nonAIndex}`] = countOfA;
+//       newArr.push(currentLetter);
+//     } else {
+//       // Non-'A' letter
+//       newArr.push(currentLetter);
+//     }
+//   }
+
+//   return { newArr, indexOfA, countOfA, consecutiveAs };
+// }
 // function findNonALetterIndex(arr) {
 //   const result = [];
 
