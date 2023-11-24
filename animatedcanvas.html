@@ -1,20 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        canvas {
-            border: 1px solid #000;
-        }
+      canvas {
+        border: 1px solid #000;
+      }
     </style>
     <title>SVG Animation on Canvas</title>
-</head>
-<body>
+    <style>
+      .timer-container {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
     <canvas id="myCanvasss" width="400" height="400"></canvas>
-    
+    <?xml version="1.0" standalone="no"?>
+    <div class="timer-container">
+      <svg
+        id="countdown-svg"
+        width="200"
+        height="250"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Background rectangle with black border -->
+        <rect
+          x="60"
+          y="10"
+          rx="10"
+          ry="10"
+          width="120"
+          height="50"
+          stroke="black"
+          fill="transparent"
+          stroke-width="5"
+        />
+        <!-- Inner rectangle with white border (overlaying the black one) -->
+        <rect
+          id="white-rect"
+          x="60"
+          y="10"
+          rx="10"
+          ry="10"
+          width="120"
+          height="50"
+          fill="transparent"
+          stroke-width="1"
+          stroke="white"
+        />
+        <!-- path  -->
+        <path id="progress-path"
+        fill="transparent"
+        stroke="green" 
+        stroke-width="3"
+        d="M 70 10 
+               h 100 
+               a 10 10 0 0 1 10 10
+               v 30
+               a 10 10 0 0 1 -10 10
+               h -100
+               a 10 10 0 0 1 -10 -10
+               v -30
+               a 10 10 0 0 1 10 -10">
+      </path>
+        <!-- Timer text -->
+        <text
+          id="timer-text"
+          x="120"
+          y="40"
+          text-anchor="middle"
+          alignment-baseline="middle"
+          font-size="20"
+          fill="black"
+        ></text>
+      </svg>
+    </div>
+  </body>
+  <script>
+    function startCountdown(_seconds, timerLeft) {
+      const timerText = document.getElementById("timer-text");
+      const path = document.getElementById("progress-path");
+      // const path = document.createElementNS(
+      //   "http://www.w3.org/2000/svg",
+      //   "path"
+      // );
 
-    
-</body>
-<script src="canvas.js"></script>
+      // // path.setAttribute("d", "M60 10 h120 v50 h-120 z");
+      // path.setAttribute("d", "M 60 20 h 120 a 10 10 0 0 1 10 10 v 30 a 10 10 0 0 1 -10 10 h -120 a 10 10 0 0 1 -10 -10 v -30 a 10 10 0 0 1 10 -10");
+
+      // path.setAttribute("fill", "transparent");
+      // path.setAttribute("stroke", "green");
+      // path.setAttribute("stroke-width", 5);
+
+      // svg.appendChild(path);
+      let time = _seconds;
+      const maxTime = _seconds;
+      let timeRemaining = maxTime;
+      let secondsPassed = 0;
+      function updateTimer() {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+
+        const timerString = `${String(minutes).padStart(2, "0")} : ${String(
+          seconds
+        ).padStart(2, "0")}`;
+        timerText.textContent = timerString;
+
+        // // Adjust the width of the white rectangle based on the percentage remaining
+        secondsPassed++;
+
+        timeRemaining = maxTime - secondsPassed;
+        // Calculate the width of the white rectangle based on the remaining time
+        const remainingPercentage = (seconds / _seconds) * 100;
+        const newWidth = (remainingPercentage / 100) * 120;
+
+        if (newWidth !== Infinity) {
+          const totalLen = path.getTotalLength();
+
+          // Calculate dash
+          const dashLen = totalLen * (timeRemaining / maxTime);
+
+          path.style.strokeDasharray = ` ${dashLen} ${totalLen} 0`;
+        }
+
+        time--;
+
+        if (time < 0) {
+          clearInterval(interval);
+        }
+      }
+
+      updateTimer(); // Initial update
+
+      const interval = setInterval(updateTimer, 1000);
+    }
+
+    startCountdown(300);
+  </script>
+  <!-- <script src="canvas.js"></script> -->
 </html>

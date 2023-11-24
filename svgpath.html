@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .timer-container {
+      position: relative;
+    }
+
+    #white-path {
+      offset-path: path('M60,10 L180,10 L180,60 L60,60 Z');
+    }
+  </style>
+</head>
+<body>
+
+<div class="timer-container">
+  <svg id="countdown-svg" width="200" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background rectangle with black border -->
+    <rect x="60" y="10" rx="10" ry="10" width="120" height="50" fill="transparent" stroke-width="5" stroke="black"/>
+    <!-- Inner rectangle with white border (overlaying the black one) -->
+    <path id="white-path" d="" fill="transparent" stroke-width="3" stroke="green"/>
+    <!-- Timer text -->
+    <text id="timer-text" x="120" y="40" text-anchor="middle" alignment-baseline="middle" font-size="20" fill="black"></text>
+  </svg>
+ 
+  <svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background rectangle with border radius -->
+    <rect width="200" height="100" rx="20" fill="lightblue" />
+  
+    <!-- Border line around the SVG -->
+    <rect x="1" y="1" width="198" height="98" rx="19" fill="none" stroke="black" stroke-width="2" />
+  </svg>
+  
+</div>
+
+<script>
+  function startCountdown(_seconds) {
+    const timerText = document.getElementById("timer-text");
+    const whitePath = document.getElementById("white-path");
+
+    let time = _seconds;
+
+    function updateTimer() {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+
+      const timerString = `${String(minutes).padStart(2, "0")} : ${String(
+        seconds
+      ).padStart(2, "0")}`;
+      timerText.textContent = timerString;
+
+      // Calculate the offset-distance based on the remaining time
+      const remainingPercentage = (time / _seconds);
+      const offsetDistance = 100 - remainingPercentage * 100;
+
+      // Set the offset-distance property
+      whitePath.style.offsetDistance = offsetDistance + '%';
+
+      time--;
+
+      if (time < 0) {
+        clearInterval(interval);
+      }
+    }
+
+    updateTimer(); // Initial update
+
+    const interval = setInterval(updateTimer, 1000);
+  }
+
+  // Start the countdown with a time of 5 minutes (300 seconds)
+  startCountdown(30);
+</script>
+
+</body>
+</html>

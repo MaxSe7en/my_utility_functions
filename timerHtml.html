@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .timer-container {
+        position: relative;
+        width: 120px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: border-width 1s linear;
+        border-color: blue;
+        border-style: solid;
+      }
+
+      .white-rect {
+        height: 100%;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+      }
+
+      .timer-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timer-container" id="timer-container">
+      <div class="white-rect" id="white-rect"></div>
+      <div class="timer-text" id="timer-text"></div>
+    </div>
+
+    <script>
+      function startCountdown(_seconds) {
+        const timerContainer = document.getElementById("timer-container");
+        const whiteRect = document.getElementById("white-rect");
+        const timerText = document.getElementById("timer-text");
+
+        let time = _seconds;
+
+        function updateTimer() {
+          const minutes = Math.floor(time / 60);
+          const seconds = time % 60;
+
+          const timerString = `${String(minutes).padStart(2, "0")} : ${String(
+            seconds
+          ).padStart(2, "0")}`;
+          timerText.textContent = timerString;
+
+          // Calculate the border width based on the remaining time
+          const remainingPercentage = (time / _seconds) * 100;
+          const newBorderWidth = remainingPercentage / 10; // Adjust the factor as needed
+
+          // Set the border width of the timer container
+          timerContainer.style.borderWidth = `${newBorderWidth}px`;
+
+          time--;
+
+          if (time < 0) {
+            clearInterval(interval);
+          }
+        }
+
+        updateTimer(); // Initial update
+
+        const interval = setInterval(updateTimer, 1000);
+      }
+
+      // Start the countdown with a time of 5 minutes (300 seconds)
+      startCountdown(20);
+    </script>
+  </body>
+</html>

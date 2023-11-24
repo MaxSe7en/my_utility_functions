@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="timer-container">
+  <canvas id="countdown-canvas" width="200" height="50"></canvas>
+</div>
+
+<script>
+  function startCountdown(_seconds) {
+    const canvas = document.getElementById("countdown-canvas");
+    const ctx = canvas.getContext("2d");
+    const width = canvas.width;
+    const height = canvas.height;
+
+    let time = _seconds;
+
+    function updateTimer() {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+
+      const timerString = `${String(minutes).padStart(2, "0")} : ${String(seconds).padStart(2, "0")}`;
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw the background rectangle with black border
+      ctx.strokeStyle = "black";
+      ctx.strokeRect(0, 0, width, height);
+
+      // Draw the inner rectangle with white border (overlaying the black one)
+      ctx.fillStyle = "white";
+      ctx.fillRect(1, 1, width - 2, height - 2);
+
+      // Draw the timer text
+      ctx.font = "20px Arial";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(timerString, width / 2, height / 2);
+
+      // Calculate the width of the white rectangle based on the remaining time
+      const remainingPercentage = (time / _seconds);
+      const newWidth = (1 - remainingPercentage) * (width - 2);
+
+      // Draw the dynamic white rectangle
+      ctx.fillStyle = "white";
+      ctx.fillRect(1, 1, newWidth, height - 2);
+
+      time--;
+
+      if (time < 0) {
+        clearInterval(interval);
+      }
+    }
+
+    updateTimer(); // Initial update
+
+    const interval = setInterval(updateTimer, 1000);
+  }
+
+  // Start the countdown with a time of 5 minutes (300 seconds)
+  startCountdown(300);
+</script>
+
+</body>
+</html>
