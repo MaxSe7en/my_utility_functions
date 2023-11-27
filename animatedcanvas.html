@@ -96,7 +96,7 @@
       // path.setAttribute("stroke-width", 5);
 
       // svg.appendChild(path);
-      let time = _seconds;
+      let time = timerLeft;
       const maxTime = _seconds;
       let timeRemaining = maxTime;
       let secondsPassed = 0;
@@ -112,7 +112,7 @@
         // // Adjust the width of the white rectangle based on the percentage remaining
         secondsPassed++;
 
-        timeRemaining = maxTime - secondsPassed;
+        timeRemaining = timerLeft - secondsPassed;
         // Calculate the width of the white rectangle based on the remaining time
         const remainingPercentage = (seconds / _seconds) * 100;
         const newWidth = (remainingPercentage / 100) * 120;
@@ -138,7 +138,7 @@
       const interval = setInterval(updateTimer, 1000);
     }
 
-    startCountdown(300);
+    startCountdown(60, 30);
   </script>
   <!-- <script src="canvas.js"></script> -->
 </html>
