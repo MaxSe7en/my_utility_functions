@@ -398,8 +398,15 @@ function analyzeFast3Draw(drawNumbers, whatToAnalyze) {
   const results = {
     "Big/Small": [],
   };
+  //   B/S Sum: Sum of ≥ 11 as "Big"; ≤ 10 as "Small."
+  let ball;
+  for (const drawNum of drawNumbers) {
+    if (whatToAnalyze === "sum") {
+      ball = drawNum.reduce((a, b) => a + b, 0);
+      results[form].push(formsAnalyzer(form, ball, [11, 18]));
+    }
+  }
 
-  results["Big/Small"] = drawNumbers.map((number) => (number > 3 ? "B" : "S"));
   return results;
 }
 
