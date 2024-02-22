@@ -394,14 +394,14 @@ function pk10DTDrawNumberCutter(place, drawNum) {
 }
 
 //drawNumbers eg [[1,2,5],[1,2,3], [4,2,3]]//numbers between 1 and 6
-function analyzeFast3Draw(drawNumbers, whatToAnalyze) {
+function analyzeFast3Draw(drawNumbers, place) {
   const results = {
     "Big/Small": [],
   };
   //   B/S Sum: Sum of ≥ 11 as "Big"; ≤ 10 as "Small."
   let ball;
   for (const drawNum of drawNumbers) {
-    if (whatToAnalyze === "sum") {
+    if (place === "sum") {
       ball = drawNum.reduce((a, b) => a + b, 0);
       results[form].push(formsAnalyzer(form, ball, [11, 18]));
     }
@@ -409,6 +409,33 @@ function analyzeFast3Draw(drawNumbers, whatToAnalyze) {
 
   return results;
 }
+//drawNumbers eg. [[1, 2, 3], [4, 5, 6], [1,6,8]]//numbers between 0 and 9 
+function analyze3dDraw(drawNumbers, place, form){
+  // form: ["Big/Small", "Odd/Even", "P/C", "B/S Sum", "O/E Sum", "B/S Tail Sum", "P/C Tail Sum"],
+  const results = {
+    "Big/Small": [],
+    "Odd/Even": [],
+    "P/C": [],
+    "B/S Sum": [],
+    "O/E Sum": [],
+    "B/S Tail Sum": [],
+    "P/C Tail Sum": [],
+  };
+  let ball;
+  for (const drawNum of drawNumbers) {
+    if (place === "sum") {
+      ball = drawNum.reduce((a, b) => a + b, 0);
+      results[form].push(formsAnalyzer(form, ball, [14, 27]));
+    } else {
+      ball = drawNum[parseInt(place) - 1];
+      results[form].push(formsAnalyzer(form, ball));
+    }
+  }
+
+  return results;
+}
+
+
 
 // console.log(analyze5dDraw(drawNumbers5d, "sum", "Big/Small"));
 // console.log(analyze5dDraw(drawNumbers5d, "sum", "Odd/Even"));
