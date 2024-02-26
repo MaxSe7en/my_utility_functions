@@ -1,19 +1,3 @@
-// const results = new Map();
-// results.set(1, {
-//   "Big/Small": [], // Add an array to store detailed dragon-tiger-tie counts
-//   "Odd/Even": [], // Add an array to store detailed
-//   "P/C": [],
-//   "Dragon/Tiger": [],
-// });
-// results.set(2, {
-//   "Big/Small": [],
-//   "Odd/Even": [],
-//   "Dragon/Tiger": [],
-// });
-// results.set(3, {
-//     "Big/Small": []
-// });
-
 const drawNumbers5d = [
   //   [2, 1, 2, 4, 6],
   //   [4, 1, 9, 4, 5],
@@ -229,6 +213,575 @@ const drawNumbersPk10 = [
   [8, 2, 4, 5, 9, 6, 7, 3, 10, 1],
 ].reverse();
 
+const drawNumbersHappy8 = [
+  [
+    "06",
+    "08",
+    "15",
+    "17",
+    "19",
+    "23",
+    "33",
+    "36",
+    "41",
+    "44",
+    "50",
+    "55",
+    "56",
+    "59",
+    "60",
+    "61",
+    "64",
+    "68",
+    "69",
+    "72",
+  ],
+  [
+    "06",
+    "08",
+    "15",
+    "17",
+    "19",
+    "23",
+    "33",
+    "36",
+    "41",
+    "44",
+    "50",
+    "55",
+    "56",
+    "59",
+    "60",
+    "61",
+    "64",
+    "68",
+    "69",
+    "72",
+  ],
+  [
+    "01",
+    "03",
+    "14",
+    "22",
+    "28",
+    "29",
+    "31",
+    "32",
+    "36",
+    "37",
+    "41",
+    "43",
+    "45",
+    "49",
+    "56",
+    "59",
+    "60",
+    "62",
+    "72",
+    "80",
+  ],
+  [
+    "01",
+    "03",
+    "14",
+    "22",
+    "28",
+    "29",
+    "31",
+    "32",
+    "36",
+    "37",
+    "41",
+    "43",
+    "45",
+    "49",
+    "56",
+    "59",
+    "60",
+    "62",
+    "72",
+    "80",
+  ],
+  ["01", "03", "14", "22", "28", "29", "31", "32", "1000"],
+  ["810"],
+  ["811"],
+  ["812"],
+  [
+    "01",
+    "07",
+    "12",
+    "13",
+    "16",
+    "17",
+    "21",
+    "28",
+    "31",
+    "34",
+    "40",
+    "41",
+    "50",
+    "53",
+    "58",
+    "59",
+    "64",
+    "70",
+    "71",
+    "76",
+  ],
+  [
+    "07",
+    "17",
+    "21",
+    "22",
+    "24",
+    "29",
+    "30",
+    "35",
+    "36",
+    "38",
+    "44",
+    "47",
+    "51",
+    "53",
+    "56",
+    "57",
+    "60",
+    "64",
+    "69",
+    "78",
+  ],
+  [
+    "04",
+    "05",
+    "09",
+    "15",
+    "20",
+    "21",
+    "24",
+    "27",
+    "30",
+    "33",
+    "38",
+    "39",
+    "41",
+    "54",
+    "56",
+    "66",
+    "69",
+    "72",
+    "73",
+    "80",
+  ],
+  [
+    "02",
+    "06",
+    "07",
+    "12",
+    "16",
+    "20",
+    "25",
+    "27",
+    "31",
+    "35",
+    "37",
+    "44",
+    "45",
+    "48",
+    "49",
+    "53",
+    "54",
+    "57",
+    "76",
+    79,
+  ],
+];
+
+const drawNumbersMark6 = [
+  ["10", "20", "16", "13", "32", "25", "06"],
+  ["30", "01", "38", "06", "19", "31", "49"],
+  ["16", "31", "26", "11", "08", "35", "46"],
+  ["24", "26", "32", "45", "23", "01", "37"],
+  ["34", "20", "04", "24", "09", "38", "26"],
+  ["36", "23", "42", "11", "08", "31", "06"],
+  ["43", "27", "04", "20", "17", "21", "03"],
+  ["37", "06", "33", "35", "43", "44", "36"],
+  ["08", "10", "42", "04", "12", "02", "30"],
+  ["09", 36, 26, "06", 17, 30, "49"],
+  ["26", "28", "22", "48", "33", "45", "03"],
+  ["21", "08", "06", "43", "16", "20", "45"],
+];
+
+// ====================================================================================
+
+const colors = {
+  red: "#e8345c",
+  blue: "#6b9fec",
+  green: "#30ae5d",
+};
+
+const { red, blue, green } = colors;
+
+const ballsWithColors = [
+  {
+    number: "01",
+    color: red,
+    animal: "rabbit",
+  },
+  {
+    number: "02",
+    color: red,
+    animal: "tiger",
+  },
+  {
+    number: "03",
+    color: blue,
+    animal: "ox",
+  },
+  {
+    number: "04",
+    color: blue,
+    animal: "rat",
+  },
+  {
+    number: "05",
+    color: green,
+    animal: "pig",
+  },
+  {
+    number: "06",
+    color: green,
+    animal: "dog",
+  },
+  {
+    number: "07",
+    color: red,
+    animal: "rooster",
+  },
+  {
+    number: "08",
+    color: red,
+    animal: "monkey",
+  },
+  {
+    number: "09",
+    color: blue,
+    animal: "goat",
+  },
+  {
+    number: "10",
+    color: blue,
+    animal: "horse",
+  },
+  {
+    number: "11",
+    color: green,
+    animal: "snake",
+  },
+  {
+    number: "12",
+    color: red,
+    animal: "dragon",
+  },
+  {
+    number: "13",
+    color: red,
+    animal: "rabbit",
+  },
+  {
+    number: "14",
+    color: blue,
+    animal: "tiger",
+  },
+  {
+    number: "15",
+    color: blue,
+    animal: "ox",
+  },
+  {
+    number: "16",
+    color: green,
+    animal: "rat",
+  },
+  {
+    number: "17",
+    color: green,
+    animal: "pig",
+  },
+  {
+    number: "18",
+    color: red,
+    animal: "dog",
+  },
+  {
+    number: "19",
+    color: red,
+    animal: "rooster",
+  },
+  {
+    number: "20",
+    color: blue,
+    animal: "monkey",
+  },
+  {
+    number: "21",
+    color: green,
+    animal: "goat",
+  },
+  {
+    number: "22",
+    color: green,
+    animal: "horse",
+  },
+  {
+    number: "23",
+    color: red,
+    animal: "snake",
+  },
+  {
+    number: "24",
+    color: red,
+    animal: "dragon",
+  },
+  {
+    number: "25",
+    color: blue,
+    animal: "rabbit",
+  },
+  {
+    number: "26",
+    color: blue,
+    animal: "tiger",
+  },
+  {
+    number: "27",
+    color: green,
+    animal: "ox",
+  },
+  {
+    number: "28",
+    color: green,
+    animal: "rat",
+  },
+  {
+    number: "29",
+    color: red,
+    animal: "pig",
+  },
+  {
+    number: "30",
+    color: red,
+    animal: "dog",
+  },
+  {
+    number: "31",
+    color: blue,
+    animal: "rooster",
+  },
+  {
+    number: "32",
+    color: green,
+    animal: "monkey",
+  },
+  {
+    number: "33",
+    color: green,
+    animal: "goat",
+  },
+  {
+    number: "34",
+    color: red,
+    animal: "horse",
+  },
+  {
+    number: "35",
+    color: red,
+    animal: "snake",
+  },
+  {
+    number: "36",
+    color: blue,
+    animal: "dragon",
+  },
+  {
+    number: "37",
+    color: blue,
+    animal: "rabbit",
+  },
+  {
+    number: "38",
+    color: green,
+    animal: "tiger",
+  },
+  {
+    number: "39",
+    color: green,
+    animal: "ox",
+  },
+  {
+    number: "40",
+    color: red,
+    animal: "rat",
+  },
+  {
+    number: "41",
+    color: blue,
+    animal: "pig",
+  },
+  {
+    number: "42",
+    color: blue,
+    animal: "dog",
+  },
+  {
+    number: "43",
+    color: green,
+    animal: "rooster",
+  },
+  {
+    number: "44",
+    color: green,
+    animal: "monkey",
+  },
+  {
+    number: "45",
+    color: red,
+    animal: "goat",
+  },
+  {
+    number: "46",
+    color: red,
+    animal: "horse",
+  },
+  {
+    number: "47",
+    color: blue,
+    animal: "snake",
+  },
+  {
+    number: "48",
+    color: blue,
+    animal: "dragon",
+  },
+  {
+    number: "49",
+    color: green,
+    animal: "rabbit",
+  },
+];
+const {
+  ox,
+  rabbit,
+  dragon,
+  horse,
+  monkey,
+  pig,
+  rat,
+  tiger,
+  snake,
+  goat,
+  rooster,
+  dog,
+} = splitNumbersForMark6(ballsWithColors.map((ball) => ball.number));
+
+// console.log(
+//   "xxxx",
+//   ballsWithColors.map((ball) => ball.number)
+// );
+function generateArray(startingPoint, length = 4) {
+  const result = [];
+  for (let i = 0; i < length; i++) {
+    const number = startingPoint + i * 12;
+    const formattedNumber = number < 10 ? `0${number}` : `${number}`;
+    result.push(formattedNumber);
+  }
+  return result;
+}
+
+function splitNumbersForMark6(
+  // start: number,
+  // end: number,
+  numbers
+) {
+  const buttons = numbers;
+  // .slice(start, end + 1);
+  const small = buttons.slice(0, buttons.length / 2);
+  const big = buttons.slice(buttons.length / 2, buttons.length);
+  const even = buttons.filter((number) => number % 2 === 0);
+  const odd = buttons.filter((number) => number % 2 !== 0);
+  const all = numbers;
+  const rat = generateArray(4);
+  const ox = generateArray(3);
+  const tiger = generateArray(2);
+  const rabbit = generateArray(1, 5);
+  const dragon = generateArray(12);
+  const snake = generateArray(11);
+  const horse = generateArray(10);
+  const goat = generateArray(9);
+  const monkey = generateArray(8);
+  const rooster = generateArray(7);
+  const dog = generateArray(6);
+  const pig = generateArray(5);
+  const red = ballsWithColors.filter(
+    (ball) => ball.color === colors.red && ball.number
+  );
+  const blue = ballsWithColors.filter(
+    (ball) => ball.color === colors.blue && ball.number
+  );
+  const green = ballsWithColors.filter(
+    (ball) => ball.color === colors.green && ball.number
+  );
+  const redBig = red.filter((ball) => ball.number > 24);
+  const smallRed = red.filter((ball) => ball.number < 25);
+  const oddRed = red.filter((ball) => ball.number % 2 !== 0);
+  const evenRed = red.filter((ball) => ball.number % 2 === 0);
+  const blueBig = blue.filter((ball) => ball.number > 24);
+  const smallBlue = blue.filter((ball) => ball.number < 25);
+  const oddBlue = blue.filter((ball) => ball.number % 2 !== 0);
+  const evenBlue = blue.filter((ball) => ball.number % 2 === 0);
+  const greenBig = green.slice(0, -1).filter((ball) => ball.number > 24);
+  const smallGreen = green.slice(0, -1).filter((ball) => ball.number < 25);
+  const oddGreen = green.slice(0, -1).filter((ball) => ball.number % 2 !== 0);
+  const evenGreen = green.slice(0, -1).filter((ball) => ball.number % 2 === 0);
+
+  return {
+    small,
+    big,
+    even,
+    odd,
+    all,
+    buttons,
+    rat,
+    ox,
+    tiger,
+    rabbit,
+    dragon,
+    snake,
+    horse,
+    goat,
+    monkey,
+    rooster,
+    dog,
+    pig,
+    red,
+    blue,
+    green,
+    redBig,
+    smallRed,
+    oddRed,
+    evenRed,
+    blueBig,
+    smallBlue,
+    oddBlue,
+    evenBlue,
+    greenBig,
+    smallGreen,
+    oddGreen,
+    evenGreen,
+  };
+}
+
+let answer = [ox, rabbit, dragon, horse, monkey, pig].flat();
+// console.log(answer, "answer");
 const results = {
   1: {
     "Big/Small": [],
@@ -251,9 +804,67 @@ function getFormBigSmall(number, range) {
   return num >= range[0] && num <= range[1] ? "B" : "S";
 }
 
+function getFormBigSmallTie(number, range) {
+  const num = parseInt(number, 10);
+  if (number == range[1]) return "T";
+  return num > range[0] ? "B" : num < range[0] ? "S" : "T";
+}
+
+function getFormOddEvenTie(number, range) {
+  const num = parseInt(number, 10);
+  if (number == range[1]) return "T";
+  return num % 2 === 0 ? "E" : num % 2 !== 0 ? "O" : "T";
+}
+
+//rule for b/s sum
+// B/S Sum of Extra head&tail: Sum of 1st and 2nd Extra No. draw ≥ 7 as "Sum B"; ≤ 6 as "Sum S";
+// Extra No. 49 as Tie, refund. E.g. Extra No. 07, Bet「Sum B」
+function getFormBigSmallSum(number, range) {
+  const num = parseInt(number, 10);
+  if (number == range[1]) return "T";
+  return num >= range[0] ? "B" : "S";
+}
+
+//rule for o/e sum
+// O/E Sum of extra head&tail: Sum of 1st and 2nd Extra No. last digit draw as 1, 3, 5, 7, 9 as "Sum O"; 0, 2,4, 6, 8 as "Sum E." Extra No. 49 as Tie, refund.
+function getFormOddEvenSum(number, range) {
+  const num = parseInt(number, 10);
+  if (number == range[1]) return "T";
+  return num % 2 !== 0 ? "O" : "E";
+}
+
+//rule for sky/ground
+
+function getFormSkyGround(number, range) {
+  let drawNumbers = [ox, rabbit, dragon, horse, monkey, pig].flat();
+  console.log(drawNumbers, number, "answerdsfsfdsf");
+
+  if (range[0] == number) {
+    return "T";
+  }
+
+  let results = drawNumbers.includes(" 09") ? "S" : "G";
+  console.log("results", results, "results");
+  return results;
+}
+
 function getFormOddEven(number) {
   const num = parseInt(number, 10);
   return num % 2 === 0 ? "E" : "O";
+}
+
+function getFormMoreOddEven(drawNumbers) {
+  let odd = drawNumbers.filter((num) => num % 2 !== 0).length;
+  let even = drawNumbers.length - odd;
+  return odd > even ? "O" : odd < even ? "E" : "T";
+}
+
+// 3.More First/Last
+// Winning No. 01-40 as "First"; 41-80 as "Last." Winning No. "First" more as 「More First」; Or else 「More Last」; Equal will Tie.
+function getFormMoreFirstLast(drawNumbers) {
+  let first = drawNumbers.filter((num) => num <= 40).length;
+  let last = drawNumbers.length - first;
+  return first > last ? "F" : first < last ? "L" : "T";
 }
 
 function getFormPrimeComposite(num) {
@@ -285,7 +896,7 @@ function getFormDragonTiger(ballsToCompareArr, putAny) {
 }
 
 // 5D PK10 FAST3 3D 11x5 Mark6 Happy8
-function fnSelector(drawNumbers, whatToAnalyze, lotteryId) {
+function fnSelector(drawNumbers, place, lotteryId) {
   const lotteryIdFn = {
     1: analyze5dDraw,
     2: analyzePK10Draw,
@@ -297,7 +908,7 @@ function fnSelector(drawNumbers, whatToAnalyze, lotteryId) {
   };
 
   if (lotteryIdFn.hasOwnProperty(lotteryId)) {
-    return lotteryIdFn[lotteryId](drawNumbers, whatToAnalyze);
+    return lotteryIdFn[lotteryId](drawNumbers, place);
   } else {
     return "Invalid lotteryId";
   }
@@ -306,9 +917,16 @@ function fnSelector(drawNumbers, whatToAnalyze, lotteryId) {
 function formsAnalyzer(form, num, putAny) {
   const formFn = {
     "Big/Small": getFormBigSmall,
+    "Big/Small/Tie": getFormBigSmallTie,
+    "Odd/Even/Tie": getFormOddEvenTie,
     "Odd/Even": getFormOddEven,
     "P/C": getFormPrimeComposite,
     "Dragon/Tiger": getFormDragonTiger,
+    "More Odd/Even": getFormMoreOddEven,
+    "More First/Last": getFormMoreFirstLast,
+    "B/S Sum": getFormBigSmallSum,
+    "O/E Sum": getFormOddEvenSum,
+    "Sky/Ground": getFormSkyGround,
   };
   if (formFn.hasOwnProperty(form)) {
     return formFn[form](num, putAny);
@@ -328,7 +946,7 @@ function analyze5dDraw(drawNumbers, place, form) {
   let ball;
 
   for (const drawNum of drawNumbers) {
-    if (place === "sum") {
+    if (place === "Sum") {
       ball = drawNum.reduce((a, b) => a + b, 0);
       results[form].push(formsAnalyzer(form, ball, [23, 45]));
       // console.log(ball, "ball");
@@ -409,8 +1027,8 @@ function analyzeFast3Draw(drawNumbers, place) {
 
   return results;
 }
-//drawNumbers eg. [[1, 2, 3], [4, 5, 6], [1,6,8]]//numbers between 0 and 9 
-function analyze3dDraw(drawNumbers, place, form){
+//drawNumbers eg. [[1, 2, 3], [4, 5, 6], [1,6,8]]//numbers between 0 and 9
+function analyze3dDraw(drawNumbers, place, form) {
   // form: ["Big/Small", "Odd/Even", "P/C", "B/S Sum", "O/E Sum", "B/S Tail Sum", "P/C Tail Sum"],
   const results = {
     "Big/Small": [],
@@ -435,7 +1053,60 @@ function analyze3dDraw(drawNumbers, place, form){
   return results;
 }
 
+function analyzeHappy8Draw(drawNumbers, place, form) {
+  // form: ["Big/Small", "Odd/Even", "P/C", "B/S Sum", "O/E Sum", "B/S Tail Sum", "P/C Tail Sum"],
+  const results = {
+    "Big/Small/Tie": [],
+    "Odd/Even": [],
+    "More First/Last": [],
+    "More Odd/Even": [],
+  };
+  let ball;
+  for (const drawNum of drawNumbers) {
+    if (form === "More Odd/Even" || form === "More First/Last") {
+      results[form].push(formsAnalyzer(form, drawNum));
+    } else {
+      ball = drawNum.reduce((a, b) => +a + +b, 0);
+      results[form].push(formsAnalyzer(form, ball, [810]));
+    }
+  }
 
+  return results;
+}
+
+function analyze11x5Draw(drawNumbers, place, form) {}
+
+function analyzeMark6Draw(drawNumbers, place, form) {
+  const results = {
+    "Big/Small/Tie": [],
+    "Odd/Even/Tie": [],
+    "B/S Sum": [],
+    "O/E Sum": [],
+    "Sky/Ground": [],
+    "First/Last": [],
+    "Poultry/Beast": [],
+    "Tail B/S": [],
+    "Big Small(No Tie)": [],
+  };
+
+  let ball;
+  for (const drawNum of drawNumbers) {
+    if (place === "Extra No.") {
+      if (form == "B/S Sum" || form == "O/E Sum") {
+        ball = drawNum[6].split("").reduce((a, b) => +a + +b, 0);
+        results[form].push(formsAnalyzer(form, ball, [7, 13]));
+      } else if (form == "Sky/Ground") {
+        ball = drawNum[6];
+        results[form].push(formsAnalyzer(form, ball, [49]));
+      } else {
+        ball = drawNum[6];
+        results[form].push(formsAnalyzer(form, ball, [25, 49, 7]));
+      }
+    }
+  }
+
+  return results;
+}
 
 // console.log(analyze5dDraw(drawNumbers5d, "sum", "Big/Small"));
 // console.log(analyze5dDraw(drawNumbers5d, "sum", "Odd/Even"));
@@ -449,5 +1120,19 @@ function analyze3dDraw(drawNumbers, place, form){
 // console.log(analyzePK10Draw(drawNumbersPk10, "1st", "Big/Small"));
 // console.log(analyzePK10Draw(drawNumbersPk10, "1st", "Odd/Even"));
 // console.log(analyzePK10Draw(drawNumbersPk10, "1st", "Dragon/Tiger"));
-console.log(analyzePK10Draw(drawNumbersPk10, "6th", "Dragon/Tiger"));
-console.log(analyzePK10Draw(drawNumbersPk10, "6th", "Big/Small"));
+// console.log(analyzePK10Draw(drawNumbersPk10, "6th", "Dragon/Tiger"));
+// console.log(analyzePK10Draw(drawNumbersPk10, "6th", "Big/Small"));
+// console.log(
+//   "fiverrrrrr ",
+//   analyzeHappy8Draw(drawNumbersHappy8, "Sum", "Odd/Even")
+// );
+// console.log(
+//   "fiverrrrrr ",
+//   analyzeHappy8Draw(drawNumbersHappy8, "Sum", "More First/Last")
+// );
+// analyzeMark6Draw
+// console.log(analyzeMark6Draw(drawNumbersMark6, "Extra No.", "Big/Small/Tie"));
+// console.log(analyzeMark6Draw(drawNumbersMark6, "Extra No.", "Odd/Even/Tie"));
+// console.log(analyzeMark6Draw(drawNumbersMark6, "Extra No.", "B/S Sum"));
+// console.log(analyzeMark6Draw(drawNumbersMark6, "Extra No.", "O/E Sum"));
+console.log(analyzeMark6Draw(drawNumbersMark6, "Extra No.", "Sky/Ground"));
