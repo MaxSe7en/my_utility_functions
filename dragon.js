@@ -1076,7 +1076,7 @@ function createTable(rows, cols) {
   }
 }
 
-buildTree(drawNumbers, "sum", "D/T")["tree"].forEach((rowData, index) => {
+buildTreesss(drawNumbers, "sum", "D/T")["tree"].forEach((rowData, index) => {
   const [rowIndex, colIndex, value] = rowData;
   const row = table.rows[rowIndex];
   if (row) {
@@ -1297,10 +1297,11 @@ function buildTreesss(drawNumbers, whatToAnalyze, type) {
   let dua = {};
   const { transposed, asIndexes, consecutiveCounts } =
     transpose(analyzedResults);
-  // const img = transpose(analyzedResults);
-  console.log("img", consecutiveCounts);
+  const img = transpose(analyzedResults);
+  console.log("img", img);
   transposed.forEach((value, i) => {
     let previousLetter = transposed[i - 1];
+    console.log(transposed)
     let currentLetter = transposed[i];
     let nextLetter = transposed[i + 1];
     let newItem = [];
@@ -1903,6 +1904,7 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
   let whenColIncreaseByMaxRows = 0;
   let dua = {};
   const img = transpose(analyzedResults);
+  console.log("img", analyzedResults);
   console.log("img", img["transposed"]);
   img["transposed"].forEach((value, i) => {
     let previousLetter = img["transposed"][i - 1];
