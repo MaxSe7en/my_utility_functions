@@ -524,7 +524,8 @@ function analyzeDraw(drawNumbers, whatToAnalyze, lottery_id = 1) {
     results[lottery_id]["Dragon/Tiger"].push(dragonTiger);
   }
 
-  console.log(results["Dragon/Tiger"]);
+  console.log(results[lottery_id]["Big/Small"]);
+  console.log(results);
   // console.log("results",results["D/T"])
   return results;
 }
@@ -762,7 +763,7 @@ function transpose(arr) {
 }
 
 const timerStart = performance.now();
-buildTree(drawNumbers, "sum", "D/T");
+buildTree(drawNumbers5d, "1st", "Big/Small");
 const timerEnd = performance.now();
 
 function buildDerivedRoadTree(road) {

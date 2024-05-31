@@ -103,6 +103,18 @@ const drawNumbers = [
 ].reverse();
 //mother.reverse();
 // console.log("drawNumbers", mother);
+function getBigSmallForBall(ball) {
+  return ball >= 0 && ball <= 4 ? "S" : "B";
+}
+function getPrimeComposite(ball) {
+  const primes = [1, 2, 3, 5, 7];
+
+  if (primes.includes(ball)) {
+    return "P";
+  } else {
+    return "C";
+  }
+}
 
 function getNewRowAndCol(currentLetter, previousLetter, row, col) {
   // Logic to determine new row and col
@@ -1075,27 +1087,116 @@ function createTable(rows, cols) {
     }
   }
 }
+const treees = [
+  [0, 0, "B"],
+  [1, 0, "B"],
+  [0, 1, "S"],
+  [1, 1, "S"],
+  [0, 2, "B"],
+  [1, 2, "B"],
+  [2, 2, "B"],
+  [3, 2, "B"],
+  [0, 3, "S"],
+  [1, 3, "S"],
+  [0, 4, "B"],
+  [1, 4, "B"],
+  [2, 4, "B"],
+  [0, 5, "S"],
+  [1, 5, "S"],
+  [0, 6, "B"],
+  [1, 6, "B"],
+  [2, 6, "B"],
+  [3, 6, "B"],
+  [4, 6, "B"],
+  [0, 7, "S"],
+  [0, 8, "B"],
+  [1, 8, "B"],
+  [2, 8, "B"],
+  [0, 9, "S"],
+  [1, 9, "S"],
+  [2, 9, "S"],
+  [0, 10, "B"],
+  [1, 10, "B"],
+  [0, 11, "S"],
+  [1, 11, "S"],
+  [2, 11, "S"],
+  [3, 11, "S"],
+  [0, 12, "B"],
+  [1, 12, "B"],
+  [0, 13, "S"],
+  [1, 13, "S"],
+  [0, 14, "B"],
+  [1, 14, "B"],
+  [2, 14, "B"],
+  [3, 14, "B"],
+  [4, 14, "B"],
+  [5, 14, "B"],
+  [5, 15, "B"],
+  [5, 16, "B"],
+  [0, 15, "S"],
+  [1, 15, "S"],
+  [0, 16, "B"],
+  [1, 16, "B"],
+  [0, 17, "S"],
+  [0, 18, "B"],
+  [1, 18, "B"],
+  [0, 19, "S"],
+  [1, 19, "S"],
+  [0, 20, "B"],
+  [1, 20, "B"],
+  [0, 21, "S"],
+  [0, 22, "B"],
+  [1, 22, "B"],
+  [0, 23, "S"],
+  [1, 23, "S"],
+];
 
-buildTreesss(drawNumbers, "sum", "D/T")["tree"].forEach((rowData, index) => {
-  const [rowIndex, colIndex, value] = rowData;
-  const row = table.rows[rowIndex];
-  if (row) {
-    const cell = row.cells[colIndex];
-    if (cell) {
-      cell.textContent = index + " " + value; //+ " " + colIndex;
-      // cell.textContent = rowIndex + " " + value + " " + colIndex;
-      // cell.textContent = value;
+// console.log(buildTreesss(drawNumbers, "1st", "Big/Small")["tree"]);
+
+buildTreesss(drawNumbers.slice(drawNumbers.length/2), "1st", "Big/Small")["tree"]
+treees
+.forEach(
+  (rowData, index) => {
+    const [rowIndex, colIndex, value] = rowData;
+    const row = table.rows[rowIndex];
+    if (row) {
+      const cell = row.cells[colIndex];
+      if (cell) {
+        // cell.textContent = index + " " + value; //+ " " + colIndex;
+        cell.textContent = rowIndex + " " + value + " " + colIndex;
+        // cell.textContent = value;
+      }
+      if (value === "S") {
+        cell.style.color = "blue";
+      } else if (value === "B") {
+        cell.style.color = "red";
+      } else if (value === "A") {
+        cell.style.color = "green";
+      }
+      cell.style.fontWeight = "bold";
     }
-    if (value === "D") {
-      cell.style.color = "blue";
-    } else if (value === "T") {
-      cell.style.color = "red";
-    } else if (value === "A") {
-      cell.style.color = "green";
-    }
-    cell.style.fontWeight = "bold";
   }
-});
+);
+// buildTreesss(drawNumbers, "1st", "Big/Small")["tree"].forEach((rowData, index) => {
+//   const [rowIndex, colIndex, value] = rowData;
+//   const row = table.rows[rowIndex];
+//   if (row) {
+//     const cell = row.cells[colIndex];
+//     if (cell) {
+//       cell.textContent = index + " " + value; //+ " " + colIndex;
+//       // cell.textContent = rowIndex + " " + value + " " + colIndex;
+//       // cell.textContent = value;
+//     }
+//     if (value === "D") {
+//       cell.style.color = "blue";
+//     } else if (value === "T") {
+//       cell.style.color = "red";
+//     } else if (value === "A") {
+//       cell.style.color = "green";
+//     }
+//     cell.style.fontWeight = "bold";
+//   }
+// });
 function createDerivedTable(rows, cols) {
   for (let i = 0; i < rows; i++) {
     const row = derivedTable.insertRow();
@@ -1271,7 +1372,7 @@ function analyzeDraw(drawNumbers, whatToAnalyze) {
     results["D/T"].push(dragonTiger);
   }
 
-  console.log("results", results["D/T"]);
+  // console.log("results", results["D/T"]);
   return results;
 }
 
@@ -1298,10 +1399,10 @@ function buildTreesss(drawNumbers, whatToAnalyze, type) {
   const { transposed, asIndexes, consecutiveCounts } =
     transpose(analyzedResults);
   const img = transpose(analyzedResults);
-  console.log("img", img);
+  // console.log("img", img);
   transposed.forEach((value, i) => {
     let previousLetter = transposed[i - 1];
-    console.log(transposed)
+    // console.log(transposed)
     let currentLetter = transposed[i];
     let nextLetter = transposed[i + 1];
     let newItem = [];
@@ -1311,14 +1412,14 @@ function buildTreesss(drawNumbers, whatToAnalyze, type) {
     } //&& currentLetter !== letterinobj && countsinobj >= 2 row++
     if (previousLetter !== undefined && currentLetter !== previousLetter) {
       // if(currentLetter !== img["consecutiveAs"][`${previousLetter}${i}`] && countsinobj >= 2)
-      console.log(
-        "dd",
-        img["consecutiveAs"][`${previousLetter}${i}`],
-        JSON.stringify(img["consecutiveAs"]),
-        previousLetter,
-        currentLetter,
-        i
-      );
+      // console.log(
+      //   "dd",
+      //   // img["consecutiveAs"][`${previousLetter}${i}`],
+      //   // JSON.stringify(img["consecutiveAs"]),
+      //   previousLetter,
+      //   currentLetter,
+      //   i
+      // );
       if (
         type === "D/T" &&
         img["consecutiveAs"][`${previousLetter}${i}`] >= 2 &&
@@ -1338,7 +1439,7 @@ function buildTreesss(drawNumbers, whatToAnalyze, type) {
 
       let prevCol = col - 1;
       const prev = dua[row + "|" + prevCol];
-      console.log("prev", prev);
+      // console.log("prev", prev);
       //handles branching where I skip a grid col
       if (prev === currentLetter && type !== "D/T") {
         row--;
@@ -1370,8 +1471,8 @@ function buildTreesss(drawNumbers, whatToAnalyze, type) {
     }
 
     dua[row + "|" + col] = currentLetter;
-    // console.log("indexof", img["indexOfA"])
-    newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
+    // console.log("indexof", img)
+    // newItem = [row, col, img["indexOfA"].includes(i) ? "A" : currentLetter];
 
     // if(img["indexOfA"].includes(i)){
     //   countConsecutiveAs++; // count consecutive As
@@ -1560,7 +1661,7 @@ function countConsecutiveAs(arr) {
 
 // Public function
 
- function transpose(arr) {
+function transpose(arr) {
   validateArray(arr);
 
   const successor = findFirstNonA(arr);
@@ -1877,7 +1978,7 @@ function buildDerivedRoadTree(road) {
         if (row === 0 && col === 12) {
             console.log("sitsss", currentLetter, previousLetter, countLetterA)
             // alert(currentLetter)
-            console.log("sitsss", road.slice(13, 24))
+            console.log("sitsss", road.slice(13, 1))
         }
     }
 
