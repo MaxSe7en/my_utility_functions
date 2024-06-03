@@ -152,8 +152,8 @@ const dragonTree = [
   [5, 17, "S"],
   [5, 18, "S"],
   [5, 19, "S"],
-  [0, 20, "B"],
-  [1, 20, "B"],
+  // [0, 20, "B"],
+  // [1, 20, "B"],
 ];
 
 const singleHopTree = [
@@ -444,6 +444,178 @@ const consecutiveTree = [
   // [1, 23, "S"],
 ];
 
+const jumpTree = [
+  [0, 0, "B"],
+  [1, 0, "B"],
+  [0, 1, "S"],
+  // [1, 1, "S"],
+  [0, 2, "B"],
+  [1, 2, "B"],
+  [2, 2, "B"],
+  [3, 2, "B"],
+  [0, 3, "S"],
+  // [1, 3, "S"],
+  [0, 4, "B"],
+  [1, 4, "B"],
+  [2, 4, "B"],
+  [0, 5, "S"],
+  // [1, 5, "S"],
+  [0, 6, "B"],
+  [1, 6, "B"],
+  [2, 6, "B"],
+  [3, 6, "B"],
+  [4, 6, "B"],
+  [0, 7, "S"],
+  [0, 8, "B"],
+  [1, 8, "B"],
+  [2, 8, "B"],
+  [0, 9, "S"],
+  // [1, 9, "S"],
+  // [2, 9, "S"],
+  [0, 10, "B"],
+  [1, 10, "B"],
+  [0, 11, "S"],
+  // [1, 11, "S"],
+  // [2, 11, "S"],
+  // [3, 11, "S"],
+  [0, 12, "B"],
+  [1, 12, "B"],
+  [0, 13, "S"],
+  // [1, 13, "S"],
+  [0, 14, "B"],
+  [1, 14, "B"],
+  [2, 14, "B"],
+  [3, 14, "B"],
+  [4, 14, "B"],
+  [5, 14, "B"],
+  [5, 15, "B"],
+  [5, 16, "B"],
+  [0, 15, "S"],
+  // [1, 15, "S"],
+  [0, 16, "B"],
+  [1, 16, "B"],
+  [0, 17, "S"],
+  [0, 18, "B"],
+  [1, 18, "B"],
+  [0, 19, "S"],
+  // [1, 19, "S"],
+  [0, 20, "B"],
+  [1, 20, "B"],
+  [0, 21, "S"],
+  [0, 22, "B"],
+  [1, 22, "B"],
+  [0, 23, "S"],
+];
+
+const simply3Tree = [
+  [0, 0, "B"],
+  [1, 0, "B"],
+  [0, 1, "S"],
+  // [1, 1, "S"],
+  [0, 2, "B"],
+  [1, 2, "B"],
+  [2, 2, "B"],
+  // [3, 2, "B"],
+  [0, 3, "S"],
+  // [1, 3, "S"],
+  [0, 4, "B"],
+  [1, 4, "B"],
+  [2, 4, "B"],
+  [0, 5, "S"],
+  // [1, 5, "S"],
+  [0, 6, "B"],
+  [1, 6, "B"],
+  [2, 6, "B"],
+  // [3, 6, "B"],
+  // [4, 6, "B"],
+  [0, 7, "S"],
+  [0, 8, "B"],
+  [1, 8, "B"],
+  [2, 8, "B"],
+  [0, 9, "S"],
+  // [1, 9, "S"],
+  // [2, 9, "S"],
+  [0, 10, "B"],
+  [1, 10, "B"],
+  [0, 11, "S"],
+  // [1, 11, "S"],
+  // [2, 11, "S"],
+  // [3, 11, "S"],
+  [0, 12, "B"],
+  [1, 12, "B"],
+  [0, 13, "S"],
+  // [1, 13, "S"],
+  [0, 14, "B"],
+  [1, 14, "B"],
+  [2, 14, "B"],
+  // [3, 14, "B"],
+  // [4, 14, "B"],
+  // [5, 14, "B"],
+  // [5, 15, "B"],
+  // [5, 16, "B"],
+  [0, 15, "S"],
+  // [1, 15, "S"],
+  [0, 16, "B"],
+  [1, 16, "B"],
+  [0, 17, "S"],
+  [0, 18, "B"],
+  [1, 18, "B"],
+  [0, 19, "S"],
+  // [1, 19, "S"],
+  [0, 20, "B"],
+  [1, 20, "B"],
+  [0, 21, "S"],
+  [0, 22, "B"],
+  [1, 22, "B"],
+  [0, 23, "S"],
+];
+
+const rowConsecutiveTree = [
+  [0, 0, "B"],
+  [1, 0, "B"],
+  [0, 1, "S"],
+  [0, 2, "B"],
+  [1, 2, "B"],
+  [2, 2, "B"],
+  [0, 3, "S"],
+  [0, 4, "B"],
+  [1, 4, "B"],
+  [2, 4, "B"],
+  [0, 5, "S"],
+  [0, 6, "B"],
+  [1, 6, "B"],
+  [2, 6, "B"],
+  [0, 7, "S"],
+  [0, 8, "B"],
+  [1, 8, "B"],
+  [2, 8, "B"],
+  [0, 9, "S"],
+  [0, 10, "B"],
+  [1, 10, "B"],
+  [0, 11, "S"],
+  [0, 12, "B"],
+  [1, 12, "B"],
+  [0, 13, "S"],
+  [0, 14, "B"],
+  [1, 14, "B"],
+  [2, 14, "B"],
+  [0, 15, "S"],
+  [0, 16, "B"],
+  [1, 16, "B"],
+  [0, 17, "S"],
+  [0, 18, "B"],
+  [1, 18, "B"],
+  [0, 19, "S"],
+  [0, 20, "B"],
+  [1, 20, "B"],
+  [0, 21, "S"],
+  [1, 21, "S"],
+  [0, 22, "B"],
+  [1, 22, "B"],
+  [0, 23, "S"],
+  [1, 23, "S"],
+];
+
 function checkForPossibleTrend(tree) {
   // switch
   tree.map((treeNode, index) => {});
@@ -537,37 +709,12 @@ function findRepeatedTrees(trees) {
 
   return repeatedTrees;
 }
-function findConsecutiveColumns(trees, letters) {
-  const columnCounts = {};
-
-  // Count occurrences of each letter for each column
-  for (const [row, col, letter] of trees) {
-    if (letters.includes(letter)) {
-      columnCounts[col] = columnCounts[col] || {};
-      columnCounts[col][letter] = (columnCounts[col][letter] || 0) + 1;
-    }
-  }
-  console.log(columnCounts);
-  console.log(
-    Object.values(columnCounts).forEach((count) => console.log(count))
-  );
-  // Find columns where any of the letters occur more than once
-  for (const [col, counts] of Object.entries(columnCounts)) {
-    for (const letter of letters) {
-      if (counts[letter] > 1) {
-        return "CONSECUTIVE";
-      }
-    }
-  }
-
-  return "";
-}
-
-function checkForPossibleConsecutiveColumns(trees, letters) {
+function countFormsInColumns(trees, letters) {
   const columnCounts1 = {};
   const columnCounts2 = {};
   let previousRowB = 0;
   let previousRowS = 0;
+  // console.log(row, letter);
   for (const [row, column, letter] of trees) {
     if (letters[0] === letter) {
       if (previousRowB !== row || previousRowB === 0) {
@@ -583,19 +730,98 @@ function checkForPossibleConsecutiveColumns(trees, letters) {
         columnCounts2[column] = columnCounts2[column] || {};
         columnCounts2[column][letters[1]] =
           (columnCounts2[column][letter] || 0) + 1;
+          previousRowS = row;
       }
     }
   }
+  return [columnCounts1, columnCounts2];
+}
+function findConsecutiveColumns(trees, letters) {
+  const columnCounts = {};
 
+  // Count occurrences of each letter for each column
+  for (const [row, col, letter] of trees) {
+    if (letters.includes(letter)) {
+      columnCounts[col] = columnCounts[col] || {};
+      columnCounts[col][letter] = (columnCounts[col][letter] || 0) + 1;
+    }
+  }
+  console.log(columnCounts);
+console.log(
+  Object.values(columnCounts).forEach((count) => console.log(count))
+);
+// Find columns where any of the letters occur more than once
+for (const [col, counts] of Object.entries(columnCounts)) {
+  for (const letter of letters) {
+    if (counts[letter] <= 3) {
+      return "CONSECUTIVE";
+    }
+  }
+}
 
-  if (!hasColumnWithValueOne(columnCounts1, "B")){
-    return "CONSEC"
-  }else if(!hasColumnWithValueOne(columnCounts2, "S")){
-    return "CONSEC"
-  }else{
+  if (hasColumnWithNoFormGreaterThan3(columnCounts)) {
+    return "Simply 3";
+  } else {
     return "";
   }
 
+  return "";
+}
+
+function checkForPossibleConsecutiveColumns(trees, letters) {
+  const [columnCounts1, columnCounts2] = countFormsInColumns(trees, letters);
+
+  if (!hasColumnWithValueOne(columnCounts1, letters[0])) {
+    return "CONSEC";
+  } else if (!hasColumnWithValueOne(columnCounts2, letters[1])) {
+    return "CONSEC";
+  } else {
+    return "";
+  }
+}
+
+function checkForPossibleJump(trees, letters) {
+  const [columnCounts1, columnCounts2] = countFormsInColumns(trees, letters);
+
+  if (hasColumnWithOnlyOneForm(columnCounts1, letters[0])) {
+    return "Jump";
+  } else if (hasColumnWithOnlyOneForm(columnCounts2, letters[1])) {
+    return "Jump";
+  } else {
+    return "";
+  }
+}
+
+function checkForPossibleSimply3(trees, letters) {
+  const [columnCounts1, columnCounts2] = countFormsInColumns(trees, letters);
+
+  if (
+    hasColumnWithNoFormGreaterThan3(columnCounts1, letters[0]) &&
+    hasColumnWithNoFormGreaterThan3(columnCounts2, letters[1])
+  ) {
+    return "Simply 3";
+  } else {
+    return "";
+  }
+}
+
+function checkForPossibleRowConsecutive(trees, letters) {
+  const [columnCounts1, columnCounts2] = countFormsInColumns(trees, letters);
+
+  if (
+    hasLast4ColumnsWithFormGreaterThan1(
+      Object.values(columnCounts1).slice(-2),
+      letters[0]
+    ) &&
+    hasLast4ColumnsWithFormGreaterThan1(
+      Object.values(columnCounts2).slice(-2),
+      letters[1]
+    )
+  ) {
+    return "Row CONSEC";
+  } else {
+    return "";
+  }
 }
 
 function hasColumnWithValueOne(columnCounts1, form) {
@@ -608,9 +834,50 @@ function hasColumnWithValueOne(columnCounts1, form) {
   );
 }
 
-console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
-// console.log(findConsecutiveColumns(consecutiveTree, ["B", "S"]));
+function hasColumnWithOnlyOneForm(columnCounts1, form) {
+  if (typeof columnCounts1 !== "object" || columnCounts1 === null) {
+    return false;
+  }
+  const columnValues = Object.values(columnCounts1);
+  return columnValues.every(
+    (item) => item.hasOwnProperty(form) && item[form] === 1
+  );
+}
 
+function hasColumnWithNoFormGreaterThan3(columnCounts1, form) {
+  if (typeof columnCounts1 !== "object" || columnCounts1 === null) {
+    return false;
+  }
+  const columnValues = Object.values(columnCounts1);
+  return columnValues.every(
+    (item) => item.hasOwnProperty(form) && item[form] <= 3
+  );
+}
+
+function hasLast4ColumnsWithFormGreaterThan1(columnCounts1, form) {
+  if (typeof columnCounts1 !== "object" || columnCounts1 === null) {
+    return false;
+  }
+
+  const columnValues = Object.values(columnCounts1).slice(-2);
+
+  return columnValues.every(
+    (item) => item.hasOwnProperty(form) && item[form] > 1
+  );
+}
+
+// console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
+console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
+console.log(checkForPossibleJump(jumpTree, ["B", "S"]));
+console.log(checkForPossibleSimply3(simply3Tree, ["B", "S"]));
+console.log(checkForPossibleRowConsecutive(rowConsecutiveTree, ["B", "S"]));
+console.log(checkForPossibleDragon(dragonTree));
+console.log(checkForPossibleSingleHop(singleHopTree));
+console.log(checkForPossibleTwoByTwo(twoByTwoTree));
+console.log(checkForPossibleTwoByOne(twoByOneTreeT1));
+console.log(checkForPossibleTwoByOne(twoByOneTreeT2));
+// console.log(findConsecutiveColumns(consecutiveTree));
+// .==
 // console.log("hus",a.slice(a.length / 2));
 // console.log(checkForPossibleTwoByOne(twoByOneTreeT1));
 // console.log(checkForPossibleTwoByOne(twoByOneTreeT2));
