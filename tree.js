@@ -1,3 +1,5 @@
+import { buildTreesss, drawNumbers } from "./dragon.js";
+
 const a = [
   [0, 0, "S"],
   [0, 1, "B"],
@@ -730,7 +732,7 @@ function countFormsInColumns(trees, letters) {
         columnCounts2[column] = columnCounts2[column] || {};
         columnCounts2[column][letters[1]] =
           (columnCounts2[column][letter] || 0) + 1;
-          previousRowS = row;
+        previousRowS = row;
       }
     }
   }
@@ -746,18 +748,18 @@ function findConsecutiveColumns(trees, letters) {
       columnCounts[col][letter] = (columnCounts[col][letter] || 0) + 1;
     }
   }
-  console.log(columnCounts);
-console.log(
-  Object.values(columnCounts).forEach((count) => console.log(count))
-);
-// Find columns where any of the letters occur more than once
-for (const [col, counts] of Object.entries(columnCounts)) {
-  for (const letter of letters) {
-    if (counts[letter] <= 3) {
-      return "CONSECUTIVE";
+  //   console.log(columnCounts);
+  // console.log(
+  //   Object.values(columnCounts).forEach((count) => console.log(count))
+  // );
+  // Find columns where any of the letters occur more than once
+  for (const [col, counts] of Object.entries(columnCounts)) {
+    for (const letter of letters) {
+      if (counts[letter] <= 3) {
+        return "CONSECUTIVE";
+      }
     }
   }
-}
 
   if (hasColumnWithNoFormGreaterThan3(columnCounts)) {
     return "Simply 3";
@@ -867,17 +869,856 @@ function hasLast4ColumnsWithFormGreaterThan1(columnCounts1, form) {
 }
 
 // console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
-console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
-console.log(checkForPossibleJump(jumpTree, ["B", "S"]));
-console.log(checkForPossibleSimply3(simply3Tree, ["B", "S"]));
-console.log(checkForPossibleRowConsecutive(rowConsecutiveTree, ["B", "S"]));
-console.log(checkForPossibleDragon(dragonTree));
-console.log(checkForPossibleSingleHop(singleHopTree));
-console.log(checkForPossibleTwoByTwo(twoByTwoTree));
-console.log(checkForPossibleTwoByOne(twoByOneTreeT1));
-console.log(checkForPossibleTwoByOne(twoByOneTreeT2));
+// console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
+// console.log(checkForPossibleJump(jumpTree, ["B", "S"]));
+// console.log(checkForPossibleSimply3(simply3Tree, ["B", "S"]));
+// console.log(checkForPossibleRowConsecutive(rowConsecutiveTree, ["B", "S"]));
+// console.log(checkForPossibleDragon(dragonTree));
+// console.log(checkForPossibleSingleHop(singleHopTree));
+// console.log(checkForPossibleTwoByTwo(twoByTwoTree));
+// console.log(checkForPossibleTwoByOne(twoByOneTreeT1));
+// console.log(checkForPossibleTwoByOne(twoByOneTreeT2));
 // console.log(findConsecutiveColumns(consecutiveTree));
 // .==
 // console.log("hus",a.slice(a.length / 2));
 // console.log(checkForPossibleTwoByOne(twoByOneTreeT1));
 // console.log(checkForPossibleTwoByOne(twoByOneTreeT2));
+// function createTable(rows, cols) {
+//   for (let i = 0; i < rows; i++) {
+//     const row = table.insertRow();
+//     for (let j = 0; j < cols; j++) {
+//       const cell = row.insertCell();
+//       cell.textContent = ""; // Initially empty
+//       // cell.textContent = i + "" + j; // Initially empty
+//     }
+//   }
+// }
+// // console.log("----------> random", generateRandNumbers());
+// function generateRandNumbers() {
+//   const numbersArray = Array.from({ length: 100 }, () =>
+//     Array.from({ length: 5 }, () => Math.floor(Math.random() * 10))
+//   );
+//   console.log("----------> random",numbersArray);
+//   return numbersArray;
+// }
+// let drawNumbers5d = null;
+
+// const table = document.getElementById("grid");
+// const derivedTable = document.getElementById("deriveGrid");
+// document.onload = createTable(6, 100);
+// function plotTable(){
+//   drawNumbers5d = generateRandNumbers();
+
+//   const tree = buildTreesss(drawNumbers5d, "1st", "Big/Small")["tree"];
+// tree.forEach((rowData, index) => {
+//   const [rowIndex, colIndex, value] = rowData;
+//   const row = table.rows[rowIndex];
+//   if (row) {
+//     const cell = row.cells[colIndex];
+//     if (cell) {
+//       // cell.textContent = index + " " + value; //+ " " + colIndex;
+//       cell.textContent = rowIndex + " " + value + " " + colIndex;
+//       // cell.textContent = value;
+//     }
+//     if (value === "S") {
+//       cell.style.color = "blue";
+//     } else if (value === "B") {
+//       cell.style.color = "red";
+//     } else if (value === "A") {
+//       cell.style.color = "green";
+//     }
+//     cell.style.fontWeight = "bold";
+//   }
+// });
+// }
+
+// setInterval(plotTable, 10000)
+function createTable(rows, cols) {
+  for (let i = 0; i < rows; i++) {
+    const row = table.insertRow();
+    for (let j = 0; j < cols; j++) {
+      const cell = row.insertCell();
+      cell.textContent = ""; // Initially empty
+    }
+  }
+}
+
+function initializeRandNumbers() {
+  return Array.from({ length: 100 }, () =>
+    Array.from({ length: 5 }, () => Math.floor(Math.random() * 10))
+  );
+}
+
+function updateRandNumbers(numbersArray) {
+  numbersArray.shift(); // Remove the first element
+  numbersArray.push(
+    Array.from({ length: 5 }, () => Math.floor(Math.random() * 10))
+  ); // Append a new array
+  return numbersArray;
+}
+
+function clearTable() {
+  for (let i = 0; i < table.rows.length; i++) {
+    for (let j = 0; j < table.rows[i].cells.length; j++) {
+      table.rows[i].cells[j].textContent = "";
+      table.rows[i].cells[j].style.color = "";
+      table.rows[i].cells[j].style.fontWeight = "";
+    }
+  }
+}
+const typ = [
+  [
+      6,
+      8,
+      8,
+      4,
+      8
+  ],
+  [
+      7,
+      8,
+      7,
+      8,
+      3
+  ],
+  [
+      6,
+      9,
+      0,
+      4,
+      1
+  ],
+  [
+      5,
+      0,
+      7,
+      5,
+      0
+  ],
+  [
+      4,
+      4,
+      4,
+      5,
+      1
+  ],
+  [
+      3,
+      1,
+      0,
+      1,
+      2
+  ],
+  [
+      4,
+      0,
+      5,
+      0,
+      5
+  ],
+  [
+      9,
+      2,
+      9,
+      9,
+      1
+  ],
+  [
+      3,
+      9,
+      8,
+      9,
+      1
+  ],
+  [
+      9,
+      0,
+      9,
+      5,
+      3
+  ],
+  [
+      2,
+      7,
+      2,
+      3,
+      6
+  ],
+  [
+      9,
+      6,
+      5,
+      2,
+      1
+  ],
+  [
+      2,
+      9,
+      8,
+      4,
+      2
+  ],
+  [
+      0,
+      5,
+      8,
+      3,
+      2
+  ],
+  [
+      8,
+      9,
+      9,
+      8,
+      4
+  ],
+  [
+      8,
+      8,
+      4,
+      6,
+      0
+  ],
+  [
+      0,
+      3,
+      1,
+      1,
+      4
+  ],
+  [
+      0,
+      6,
+      8,
+      7,
+      8
+  ],
+  [
+      8,
+      7,
+      8,
+      6,
+      9
+  ],
+  [
+      8,
+      5,
+      7,
+      9,
+      5
+  ],
+  [
+      9,
+      4,
+      3,
+      7,
+      2
+  ],
+  [
+      2,
+      1,
+      0,
+      7,
+      9
+  ],
+  [
+      2,
+      9,
+      0,
+      1,
+      3
+  ],
+  [
+      1,
+      4,
+      5,
+      9,
+      2
+  ],
+  [
+      3,
+      8,
+      3,
+      9,
+      1
+  ],
+  [
+      6,
+      4,
+      2,
+      4,
+      1
+  ],
+  [
+      0,
+      1,
+      1,
+      1,
+      8
+  ],
+  [
+      9,
+      2,
+      2,
+      8,
+      7
+  ],
+  [
+      8,
+      2,
+      0,
+      5,
+      0
+  ],
+  [
+      3,
+      6,
+      6,
+      9,
+      1
+  ],
+  [
+      5,
+      9,
+      2,
+      1,
+      8
+  ],
+  [
+      2,
+      6,
+      1,
+      6,
+      5
+  ],
+  [
+      1,
+      0,
+      8,
+      6,
+      8
+  ],
+  [
+      2,
+      2,
+      9,
+      5,
+      8
+  ],
+  [
+      8,
+      1,
+      3,
+      6,
+      2
+  ],
+  [
+      2,
+      0,
+      7,
+      6,
+      0
+  ],
+  [
+      6,
+      1,
+      6,
+      6,
+      2
+  ],
+  [
+      0,
+      6,
+      5,
+      1,
+      7
+  ],
+  [
+      3,
+      5,
+      0,
+      8,
+      3
+  ],
+  [
+      4,
+      0,
+      3,
+      1,
+      0
+  ],
+  [
+      4,
+      5,
+      1,
+      8,
+      2
+  ],
+  [
+      8,
+      2,
+      4,
+      3,
+      2
+  ],
+  [
+      5,
+      7,
+      0,
+      0,
+      2
+  ],
+  [
+      7,
+      4,
+      2,
+      5,
+      1
+  ],
+  [
+      5,
+      2,
+      9,
+      9,
+      5
+  ],
+  [
+      6,
+      6,
+      8,
+      4,
+      1
+  ],
+  [
+      8,
+      4,
+      9,
+      4,
+      2
+  ],
+  [
+      5,
+      4,
+      4,
+      0,
+      9
+  ],
+  [
+      0,
+      0,
+      9,
+      6,
+      2
+  ],
+  [
+      7,
+      9,
+      0,
+      2,
+      3
+  ],
+  [
+      4,
+      2,
+      5,
+      9,
+      2
+  ],
+  [
+      0,
+      1,
+      7,
+      3,
+      1
+  ],
+  [
+      1,
+      1,
+      3,
+      5,
+      0
+  ],
+  [
+      8,
+      8,
+      6,
+      4,
+      5
+  ],
+  [
+      1,
+      0,
+      2,
+      8,
+      7
+  ],
+  [
+      8,
+      1,
+      5,
+      5,
+      3
+  ],
+  [
+      5,
+      9,
+      7,
+      8,
+      8
+  ],
+  [
+      1,
+      3,
+      3,
+      8,
+      5
+  ],
+  [
+      4,
+      8,
+      6,
+      6,
+      2
+  ],
+  [
+      2,
+      7,
+      2,
+      4,
+      6
+  ],
+  [
+      8,
+      7,
+      0,
+      7,
+      4
+  ],
+  [
+      3,
+      5,
+      3,
+      0,
+      3
+  ],
+  [
+      5,
+      1,
+      0,
+      2,
+      5
+  ],
+  [
+      0,
+      5,
+      8,
+      1,
+      5
+  ],
+  [
+      2,
+      3,
+      6,
+      8,
+      4
+  ],
+  [
+      8,
+      7,
+      1,
+      8,
+      6
+  ],
+  [
+      3,
+      7,
+      1,
+      5,
+      5
+  ],
+  [
+      8,
+      0,
+      2,
+      7,
+      1
+  ],
+  [
+      6,
+      8,
+      9,
+      2,
+      3
+  ],
+  [
+      3,
+      6,
+      3,
+      9,
+      1
+  ],
+  [
+      6,
+      9,
+      8,
+      5,
+      3
+  ],
+  [
+      9,
+      7,
+      7,
+      3,
+      8
+  ],
+  [
+      1,
+      0,
+      5,
+      8,
+      4
+  ],
+  [
+      4,
+      3,
+      9,
+      5,
+      8
+  ],
+  [
+      2,
+      3,
+      9,
+      9,
+      7
+  ],
+  [
+      8,
+      3,
+      3,
+      0,
+      0
+  ],
+  [
+      9,
+      8,
+      3,
+      9,
+      4
+  ],
+  [
+      8,
+      2,
+      8,
+      0,
+      3
+  ],
+  [
+      9,
+      4,
+      0,
+      2,
+      3
+  ],
+  [
+      4,
+      2,
+      3,
+      1,
+      8
+  ],
+  [
+      6,
+      5,
+      3,
+      9,
+      0
+  ],
+  [
+      8,
+      9,
+      7,
+      7,
+      3
+  ],
+  [
+      4,
+      9,
+      9,
+      3,
+      0
+  ],
+  [
+      0,
+      8,
+      9,
+      4,
+      0
+  ],
+  [
+      3,
+      1,
+      5,
+      8,
+      8
+  ],
+  [
+      8,
+      1,
+      6,
+      4,
+      7
+  ],
+  [
+      3,
+      2,
+      9,
+      1,
+      6
+  ],
+  [
+      5,
+      9,
+      9,
+      7,
+      9
+  ],
+  [
+      2,
+      1,
+      2,
+      5,
+      0
+  ],
+  [
+      9,
+      6,
+      7,
+      3,
+      1
+  ],
+  [
+      2,
+      3,
+      6,
+      5,
+      6
+  ],
+  [
+      2,
+      7,
+      5,
+      2,
+      0
+  ],
+  [
+      9,
+      5,
+      9,
+      8,
+      9
+  ],
+  [
+      6,
+      8,
+      9,
+      0,
+      8
+  ],
+  [
+      3,
+      1,
+      8,
+      0,
+      0
+  ],
+  [
+      3,
+      7,
+      9,
+      9,
+      6
+  ],
+  [
+      7,
+      4,
+      1,
+      7,
+      0
+  ],
+  [
+      8,
+      6,
+      2,
+      7,
+      1
+  ],
+  [
+      3,
+      9,
+      9,
+      6,
+      6
+  ],
+  [
+      4,
+      4,
+      1,
+      1,
+      4
+  ]
+]
+let drawNumbers5d = initializeRandNumbers();
+
+// console.log("----------> random",drawNumbers5d);
+const table = document.getElementById("grid");
+const derivedTable = document.getElementById("deriveGrid");
+
+document.onload = createTable(6, 100);
+
+function plotTable() {
+  clearTable(); // Clear the table before updating
+
+  drawNumbers5d = updateRandNumbers(drawNumbers5d);
+  console.log("----------> random", drawNumbers5d);
+  const tree = buildTreesss(drawNumbers5d, "1st", "Big/Small")["tree"];
+  console.log(checkForPossibleConsecutiveColumns(tree, ["B", "S"]));
+  console.log(checkForPossibleJump(tree, ["B", "S"]));
+  console.log(checkForPossibleSimply3(tree, ["B", "S"]));
+  console.log(checkForPossibleRowConsecutive(tree, ["B", "S"]));
+  console.log(checkForPossibleDragon(tree, ["B", "S"]));
+  console.log(checkForPossibleSingleHop(tree, ["B", "S"]));
+  console.log(checkForPossibleTwoByTwo(tree, ["B", "S"]));
+  console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));
+  console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));
+  tree.forEach((rowData, index) => {
+    const [rowIndex, colIndex, value] = rowData;
+    const row = table.rows[rowIndex];
+    if (row) {
+      const cell = row.cells[colIndex];
+      if (cell) {
+        cell.textContent = rowIndex + " " + value + " " + colIndex;
+      }
+      if (value === "S") {
+        cell.style.color = "blue";
+      } else if (value === "B") {
+        cell.style.color = "red";
+      } else if (value === "A") {
+        cell.style.color = "green";
+      }
+      cell.style.fontWeight = "bold";
+    }
+  });
+}
+
+setInterval(plotTable, 10000);
+
+// console.log(checkForPossibleConsecutiveColumns(tree, ["B", "S"]));
+// console.log(checkForPossibleJump(tree, ["B", "S"]));
+// console.log(checkForPossibleSimply3(tree, ["B", "S"]));
+// console.log(checkForPossibleRowConsecutive(tree, ["B", "S"]));
+// console.log(checkForPossibleDragon(tree, ["B", "S"]));
+// console.log(checkForPossibleSingleHop(tree, ["B", "S"]));
+// console.log(checkForPossibleTwoByTwo(tree, ["B", "S"]));
+// console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));
+// console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));

@@ -1,5 +1,5 @@
 // import { mother } from "./extract.js";
-const drawNumbers = [
+export const drawNumbers = [
   [0, 3, 7, 0, 3],
   [0, 1, 7, 6, 3],
   [3, 0, 3, 4, 3],
@@ -1152,32 +1152,30 @@ const treees = [
   [1, 23, "S"],
 ];
 
-// console.log(buildTreesss(drawNumbers, "1st", "Big/Small")["tree"]);
+// console.log("------------------------>",buildTreesss(drawNumbers, "1st", "Big/Small")["tree"]);
 
-buildTreesss(drawNumbers.slice(drawNumbers.length/2), "1st", "Big/Small")["tree"]
-treees
-.forEach(
-  (rowData, index) => {
-    const [rowIndex, colIndex, value] = rowData;
-    const row = table.rows[rowIndex];
-    if (row) {
-      const cell = row.cells[colIndex];
-      if (cell) {
-        // cell.textContent = index + " " + value; //+ " " + colIndex;
-        cell.textContent = rowIndex + " " + value + " " + colIndex;
-        // cell.textContent = value;
-      }
-      if (value === "S") {
-        cell.style.color = "blue";
-      } else if (value === "B") {
-        cell.style.color = "red";
-      } else if (value === "A") {
-        cell.style.color = "green";
-      }
-      cell.style.fontWeight = "bold";
-    }
-  }
-);
+// buildTreesss(drawNumbers.slice(drawNumbers.length/2), "1st", "Big/Small")["tree"].forEach(
+//   (rowData, index) => {
+//     const [rowIndex, colIndex, value] = rowData;
+//     const row = table.rows[rowIndex];
+//     if (row) {
+//       const cell = row.cells[colIndex];
+//       if (cell) {
+//         // cell.textContent = index + " " + value; //+ " " + colIndex;
+//         cell.textContent = rowIndex + " " + value + " " + colIndex;
+//         // cell.textContent = value;
+//       }
+//       if (value === "S") {
+//         cell.style.color = "blue";
+//       } else if (value === "B") {
+//         cell.style.color = "red";
+//       } else if (value === "A") {
+//         cell.style.color = "green";
+//       }
+//       cell.style.fontWeight = "bold";
+//     }
+//   }
+// );
 // buildTreesss(drawNumbers, "1st", "Big/Small")["tree"].forEach((rowData, index) => {
 //   const [rowIndex, colIndex, value] = rowData;
 //   const row = table.rows[rowIndex];
@@ -2204,3 +2202,5 @@ function buildTree(drawNumbers, whatToAnalyze, type) {
 //   }
 //   removePrecedingAs(road, precedingAs.length);
 // }
+
+export {buildTreesss}
