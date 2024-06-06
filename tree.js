@@ -1,4 +1,4 @@
-import { buildTreesss, drawNumbers } from "./dragon.js";
+import { buildTreesss, SND } from "./dragon.js";
 
 const a = [
   [0, 0, "S"],
@@ -623,30 +623,87 @@ function checkForPossibleTrend(tree) {
   tree.map((treeNode, index) => {});
 }
 
+function findHighestKeyValueOfTree(columnCounts1, columnCounts2) {
+  const combined = [
+    ...Object.entries(columnCounts1).flatMap(([key, value]) =>
+      Object.entries(value).map(([letter, count]) => ({
+        column: key,
+        letter,
+        count,
+      }))
+    ),
+    ...Object.entries(columnCounts2).flatMap(([key, value]) =>
+      Object.entries(value).map(([letter, count]) => ({
+        column: key,
+        letter,
+        count,
+      }))
+    ),
+  ];
+  console.log(combined);
+  combined.sort((a, b) => b.count - a.count);
+  return combined[0];
+}
+
+function checkForPossibleDragon(tree, letters) {
+  const [columnCounts1, columnCounts2] = countFormsInColumns(tree, letters);
+
+  const newArray = [
+    ...Object.keys(columnCounts1),
+    ...Object.keys(columnCounts2),
+  ];
+  let mergedCountsObj = { ...columnCounts1, ...columnCounts2 };
+  const [key, value] = Object.entries(mergedCountsObj).slice(-1)
+  console.log(Object.entries(mergedCountsObj).slice(-1));
+  for (const [key, value] of Object.entries(mergedCountsObj)) {
+    console.log(key, value);
+  }
+  // newArray.sort((a, b) => parseInt(a) - parseInt(b));
+  return Object.values(mergedCountsObj[Math.max(...newArray)])[0] >= 5
+    ? "Dragon"
+    : "";
+}
 // function checkForPossibleDragon(tree) {
 //   const g = tree.map((treeNode, index) => {
 //     return treeNode[1];
 //   });
+//   console.log(g);
+//   console.log(tree[g.indexOf(Math.max(...g))]);
 //   return tree[g.indexOf(Math.max(...g))][0] >= 4 && "Dragon";
 // }
+// function checkForPossibleDragon(tree) {
+//   const midPoint = tree.slice(tree.length/2)
+//   let maxLevel = -1;
+//   let maxIndex = -1;
 
-function checkForPossibleDragon(tree) {
-  const midPoint = Math.floor(tree.length / 2);
-  let maxLevel = -1;
-  let maxIndex = -1;
+//   for (const [index, level] of midPoint) {
+//     if (level > maxLevel) {
+//       maxLevel = level;
+//       maxIndex = index;
+//     } else if (level === maxLevel && index > maxIndex) {
+//       maxIndex = index;
+//     }
+//   }
 
-  for (let i = midPoint; i < tree.length; i++) {
-    const [index, level] = tree[i];
-    if (level > maxLevel) {
-      maxLevel = level;
-      maxIndex = index;
-    } else if (level === maxLevel && index > maxIndex) {
-      maxIndex = index;
-    }
-  }
+//   return maxIndex >= 4 ? "Dragon" : undefined;
+// }
+// function checkForPossibleDragon(tree) {
+//   const midPoint = Math.floor(tree.length / 2);
+//   let maxLevel = -1;
+//   let maxIndex = -1;
 
-  return maxIndex >= 4 ? "Dragon" : "";
-}
+//   for (let i = midPoint; i < tree.length; i++) {
+//     const [index, level] = tree[i];
+//     if (level > maxLevel) {
+//       maxLevel = level;
+//       maxIndex = index;
+//     } else if (level === maxLevel && index > maxIndex) {
+//       maxIndex = index;
+//     }
+//   }
+
+//   return maxIndex >= 4 ? "Dragon" : "";
+// }
 
 function checkForPossibleSingleHop(tree) {
   const lastFive = tree.slice(-5);
@@ -867,7 +924,58 @@ function hasLast4ColumnsWithFormGreaterThan1(columnCounts1, form) {
     (item) => item.hasOwnProperty(form) && item[form] > 1
   );
 }
-
+const aaa = [
+  [0, 0, "B"],
+  [0, 1, "S"],
+  [1, 1, "S"],
+  [0, 2, "B"],
+  [1, 2, "B"],
+  [0, 3, "S"],
+  [0, 4, "B"],
+  [0, 5, "S"],
+  [0, 6, "B"],
+  [1, 6, "B"],
+  [2, 6, "B"],
+  [0, 7, "S"],
+  [1, 7, "S"],
+  [0, 8, "B"],
+  [1, 8, "B"],
+  [2, 8, "B"],
+  [3, 8, "B"],
+  [4, 8, "B"],
+  [5, 8, "B"],
+  [0, 9, "S"],
+  [1, 9, "S"],
+  [2, 9, "S"],
+  [0, 10, "B"],
+  [1, 10, "B"],
+  [2, 10, "B"],
+  [3, 10, "B"],
+  [4, 10, "B"],
+  [5, 10, "B"],
+  [0, 11, "S"],
+  [1, 11, "S"],
+  [0, 12, "B"],
+  [0, 13, "S"],
+  [1, 13, "S"],
+  [2, 13, "S"],
+  [0, 14, "B"],
+  [0, 15, "S"],
+  [0, 16, "B"],
+  [0, 17, "S"],
+  [1, 17, "S"],
+  [0, 18, "B"],
+  [1, 18, "B"],
+  [2, 18, "B"],
+  [3, 18, "B"],
+  [4, 18, "B"],
+  [5, 18, "B"],
+  [5, 19, "B"],
+  [5, 20, "B"],
+  [5, 21, "B"],
+  [0, 19, "S"],
+  [1, 19, "S"],
+];
 // console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
 // console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
 // console.log(checkForPossibleJump(jumpTree, ["B", "S"]));
@@ -967,731 +1075,136 @@ function clearTable() {
   }
 }
 const typ = [
-  [
-      6,
-      8,
-      8,
-      4,
-      8
-  ],
-  [
-      7,
-      8,
-      7,
-      8,
-      3
-  ],
-  [
-      6,
-      9,
-      0,
-      4,
-      1
-  ],
-  [
-      5,
-      0,
-      7,
-      5,
-      0
-  ],
-  [
-      4,
-      4,
-      4,
-      5,
-      1
-  ],
-  [
-      3,
-      1,
-      0,
-      1,
-      2
-  ],
-  [
-      4,
-      0,
-      5,
-      0,
-      5
-  ],
-  [
-      9,
-      2,
-      9,
-      9,
-      1
-  ],
-  [
-      3,
-      9,
-      8,
-      9,
-      1
-  ],
-  [
-      9,
-      0,
-      9,
-      5,
-      3
-  ],
-  [
-      2,
-      7,
-      2,
-      3,
-      6
-  ],
-  [
-      9,
-      6,
-      5,
-      2,
-      1
-  ],
-  [
-      2,
-      9,
-      8,
-      4,
-      2
-  ],
-  [
-      0,
-      5,
-      8,
-      3,
-      2
-  ],
-  [
-      8,
-      9,
-      9,
-      8,
-      4
-  ],
-  [
-      8,
-      8,
-      4,
-      6,
-      0
-  ],
-  [
-      0,
-      3,
-      1,
-      1,
-      4
-  ],
-  [
-      0,
-      6,
-      8,
-      7,
-      8
-  ],
-  [
-      8,
-      7,
-      8,
-      6,
-      9
-  ],
-  [
-      8,
-      5,
-      7,
-      9,
-      5
-  ],
-  [
-      9,
-      4,
-      3,
-      7,
-      2
-  ],
-  [
-      2,
-      1,
-      0,
-      7,
-      9
-  ],
-  [
-      2,
-      9,
-      0,
-      1,
-      3
-  ],
-  [
-      1,
-      4,
-      5,
-      9,
-      2
-  ],
-  [
-      3,
-      8,
-      3,
-      9,
-      1
-  ],
-  [
-      6,
-      4,
-      2,
-      4,
-      1
-  ],
-  [
-      0,
-      1,
-      1,
-      1,
-      8
-  ],
-  [
-      9,
-      2,
-      2,
-      8,
-      7
-  ],
-  [
-      8,
-      2,
-      0,
-      5,
-      0
-  ],
-  [
-      3,
-      6,
-      6,
-      9,
-      1
-  ],
-  [
-      5,
-      9,
-      2,
-      1,
-      8
-  ],
-  [
-      2,
-      6,
-      1,
-      6,
-      5
-  ],
-  [
-      1,
-      0,
-      8,
-      6,
-      8
-  ],
-  [
-      2,
-      2,
-      9,
-      5,
-      8
-  ],
-  [
-      8,
-      1,
-      3,
-      6,
-      2
-  ],
-  [
-      2,
-      0,
-      7,
-      6,
-      0
-  ],
-  [
-      6,
-      1,
-      6,
-      6,
-      2
-  ],
-  [
-      0,
-      6,
-      5,
-      1,
-      7
-  ],
-  [
-      3,
-      5,
-      0,
-      8,
-      3
-  ],
-  [
-      4,
-      0,
-      3,
-      1,
-      0
-  ],
-  [
-      4,
-      5,
-      1,
-      8,
-      2
-  ],
-  [
-      8,
-      2,
-      4,
-      3,
-      2
-  ],
-  [
-      5,
-      7,
-      0,
-      0,
-      2
-  ],
-  [
-      7,
-      4,
-      2,
-      5,
-      1
-  ],
-  [
-      5,
-      2,
-      9,
-      9,
-      5
-  ],
-  [
-      6,
-      6,
-      8,
-      4,
-      1
-  ],
-  [
-      8,
-      4,
-      9,
-      4,
-      2
-  ],
-  [
-      5,
-      4,
-      4,
-      0,
-      9
-  ],
-  [
-      0,
-      0,
-      9,
-      6,
-      2
-  ],
-  [
-      7,
-      9,
-      0,
-      2,
-      3
-  ],
-  [
-      4,
-      2,
-      5,
-      9,
-      2
-  ],
-  [
-      0,
-      1,
-      7,
-      3,
-      1
-  ],
-  [
-      1,
-      1,
-      3,
-      5,
-      0
-  ],
-  [
-      8,
-      8,
-      6,
-      4,
-      5
-  ],
-  [
-      1,
-      0,
-      2,
-      8,
-      7
-  ],
-  [
-      8,
-      1,
-      5,
-      5,
-      3
-  ],
-  [
-      5,
-      9,
-      7,
-      8,
-      8
-  ],
-  [
-      1,
-      3,
-      3,
-      8,
-      5
-  ],
-  [
-      4,
-      8,
-      6,
-      6,
-      2
-  ],
-  [
-      2,
-      7,
-      2,
-      4,
-      6
-  ],
-  [
-      8,
-      7,
-      0,
-      7,
-      4
-  ],
-  [
-      3,
-      5,
-      3,
-      0,
-      3
-  ],
-  [
-      5,
-      1,
-      0,
-      2,
-      5
-  ],
-  [
-      0,
-      5,
-      8,
-      1,
-      5
-  ],
-  [
-      2,
-      3,
-      6,
-      8,
-      4
-  ],
-  [
-      8,
-      7,
-      1,
-      8,
-      6
-  ],
-  [
-      3,
-      7,
-      1,
-      5,
-      5
-  ],
-  [
-      8,
-      0,
-      2,
-      7,
-      1
-  ],
-  [
-      6,
-      8,
-      9,
-      2,
-      3
-  ],
-  [
-      3,
-      6,
-      3,
-      9,
-      1
-  ],
-  [
-      6,
-      9,
-      8,
-      5,
-      3
-  ],
-  [
-      9,
-      7,
-      7,
-      3,
-      8
-  ],
-  [
-      1,
-      0,
-      5,
-      8,
-      4
-  ],
-  [
-      4,
-      3,
-      9,
-      5,
-      8
-  ],
-  [
-      2,
-      3,
-      9,
-      9,
-      7
-  ],
-  [
-      8,
-      3,
-      3,
-      0,
-      0
-  ],
-  [
-      9,
-      8,
-      3,
-      9,
-      4
-  ],
-  [
-      8,
-      2,
-      8,
-      0,
-      3
-  ],
-  [
-      9,
-      4,
-      0,
-      2,
-      3
-  ],
-  [
-      4,
-      2,
-      3,
-      1,
-      8
-  ],
-  [
-      6,
-      5,
-      3,
-      9,
-      0
-  ],
-  [
-      8,
-      9,
-      7,
-      7,
-      3
-  ],
-  [
-      4,
-      9,
-      9,
-      3,
-      0
-  ],
-  [
-      0,
-      8,
-      9,
-      4,
-      0
-  ],
-  [
-      3,
-      1,
-      5,
-      8,
-      8
-  ],
-  [
-      8,
-      1,
-      6,
-      4,
-      7
-  ],
-  [
-      3,
-      2,
-      9,
-      1,
-      6
-  ],
-  [
-      5,
-      9,
-      9,
-      7,
-      9
-  ],
-  [
-      2,
-      1,
-      2,
-      5,
-      0
-  ],
-  [
-      9,
-      6,
-      7,
-      3,
-      1
-  ],
-  [
-      2,
-      3,
-      6,
-      5,
-      6
-  ],
-  [
-      2,
-      7,
-      5,
-      2,
-      0
-  ],
-  [
-      9,
-      5,
-      9,
-      8,
-      9
-  ],
-  [
-      6,
-      8,
-      9,
-      0,
-      8
-  ],
-  [
-      3,
-      1,
-      8,
-      0,
-      0
-  ],
-  [
-      3,
-      7,
-      9,
-      9,
-      6
-  ],
-  [
-      7,
-      4,
-      1,
-      7,
-      0
-  ],
-  [
-      8,
-      6,
-      2,
-      7,
-      1
-  ],
-  [
-      3,
-      9,
-      9,
-      6,
-      6
-  ],
-  [
-      4,
-      4,
-      1,
-      1,
-      4
-  ]
-]
+  [6, 8, 8, 4, 8],
+  [7, 8, 7, 8, 3],
+  [6, 9, 0, 4, 1],
+  [5, 0, 7, 5, 0],
+  [4, 4, 4, 5, 1],
+  [3, 1, 0, 1, 2],
+  [4, 0, 5, 0, 5],
+  [9, 2, 9, 9, 1],
+  [3, 9, 8, 9, 1],
+  [9, 0, 9, 5, 3],
+  [2, 7, 2, 3, 6],
+  [9, 6, 5, 2, 1],
+  [2, 9, 8, 4, 2],
+  [0, 5, 8, 3, 2],
+  [8, 9, 9, 8, 4],
+  [8, 8, 4, 6, 0],
+  [0, 3, 1, 1, 4],
+  [0, 6, 8, 7, 8],
+  [8, 7, 8, 6, 9],
+  [8, 5, 7, 9, 5],
+  [9, 4, 3, 7, 2],
+  [2, 1, 0, 7, 9],
+  [2, 9, 0, 1, 3],
+  [1, 4, 5, 9, 2],
+  [3, 8, 3, 9, 1],
+  [6, 4, 2, 4, 1],
+  [0, 1, 1, 1, 8],
+  [9, 2, 2, 8, 7],
+  [8, 2, 0, 5, 0],
+  [3, 6, 6, 9, 1],
+  [5, 9, 2, 1, 8],
+  [2, 6, 1, 6, 5],
+  [1, 0, 8, 6, 8],
+  [2, 2, 9, 5, 8],
+  [8, 1, 3, 6, 2],
+  [2, 0, 7, 6, 0],
+  [6, 1, 6, 6, 2],
+  [0, 6, 5, 1, 7],
+  [3, 5, 0, 8, 3],
+  [4, 0, 3, 1, 0],
+  [4, 5, 1, 8, 2],
+  [8, 2, 4, 3, 2],
+  [5, 7, 0, 0, 2],
+  [7, 4, 2, 5, 1],
+  [5, 2, 9, 9, 5],
+  [6, 6, 8, 4, 1],
+  [8, 4, 9, 4, 2],
+  [5, 4, 4, 0, 9],
+  [0, 0, 9, 6, 2],
+  [7, 9, 0, 2, 3],
+  [4, 2, 5, 9, 2],
+  [0, 1, 7, 3, 1],
+  [1, 1, 3, 5, 0],
+  [8, 8, 6, 4, 5],
+  [1, 0, 2, 8, 7],
+  [8, 1, 5, 5, 3],
+  [5, 9, 7, 8, 8],
+  [1, 3, 3, 8, 5],
+  [4, 8, 6, 6, 2],
+  [2, 7, 2, 4, 6],
+  [8, 7, 0, 7, 4],
+  [3, 5, 3, 0, 3],
+  [5, 1, 0, 2, 5],
+  [0, 5, 8, 1, 5],
+  [2, 3, 6, 8, 4],
+  [8, 7, 1, 8, 6],
+  [3, 7, 1, 5, 5],
+  [8, 0, 2, 7, 1],
+  [6, 8, 9, 2, 3],
+  [3, 6, 3, 9, 1],
+  [6, 9, 8, 5, 3],
+  [9, 7, 7, 3, 8],
+  [1, 0, 5, 8, 4],
+  [4, 3, 9, 5, 8],
+  [2, 3, 9, 9, 7],
+  [8, 3, 3, 0, 0],
+  [9, 8, 3, 9, 4],
+  [8, 2, 8, 0, 3],
+  [9, 4, 0, 2, 3],
+  [4, 2, 3, 1, 8],
+  [6, 5, 3, 9, 0],
+  [8, 9, 7, 7, 3],
+  [4, 9, 9, 3, 0],
+  [0, 8, 9, 4, 0],
+  [3, 1, 5, 8, 8],
+  [8, 1, 6, 4, 7],
+  [3, 2, 9, 1, 6],
+  [5, 9, 9, 7, 9],
+  [2, 1, 2, 5, 0],
+  [9, 6, 7, 3, 1],
+  [2, 3, 6, 5, 6],
+  [2, 7, 5, 2, 0],
+  [9, 5, 9, 8, 9],
+  [6, 8, 9, 0, 8],
+  [3, 1, 8, 0, 0],
+  [3, 7, 9, 9, 6],
+  [7, 4, 1, 7, 0],
+  [8, 6, 2, 7, 1],
+  [3, 9, 9, 6, 6],
+  [4, 4, 1, 1, 4],
+];
 let drawNumbers5d = initializeRandNumbers();
 
 // console.log("----------> random",drawNumbers5d);
 const table = document.getElementById("grid");
 const derivedTable = document.getElementById("deriveGrid");
-
-document.onload = createTable(6, 100);
+let x = null;
+document.onload = createTable(1, 100);
 
 function plotTable() {
   clearTable(); // Clear the table before updating
-
+  let tree = null;
   drawNumbers5d = updateRandNumbers(drawNumbers5d);
-  console.log("----------> random", drawNumbers5d);
-  const tree = buildTreesss(drawNumbers5d, "1st", "Big/Small")["tree"];
+  // console.log("----------> random", drawNumbers5d);
+  tree = buildTreesss(
+    drawNumbers5d.slice(drawNumbers5d.length / 2),
+    "1st",
+    "Big/Small"
+  )["tree"];
+  console.log("----------> random tree", tree);
   console.log(checkForPossibleConsecutiveColumns(tree, ["B", "S"]));
   console.log(checkForPossibleJump(tree, ["B", "S"]));
   console.log(checkForPossibleSimply3(tree, ["B", "S"]));
   console.log(checkForPossibleRowConsecutive(tree, ["B", "S"]));
-  console.log(checkForPossibleDragon(tree, ["B", "S"]));
+  console.log(checkForPossibleDragon(aaa, ["B", "S"]));
   console.log(checkForPossibleSingleHop(tree, ["B", "S"]));
   console.log(checkForPossibleTwoByTwo(tree, ["B", "S"]));
   console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));
   console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));
-  tree.forEach((rowData, index) => {
+  tree.forEach((rowData, _) => {
     const [rowIndex, colIndex, value] = rowData;
     const row = table.rows[rowIndex];
     if (row) {
@@ -1709,15 +1222,37 @@ function plotTable() {
       cell.style.fontWeight = "bold";
     }
   });
+  // clearInterval(x);
 }
 
-setInterval(plotTable, 10000);
+x = setInterval(plotTable, 5000);
 
+console.log("----------> random", Object.entries(SND));
+console.log("----------> random", Object.values(SND).flat());
+console.log("----------> random", SND[1]);
+console.log("----------> random", SND);
+console.log("----------> random", Object.values(SND));
+// {gn_id: 1, name: '1st', group_type: 'Big/Small', odds: '2.000'}
+// for (const [_, games] of Object.entries(SND[1])) {
+//   console.log(games);
+//   for (const {name, group_type} of games) {
+//     console.log(group_type);
+//   }
+// }
+
+// for (const [name, games] of Object.entries(SND[1])) {
+//     console.log(games.group_type);
+//     // for (const {name, group_type} of group_type) {
+//     //   console.log(group_type);
+//     // }
+//   }
+
+// console.log()
 // console.log(checkForPossibleConsecutiveColumns(tree, ["B", "S"]));
 // console.log(checkForPossibleJump(tree, ["B", "S"]));
 // console.log(checkForPossibleSimply3(tree, ["B", "S"]));
 // console.log(checkForPossibleRowConsecutive(tree, ["B", "S"]));
-// console.log(checkForPossibleDragon(tree, ["B", "S"]));
+console.log(checkForPossibleDragon(aaa, ["B", "S"]));
 // console.log(checkForPossibleSingleHop(tree, ["B", "S"]));
 // console.log(checkForPossibleTwoByTwo(tree, ["B", "S"]));
 // console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));
