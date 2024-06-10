@@ -645,20 +645,23 @@ function findHighestKeyValueOfTree(columnCounts1, columnCounts2) {
   return combined[0];
 }
 
-function checkForPossibleDragon(tree, letters) {
-  const [columnCounts1, columnCounts2] = countFormsInColumns(tree, letters);
+function checkForPossibleDragon(trees, letters) {
+  const [columnCounts1, columnCounts2] = countFormsInColumns(trees, letters);
+  let mergedCountsObj = { ...columnCounts1, ...columnCounts2 };
+
+  return Object.values(Object.values(mergedCountsObj).slice(-1)[0]) >= 5
+    ? "Dragon"
+    : "";
+}
+function checkForPossibleDragon2(trees, letters) {
+  const [columnCounts1, columnCounts2] = countFormsInColumns(trees, letters);
 
   const newArray = [
     ...Object.keys(columnCounts1),
     ...Object.keys(columnCounts2),
   ];
   let mergedCountsObj = { ...columnCounts1, ...columnCounts2 };
-  const [key, value] = Object.entries(mergedCountsObj).slice(-1)
-  console.log(Object.entries(mergedCountsObj).slice(-1));
-  for (const [key, value] of Object.entries(mergedCountsObj)) {
-    console.log(key, value);
-  }
-  // newArray.sort((a, b) => parseInt(a) - parseInt(b));
+  
   return Object.values(mergedCountsObj[Math.max(...newArray)])[0] >= 5
     ? "Dragon"
     : "";
@@ -973,8 +976,8 @@ const aaa = [
   [5, 19, "B"],
   [5, 20, "B"],
   [5, 21, "B"],
-  [0, 19, "S"],
-  [1, 19, "S"],
+  // [0, 19, "S"],
+  // [1, 19, "S"],
 ];
 // console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
 // console.log(checkForPossibleConsecutiveColumns(consecutiveTree, ["B", "S"]));
@@ -1199,12 +1202,12 @@ function plotTable() {
   console.log(checkForPossibleJump(tree, ["B", "S"]));
   console.log(checkForPossibleSimply3(tree, ["B", "S"]));
   console.log(checkForPossibleRowConsecutive(tree, ["B", "S"]));
-  console.log(checkForPossibleDragon(aaa, ["B", "S"]));
+  console.log(checkForPossibleDragon(tree, ["B", "S"]));
   console.log(checkForPossibleSingleHop(tree, ["B", "S"]));
   console.log(checkForPossibleTwoByTwo(tree, ["B", "S"]));
   console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));
   console.log(checkForPossibleTwoByOne(tree, ["B", "S"]));
-  tree.forEach((rowData, _) => {
+  aaa.forEach((rowData, _) => {
     const [rowIndex, colIndex, value] = rowData;
     const row = table.rows[rowIndex];
     if (row) {
@@ -1224,14 +1227,14 @@ function plotTable() {
   });
   // clearInterval(x);
 }
+plotTable()
+x = setInterval(plotTable, 15000);
 
-x = setInterval(plotTable, 5000);
-
-console.log("----------> random", Object.entries(SND));
-console.log("----------> random", Object.values(SND).flat());
-console.log("----------> random", SND[1]);
-console.log("----------> random", SND);
-console.log("----------> random", Object.values(SND));
+// console.log("----------> random", Object.entries(SND));
+// console.log("----------> random", Object.values(SND).flat());
+// console.log("----------> random", SND[1]);
+// console.log("----------> random", SND);
+// console.log("----------> random", Object.values(SND));
 // {gn_id: 1, name: '1st', group_type: 'Big/Small', odds: '2.000'}
 // for (const [_, games] of Object.entries(SND[1])) {
 //   console.log(games);
